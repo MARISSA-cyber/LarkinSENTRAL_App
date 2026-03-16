@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">LarkinSENTRAL App</string>
+    <string name="forgot_password"><u>Forgot Password?</u></string>
+    <string name="create_account"><u>Create an account</u></string>
+    <string name="larkinlogo">LarkinLogo</string>
+    <string name="welcome">Welcome!</string>
+    <string name="glad_to_see_you_again_please_login_to_continue">Glad to see you again. Please login to continue.</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="login">Login</string>
+    <string name="new_here">New here?</string>
+    <string name="create_an_account">Create an Account</string>
+    <string name="join_us_and_start_using_larkin_sentral">Join us and start using Larkin Sentral.</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login_here">Login here</string>
 </resources>
