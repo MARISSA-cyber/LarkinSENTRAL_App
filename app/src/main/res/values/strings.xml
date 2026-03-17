@@ -48,4 +48,12 @@
     <string name="seat_selected">Selected</string>
     <string name="seat_booked">Booked</string>
     <string name="proceed_to_summary">Proceed to Summary</string>
+    <string name="proceed_payment">Proceed Payment</string>
+    <string name="payment_confirmation">Payment Confirmation</string>
+    <string name="payment_successful">Payment Successful</string>
+    <string name="your_booking_is_confirmed">Your booking is confirmed</string>
+    <string name="order_number">Order Number</string>
+    <string name="done">Done</string>
+    <string name="payment_successful_icon">Payment successful icon</string>
+    <string name="amount">Amount</string>
 </resources>
