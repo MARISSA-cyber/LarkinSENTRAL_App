@@ -1,5 +1,6 @@
 package com.example.larkinsentralapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,10 +27,10 @@ public class SeatSelectionActivity extends AppCompatActivity {
     private static final String[] BOOKED_SEATS = {"2A", "3A", "1C", "4C", "2D"};
 
     // All seats in the bus (5 rows × 4 seats)
-    private Seat[][] seats = new Seat[5][4];
+    private final Seat[][] seats = new Seat[5][4];
 
     // Views for each seat button
-    private Button[][] seatButtons = new Button[5][4];
+    private final Button[][] seatButtons = new Button[5][4];
 
     // Bottom bar views
     private TextView tvSelectedSeats;
@@ -152,6 +153,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
     }
 
     // ── Refresh bottom summary bar ─────────────────────────────────────────
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     private void updateBottomBar() {
         List<String> selected = getSelectedSeatIds();
         double total = selected.size() * PRICE_PER_SEAT;
@@ -159,7 +161,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
         if (selected.isEmpty()) {
             tvSelectedSeats.setText("None");
         } else {
-            tvSelectedSeats.setText(join(selected, "  ·  "));
+            tvSelectedSeats.setText(join(selected));
         }
 
         tvSeatCount.setText(String.valueOf(selected.size()));
@@ -194,10 +196,10 @@ public class SeatSelectionActivity extends AppCompatActivity {
         return list;
     }
 
-    private String join(List<String> items, String sep) {
+    private String join(List<String> items) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < items.size(); i++) {
-            if (i > 0) sb.append(sep);
+            if (i > 0) sb.append("  ·  ");
             sb.append(items.get(i));
         }
         return sb.toString();

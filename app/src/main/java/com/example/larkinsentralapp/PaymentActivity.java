@@ -1,5 +1,6 @@
 package com.example.larkinsentralapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -117,7 +118,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         String bank = spinnerBank.getSelectedItem().toString();
         String order = "TLSTR" + System.currentTimeMillis();
-        String amount = "RM " + String.format("%.2f", totalPrice);
+        @SuppressLint("DefaultLocale") String amount = "RM " + String.format("%.2f", totalPrice);
 
         // validation
         if (selectedMethod.isEmpty()) {
