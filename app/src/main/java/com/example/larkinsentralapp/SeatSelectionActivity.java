@@ -25,10 +25,10 @@ public class SeatSelectionActivity extends AppCompatActivity {
     private static final String[] BOOKED_SEATS = {"2A", "3A", "1C", "4C", "2D"};
 
     // All seats in the bus (5 rows × 4 seats)
-    private final Seat[][] seats = new Seat[5][4];
+    private Seat[][] seats = new Seat[5][4];
 
     // Views for each seat button
-    private final Button[][] seatButtons = new Button[5][4];
+    private Button[][] seatButtons = new Button[5][4];
 
     // Bottom bar views
     private TextView tvSelectedSeats;
@@ -46,7 +46,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
         tvSelectedSeats = findViewById(R.id.tvSelectedSeats);
         tvSeatCount     = findViewById(R.id.tvSeatCount);
         tvTotalPrice    = findViewById(R.id.tvTotalPrice);
-        Button btnProceed = findViewById(R.id.btnProceed);
+        btnProceed      = findViewById(R.id.btnProceed);
 
         initSeats();
         buildSeatGrid();
@@ -158,7 +158,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
         if (selected.isEmpty()) {
             tvSelectedSeats.setText("None");
         } else {
-            tvSelectedSeats.setText(join(selected));
+            tvSelectedSeats.setText(join(selected, "  ·  "));
         }
 
         tvSeatCount.setText(String.valueOf(selected.size()));
@@ -193,10 +193,10 @@ public class SeatSelectionActivity extends AppCompatActivity {
         return list;
     }
 
-    private String join(List<String> items) {
+    private String join(List<String> items, String sep) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < items.size(); i++) {
-            if (i > 0) sb.append("  ·  ");
+            if (i > 0) sb.append(sep);
             sb.append(items.get(i));
         }
         return sb.toString();

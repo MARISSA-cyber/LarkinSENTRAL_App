@@ -7,7 +7,7 @@ public class Seat {
     public static final int STATE_SELECTED  = 1;
     public static final int STATE_BOOKED    = 2;
 
-    private final String seatId;   // e.g. "1A", "3C"
+    private String seatId;   // e.g. "1A", "3C"
     private int    state;
 
     public Seat(String seatId, int state) {

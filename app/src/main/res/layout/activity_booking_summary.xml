@@ -157,23 +157,19 @@
                             android:layout_weight="1"
                             android:orientation="vertical"
                             android:gravity="center">
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/dash"
-                                android:textColor="#827717"
-                                android:textSize="12sp"
-                                tools:ignore="TextContrastCheck" />
-
+                                android:text="────"
+                                android:textColor="@color/vintage_gold"
+                                android:textSize="12sp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/arrow"
+                                android:text="→"
                                 android:textColor="@color/vintage_gold"
                                 android:textSize="20sp"
-                                tools:ignore="TextContrastCheck" />
+                                android:gravity="center"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -233,7 +229,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/_17_mar_20261"
+                                android:text="17 Mar 2026"
                                 style="@style/VintageValue"/>
                         </LinearLayout>
 
@@ -250,7 +246,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/_08_30_am1"
+                                android:text="08:30 AM"
                                 style="@style/VintageValue"/>
                         </LinearLayout>
 
@@ -263,12 +259,12 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/arrives"
+                                android:text="ARRIVES"
                                 style="@style/VintageLabel"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/_11_30_am"
+                                android:text="~11:30 AM"
                                 style="@style/VintageValue"/>
                         </LinearLayout>
                     </LinearLayout>
@@ -288,7 +284,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/bus_type"
+                                android:text="BUS TYPE"
                                 style="@style/VintageLabel"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -311,7 +307,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/transnasional"
+                                android:text="Transnasional"
                                 style="@style/VintageValue"/>
                         </LinearLayout>
                     </LinearLayout>
@@ -334,13 +330,13 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/seat_s_selected"
+                            android:text="SEAT(S) SELECTED"
                             style="@style/VintageLabel"/>
                         <TextView
                             android:id="@+id/tvSummarySeats"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/ash"
+                            android:text="—"
                             style="@style/VintageValue"/>
                     </LinearLayout>
 
@@ -354,7 +350,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/no_of_passengers"
+                            android:text="NO. OF PASSENGERS"
                             style="@style/VintageLabel"/>
                         <TextView
                             android:id="@+id/tvPassengerCount"
@@ -375,12 +371,12 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/price_per_seat"
+                            android:text="PRICE PER SEAT"
                             style="@style/VintageLabel"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/rm_35_00"
+                            android:text="RM 35.00"
                             style="@style/VintageValue"/>
                     </LinearLayout>
 
@@ -401,7 +397,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/total_amount"
+                            android:text="TOTAL AMOUNT"
                             android:textColor="@color/vintage_brown"
                             android:textSize="13sp"
                             android:fontFamily="serif"
@@ -411,7 +407,7 @@
                             android:id="@+id/tvSummaryTotal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/rm_0_001"
+                            android:text="RM 0.00"
                             android:textColor="@color/vintage_brown"
                             android:textSize="22sp"
                             android:fontFamily="serif"
@@ -439,7 +435,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/passenger_information"
+                    android:text="PASSENGER INFORMATION"
                     android:textColor="@color/vintage_brown"
                     android:textSize="11sp"
                     android:letterSpacing="0.15"
@@ -451,7 +447,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/full_name1"
+                    android:text="FULL NAME"
                     style="@style/VintageLabel"
                     android:layout_marginBottom="4dp"/>
 
@@ -462,20 +458,18 @@
                     android:layout_marginBottom="12dp"
                     android:backgroundTint="@color/vintage_brown_light"
                     android:fontFamily="serif"
-                    android:hint="@string/e_g_ahmad_bin_abdullah"
+                    android:hint="e.g. Ahmad bin Abdullah"
                     android:inputType="textPersonName"
                     android:paddingHorizontal="8dp"
                     android:textColor="@color/vintage_brown_dark"
-                    android:textColorHint="#8D6E63"
-                    android:textSize="14sp"
-                    tools:ignore="Autofill,VisualLintTextFieldSize" />
+                    android:textColorHint="@color/gray_light"
+                    android:textSize="14sp" />
 
                 <!-- IC / Passport -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:autofillHints=""
-                    android:text="@string/ic_passport_no"
+                    android:text="IC / PASSPORT NO."
                     style="@style/VintageLabel"
                     android:layout_marginBottom="4dp"/>
 
@@ -486,7 +480,7 @@
                     android:layout_marginBottom="12dp"
                     android:backgroundTint="@color/vintage_brown_light"
                     android:fontFamily="serif"
-                    android:hint="@string/e_g_900101_01_1234"
+                    android:hint="e.g. 900101-01-1234"
                     android:inputType="number"
                     android:paddingHorizontal="8dp"
                     android:textColor="@color/vintage_brown_dark"
@@ -498,7 +492,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/phone_number"
+                    android:text="PHONE NUMBER"
                     style="@style/VintageLabel"
                     android:layout_marginBottom="4dp"/>
                 <EditText
@@ -512,8 +506,7 @@
                     android:textColorHint="@color/gray_light"
                     android:textColor="@color/vintage_brown_dark"
                     android:paddingHorizontal="8dp"
-                    android:inputType="phone"
-                    tools:ignore="Autofill,HardcodedText,VisualLintTextFieldSize" />
+                    android:inputType="phone"/>
             </LinearLayout>
 
             <!-- Spacing at bottom -->

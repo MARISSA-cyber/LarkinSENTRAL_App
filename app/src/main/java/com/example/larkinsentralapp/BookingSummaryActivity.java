@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +19,9 @@ public class BookingSummaryActivity extends AppCompatActivity {
     private EditText etName;
     private EditText etIc;
     private EditText etPhone;
+    
+    private Button   btnConfirm;
+    private TextView btnBack;
 
     private ArrayList<String> selectedSeats;
     private double totalPrice;
@@ -38,8 +42,8 @@ public class BookingSummaryActivity extends AppCompatActivity {
         etName            = findViewById(R.id.etName);
         etIc              = findViewById(R.id.etIc);
         etPhone           = findViewById(R.id.etPhone);
-        Button btnConfirm = findViewById(R.id.btnConfirm);
-        TextView btnBack = findViewById(R.id.btnBack);
+        btnConfirm        = findViewById(R.id.btnConfirm);
+        btnBack           = findViewById(R.id.btnBack);
 
         // Populate summary
         populateSummary();
@@ -53,7 +57,7 @@ public class BookingSummaryActivity extends AppCompatActivity {
     // ── Fill in ticket details ─────────────────────────────────────────────
     private void populateSummary() {
         // Seat list e.g. "1A, 2B, 3C"
-        tvSummarySeats.setText(join(selectedSeats));
+        tvSummarySeats.setText(join(selectedSeats, "  ·  "));
 
         // Passenger count
         int count = selectedSeats != null ? selectedSeats.size() : 0;
@@ -64,6 +68,10 @@ public class BookingSummaryActivity extends AppCompatActivity {
     }
 
     // ── Confirm button logic ───────────────────────────────────────────────
+    public void payment(View v) {
+        Intent intent = new Intent(this,PaymentActivity.class);
+        startActivity(intent);
+    }
     private void confirmBooking() {
         String name  = etName.getText().toString().trim();
         String ic    = etIc.getText().toString().trim();
@@ -72,10 +80,12 @@ public class BookingSummaryActivity extends AppCompatActivity {
         // Simple validation
         if (name.isEmpty()) {
             etName.setError("Please enter your full name");
+            etName.requestFocus();
             return;
         }
         if (ic.isEmpty()) {
             etIc.setError("Please enter IC / Passport number");
+            etIc.requestFocus();
             return;
         }
         if (phone.isEmpty()) {
