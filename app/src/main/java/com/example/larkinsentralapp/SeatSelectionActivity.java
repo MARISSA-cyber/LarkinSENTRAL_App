@@ -2,6 +2,7 @@ package com.example.larkinsentralapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,7 +47,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
         tvSelectedSeats = findViewById(R.id.tvSelectedSeats);
         tvSeatCount     = findViewById(R.id.tvSeatCount);
         tvTotalPrice    = findViewById(R.id.tvTotalPrice);
-        btnProceed      = findViewById(R.id.btnProceed);
+        View btnProceed = findViewById(R.id.btnProceed);
 
         initSeats();
         buildSeatGrid();

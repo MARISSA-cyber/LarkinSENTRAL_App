@@ -102,7 +102,7 @@ public class BookingSummaryActivity extends AppCompatActivity {
     }
 
     // ── Helper ────────────────────────────────────────────────────────────
-    private String join(ArrayList<String> items) {
+    private String join(ArrayList<String> items, String s) {
         if (items == null || items.isEmpty()) return "—";
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < items.size(); i++) {
