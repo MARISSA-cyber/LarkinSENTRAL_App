@@ -56,4 +56,15 @@
     <string name="done">Done</string>
     <string name="payment_successful_icon">Payment successful icon</string>
     <string name="amount">Amount</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="username">Username</string>
+    <string name="user_email_com">user@email.com</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="ticket_transaction_history">Ticket / Transaction History</string>
+    <string name="change_avatar">Change Avatar</string>
+    <string name="change_password">Change Password</string>
+    <string name="change_username">Change Username</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="logout">Logout</string>
+    <string name="user_id">User ID</string>
 </resources>
