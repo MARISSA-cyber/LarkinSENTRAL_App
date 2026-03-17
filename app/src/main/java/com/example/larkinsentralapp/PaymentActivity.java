@@ -1,5 +1,6 @@
 package com.example.larkinsentralapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,11 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 public class PaymentActivity extends AppCompatActivity {
 
     ImageButton btnFPX, btnDuit, btnKiple, btnTng, btnCard, btnGpay, btnBack;
     Spinner spinnerBank;
     CheckBox checkAgree;
+    Button btnProceed;
     Button btnCancel;
 
     DatabaseReference database;
@@ -75,19 +79,22 @@ public class PaymentActivity extends AppCompatActivity {
         // Back button
         btnBack.setOnClickListener(v -> finish());
 
+        // Proceed button
+        btnProceed.setOnClickListener(v -> savePayment());
+
         // Cancel button
-        btnCancel.setOnClickListener(v -> Toast.makeText(this, "Transaction Cancelled", Toast.LENGTH_SHORT).show());
+        btnCancel.setOnClickListener(v ->
+                Toast.makeText(this, "Transaction Cancelled", Toast.LENGTH_SHORT).show());
     }
 
     // Select payment
     private void selectPayment(ImageButton button, String name) {
 
-        // reset previous
+        // validation
         if (selectedButton != null) {
             selectedButton.setBackgroundResource(R.drawable.card_outline);
         }
 
-        // highlight new
         button.setBackgroundResource(R.drawable.card_selected);
         selectedButton = button;
 
@@ -96,5 +103,47 @@ public class PaymentActivity extends AppCompatActivity {
         Toast.makeText(this, name + " selected", Toast.LENGTH_SHORT).show();
     }
 
+    // 🔥 SAVE + NAVIGATION (FIXED)
+    private void savePayment() {
+
+        String bank = spinnerBank.getSelectedItem().toString();
+        String order = "TLSTR" + System.currentTimeMillis();
+        String amount = "RM 18.70";
+
+        // 🔹 validation
+        if (selectedMethod.isEmpty()) {
+            Toast.makeText(this, "Select payment method", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (spinnerBank.getSelectedItemPosition() == 0) {
+            Toast.makeText(this, "Select bank", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!checkAgree.isChecked()) {
+            Toast.makeText(this, "Please agree to terms", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // 🔹 Save to Firebase (clean structure)
+        HashMap<String, String> map = new HashMap<>();
+        map.put("order", order);
+        map.put("method", selectedMethod);
+        map.put("bank", bank);
+        map.put("amount", amount);
+
+        database.push().setValue(map);
+
+        Toast.makeText(this, "Payment Successful", Toast.LENGTH_SHORT).show();
+
+        // 🔹 Go to confirmation page
+        Intent intent = new Intent(this, PaymentConfirmationActivity.class);
+        intent.putExtra("order", order);
+        intent.putExtra("method", selectedMethod);
+        intent.putExtra("bank", bank);
+        intent.putExtra("amount", amount);
+        startActivity(intent);
+    }
 }
 
