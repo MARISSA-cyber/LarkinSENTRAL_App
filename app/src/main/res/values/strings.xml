@@ -41,6 +41,13 @@
     <string name="pci_dss">PCI DSS</string>
     <string name="merchant_name_energetic_point_sdn_bhd">Merchant Name: Energetic Point Sdn Bhd</string>
     <string name="order_date_march_17_2026_1_10_pm">Order Date: March 17, 2026, 1:10 pm</string>
+    <string name="select_seat">Select Seat</string>
+    <string name="booking_summary">Booking Summary</string>
+    <string name="confirm_booking">Confirm Booking</string>
+    <string name="seat_available">Available</string>
+    <string name="seat_selected">Selected</string>
+    <string name="seat_booked">Booked</string>
+    <string name="proceed_to_summary">Proceed to Summary</string>
     <string name="proceed_payment">Proceed Payment</string>
     <string name="payment_confirmation">Payment Confirmation</string>
     <string name="payment_successful">Payment Successful</string>
