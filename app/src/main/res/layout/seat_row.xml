@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- seat_row.xml — one row of 4 seats (2 left | aisle | 2 right) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="8dp">
+
+    <!-- Row label -->
+    <TextView
+        android:id="@+id/tvRowLabel"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:text="A"
+        android:textColor="@color/vintage_brown_light"
+        android:textSize="12sp"
+        android:fontFamily="serif"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <!-- Left 2 seats -->
+    <Button
+        android:id="@+id/seat1"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="3dp"
+        android:background="@drawable/seat_selector"
+        android:textColor="@color/vintage_brown"
+        android:textSize="11sp"
+        android:fontFamily="serif"
+        android:stateListAnimator="@null"
+        android:text="1A"/>
+
+    <Button
+        android:id="@+id/seat2"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="3dp"
+        android:background="@drawable/seat_selector"
+        android:textColor="@color/vintage_brown"
+        android:textSize="11sp"
+        android:fontFamily="serif"
+        android:stateListAnimator="@null"
+        android:text="2A"/>
+
+    <!-- Aisle gap -->
+    <View
+        android:layout_width="24dp"
+        android:layout_height="1dp"/>
+
+    <!-- Right 2 seats -->
+    <Button
+        android:id="@+id/seat3"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="3dp"
+        android:background="@drawable/seat_selector"
+        android:textColor="@color/vintage_brown"
+        android:textSize="11sp"
+        android:fontFamily="serif"
+        android:stateListAnimator="@null"
+        android:text="3A"/>
+
+    <Button
+        android:id="@+id/seat4"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="3dp"
+        android:background="@drawable/seat_selector"
+        android:textColor="@color/vintage_brown"
+        android:textSize="11sp"
+        android:fontFamily="serif"
+        android:stateListAnimator="@null"
+        android:text="4A"/>
+</LinearLayout>

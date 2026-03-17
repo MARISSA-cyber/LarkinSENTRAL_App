@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/vintage_brown</item>
+        <item name="colorPrimaryDark">@color/vintage_brown_dark</item>
+        <item name="colorAccent">@color/vintage_gold</item>
+        <item name="android:windowBackground">@color/vintage_cream</item>
+        <item name="android:fontFamily">serif</item>
+    </style>
+
+    <style name="VintageButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:backgroundTint">@color/vintage_brown</item>
+        <item name="android:textColor">@color/vintage_cream</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">4dp</item>
+    </style>
+
+    <style name="VintageLabel">
+        <item name="android:textColor">@color/vintage_brown_light</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:letterSpacing">0.12</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="VintageValue">
+        <item name="android:textColor">@color/vintage_brown_dark</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SectionDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/gray_light</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+</resources>
