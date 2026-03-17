@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         // SIGNUP CLICK → open SignupActivity
         txtSignup.setOnClickListener(view ->
-                startActivity(new Intent(MainActivity.this, SignupActivity.class))
+                startActivity(new Intent(MainActivity.this, SignUpActivity.class))
         );
 
         // FORGOT PASSWORD CLICK → open ForgotPasswordActivity

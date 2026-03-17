@@ -1,5 +1,6 @@
 package com.example.larkinsentralapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -19,9 +20,6 @@ public class BookingSummaryActivity extends AppCompatActivity {
     private EditText etName;
     private EditText etIc;
     private EditText etPhone;
-    
-    private Button   btnConfirm;
-    private TextView btnBack;
 
     private ArrayList<String> selectedSeats;
     private double totalPrice;
@@ -42,8 +40,8 @@ public class BookingSummaryActivity extends AppCompatActivity {
         etName            = findViewById(R.id.etName);
         etIc              = findViewById(R.id.etIc);
         etPhone           = findViewById(R.id.etPhone);
-        btnConfirm        = findViewById(R.id.btnConfirm);
-        btnBack           = findViewById(R.id.btnBack);
+        Button btnConfirm = findViewById(R.id.btnConfirm);
+        TextView btnBack = findViewById(R.id.btnBack);
 
         // Populate summary
         populateSummary();
@@ -55,9 +53,10 @@ public class BookingSummaryActivity extends AppCompatActivity {
     }
 
     // ── Fill in ticket details ─────────────────────────────────────────────
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     private void populateSummary() {
         // Seat list e.g. "1A, 2B, 3C"
-        tvSummarySeats.setText(join(selectedSeats, "  ·  "));
+        tvSummarySeats.setText(join(selectedSeats));
 
         // Passenger count
         int count = selectedSeats != null ? selectedSeats.size() : 0;
@@ -102,7 +101,7 @@ public class BookingSummaryActivity extends AppCompatActivity {
     }
 
     // ── Helper ────────────────────────────────────────────────────────────
-    private String join(ArrayList<String> items) {
+    private String join(ArrayList<String> items, String s) {
         if (items == null || items.isEmpty()) return "—";
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < items.size(); i++) {

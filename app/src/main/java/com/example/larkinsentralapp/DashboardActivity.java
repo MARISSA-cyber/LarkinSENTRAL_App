@@ -1,8 +1,10 @@
 package com.example.larkinsentralapp;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Calendar;
 
@@ -11,19 +13,16 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Link to your booking_form.xml
         setContentView(R.layout.booking_form);
 
-        // Find the date button by its ID (make sure your XML has android:id="@+id/dateButton")
+        // Date Button
         Button dateButton = findViewById(R.id.dateButton);
 
-        // Step 4: Add Date Picker
         dateButton.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
             DatePickerDialog dialog = new DatePickerDialog(
                     DashboardActivity.this,
                     (view, year, month, dayOfMonth) -> {
-                        // Update button text with selected date
                         dateButton.setText("Departing: " + dayOfMonth + "/" + (month+1) + "/" + year);
                     },
                     calendar.get(Calendar.YEAR),
@@ -31,6 +30,13 @@ public class DashboardActivity extends AppCompatActivity {
                     calendar.get(Calendar.DAY_OF_MONTH)
             );
             dialog.show();
+        });
+
+        Button profileButton = findViewById(R.id.profileButton);
+
+        profileButton.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, UserProfileActivity.class);
+            startActivity(intent);
         });
     }
 }
