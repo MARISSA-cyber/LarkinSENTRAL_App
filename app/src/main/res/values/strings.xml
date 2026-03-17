@@ -17,4 +17,9 @@
     <string name="sign_up">Sign Up</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="login_here"><u>Login here</u></string>
+    <string name="enter_your_email_to_reset_your_password">Enter your email to reset your password</string>
+    <string name="email">Email</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="back_to_login"><u>Back to Login</u></string>
+    <string name="forgot_password1">Forgot Password</string>
 </resources>

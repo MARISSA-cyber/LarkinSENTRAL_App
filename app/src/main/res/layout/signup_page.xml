@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFDF7">
+    android:background="#CAE4DB">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:text="@string/create_an_account"
-            android:textColor="#C62828"
+            android:textColor="#766161"
             android:textSize="28sp"
             android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="@string/join_us_and_start_using_larkin_sentral"
             android:textSize="15sp"
-            android:textColor="#444444"
+            android:textColor="#766161"
             android:layout_gravity="center"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="30dp"/>
@@ -47,14 +47,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/full_name"
-            app:boxBackgroundMode="outline">
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0D47A1"
+            app:hintTextColor="#0D47A1"
+            android:textColorHint="#CDC7BE">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etFullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:textColorHint="#757575"
+                android:textColor="#0D47A1"
+                android:textColorHint="#0D47A1"
+                android:backgroundTint="#0D47A1"
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,14 +69,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/email_address"
-            app:boxBackgroundMode="outline">
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0D47A1"
+            app:hintTextColor="#0D47A1"
+            android:textColorHint="#CDC7BE">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:textColorHint="#757575"
+                android:textColor="#0D47A1"
+                android:textColorHint="#0D47A1"
+                android:backgroundTint="#0D47A1"
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,14 +92,21 @@
             android:layout_marginTop="16dp"
             android:hint="@string/password"
             app:endIconMode="password_toggle"
-            app:boxBackgroundMode="outline">
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0D47A1"
+            app:hintTextColor="#0D47A1"
+            android:textColorHint="#CDC7BE"
+            app:endIconTint="#0D47A1">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck"
+                android:textColor="#1565C0"
+                android:textColorHint="#1565C0"
+                android:backgroundTint="#1565C0"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Confirm Password -->
@@ -99,14 +116,21 @@
             android:layout_marginTop="16dp"
             android:hint="@string/confirm_password"
             app:endIconMode="password_toggle"
-            app:boxBackgroundMode="outline">
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0D47A1"
+            app:hintTextColor="#0D47A1"
+            android:textColorHint="#CDC7BE"
+            app:endIconTint="#0D47A1">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck"
+                android:textColor="#1565C0"
+                android:textColorHint="#1565C0"
+                android:backgroundTint="#1565C0"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Sign Up Button -->
@@ -118,7 +142,7 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:layout_marginTop="24dp"
-            android:backgroundTint="#D84343"/>
+            android:backgroundTint="#87A7B3"/>
 
         <!-- Already have account -->
         <LinearLayout
@@ -130,18 +154,22 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:text="@string/already_have_an_account"
-                android:textColor="#444444" />
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/txtLoginHere"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:text="@string/login_here"
-                android:textColor="#EF6C00"
+                android:textColor="#766161"
                 android:textStyle="bold"
-                android:layout_marginStart="8dp"/>
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
 
