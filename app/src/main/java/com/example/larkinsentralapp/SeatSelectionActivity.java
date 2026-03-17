@@ -25,16 +25,15 @@ public class SeatSelectionActivity extends AppCompatActivity {
     private static final String[] BOOKED_SEATS = {"2A", "3A", "1C", "4C", "2D"};
 
     // All seats in the bus (5 rows × 4 seats)
-    private Seat[][] seats = new Seat[5][4];
+    private final Seat[][] seats = new Seat[5][4];
 
     // Views for each seat button
-    private Button[][] seatButtons = new Button[5][4];
+    private final Button[][] seatButtons = new Button[5][4];
 
     // Bottom bar views
     private TextView tvSelectedSeats;
     private TextView tvSeatCount;
     private TextView tvTotalPrice;
-    private Button   btnProceed;
 
     // Row container ids (matching the include ids in the layout)
     // We'll find them by their position in the parent, easier in code.
@@ -47,7 +46,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
         tvSelectedSeats = findViewById(R.id.tvSelectedSeats);
         tvSeatCount     = findViewById(R.id.tvSeatCount);
         tvTotalPrice    = findViewById(R.id.tvTotalPrice);
-        btnProceed      = findViewById(R.id.btnProceed);
+        Button btnProceed = findViewById(R.id.btnProceed);
 
         initSeats();
         buildSeatGrid();
@@ -159,7 +158,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
         if (selected.isEmpty()) {
             tvSelectedSeats.setText("None");
         } else {
-            tvSelectedSeats.setText(join(selected, "  ·  "));
+            tvSelectedSeats.setText(join(selected));
         }
 
         tvSeatCount.setText(String.valueOf(selected.size()));
@@ -194,10 +193,10 @@ public class SeatSelectionActivity extends AppCompatActivity {
         return list;
     }
 
-    private String join(List<String> items, String sep) {
+    private String join(List<String> items) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < items.size(); i++) {
-            if (i > 0) sb.append(sep);
+            if (i > 0) sb.append("  ·  ");
             sb.append(items.get(i));
         }
         return sb.toString();

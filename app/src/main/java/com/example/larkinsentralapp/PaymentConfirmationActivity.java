@@ -88,13 +88,17 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
             manager.createNotificationChannel(channel);
         }
 
-        // message text
-        String message;
-        if (order != null && !order.isEmpty()) {
-            message = "Your booking " + order + " is confirmed";
-        } else {
-            message = "Your booking is confirmed";
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
+                    != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
         }
+
+        // message text
+        String message = (order != null && !order.isEmpty())
+                ? "Your booking " + order + " is confirmed"
+                : "Your booking is confirmed";
 
         // build notification
         NotificationCompat.Builder builder =
@@ -102,10 +106,10 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
                         .setSmallIcon(android.R.drawable.ic_dialog_info)
                         .setContentTitle("Payment Successful")
                         .setContentText(message)
-                        .setAutoCancel(true)
-                        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                        .setAutoCancel(true);
 
         //Show notification
         manager.notify(1, builder.build());
-    }
+        }
 }
+

@@ -35,7 +35,7 @@ public class BookingConfirmedActivity extends AppCompatActivity {
         // Populate
         tvRef.setText(refCode);
         tvName.setText(name != null ? name.toUpperCase() : "—");
-        tvSeats.setText(selectedSeats != null ? join(selectedSeats, "  ·  ") : "—");
+        tvSeats.setText(selectedSeats != null ? join(selectedSeats) : "—");
         tvTotal.setText(String.format("RM %.2f", totalPrice));
 
         // Back to home: clear the entire back stack and restart seat selection
@@ -48,11 +48,11 @@ public class BookingConfirmedActivity extends AppCompatActivity {
     }
 
     // ── Helper ────────────────────────────────────────────────────────────
-    private String join(ArrayList<String> items, String sep) {
+    private String join(ArrayList<String> items) {
         if (items == null || items.isEmpty()) return "—";
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < items.size(); i++) {
-            if (i > 0) sb.append(sep);
+            if (i > 0) sb.append("  ·  ");
             sb.append(items.get(i));
         }
         return sb.toString();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -19,16 +20,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LARKIN SENTRAL BUS TERMINAL"
-            android:textColor="@color/vintage_gold"
-            android:textSize="10sp"
+            android:fontFamily="serif"
             android:letterSpacing="0.25"
-            android:fontFamily="serif"/>
+            android:text="@string/larkin_sentral_bus_terminal"
+            android:textColor="#F9A825"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose Your Seat"
+            android:text="@string/choose_your_seat"
             android:textColor="@color/vintage_cream"
             android:textSize="22sp"
             android:fontFamily="serif"
@@ -52,15 +54,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="FROM"
+                    android:text="@string/from"
                     android:textColor="@color/vintage_gold"
                     android:textSize="9sp"
                     android:letterSpacing="0.2"
-                    android:fontFamily="serif"/>
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Johor Bahru"
+                    android:text="@string/johor_bahru"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:fontFamily="serif"
@@ -68,16 +71,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Larkin Sentral"
+                    android:text="@string/larkin_sentral"
                     android:textColor="@color/vintage_cream_dark"
                     android:textSize="10sp"
-                    android:fontFamily="serif"/>
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="&#8594;"
+                android:text="@string/_8594"
                 android:textColor="@color/vintage_gold"
                 android:textSize="20sp"
                 android:layout_gravity="center_vertical"
@@ -92,15 +96,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TO"
+                    android:text="@string/to"
                     android:textColor="@color/vintage_gold"
                     android:textSize="9sp"
                     android:letterSpacing="0.2"
-                    android:fontFamily="serif"/>
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kuala Lumpur"
+                    android:text="@string/kuala_lumpur"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:fontFamily="serif"
@@ -108,10 +113,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TBS Terminal"
+                    android:text="@string/tbs_terminal"
                     android:textColor="@color/vintage_cream_dark"
                     android:textSize="10sp"
-                    android:fontFamily="serif"/>
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
             </LinearLayout>
 
             <LinearLayout
@@ -123,15 +129,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DEPARTS"
+                    android:text="@string/departs"
                     android:textColor="@color/vintage_gold"
                     android:textSize="9sp"
                     android:letterSpacing="0.2"
-                    android:fontFamily="serif"/>
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="08:30 AM"
+                    android:text="@string/_08_30_am"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:fontFamily="serif"
@@ -139,10 +146,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="17 Mar 2026"
+                    android:text="@string/_17_mar_2026"
                     android:textColor="@color/vintage_cream_dark"
                     android:textSize="10sp"
-                    android:fontFamily="serif"/>
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -175,26 +183,30 @@
                     android:orientation="horizontal"
                     android:gravity="end"
                     android:layout_marginBottom="6dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="DRIVER"
+                        android:text="@string/driver"
                         android:textColor="@color/vintage_brown_light"
                         android:textSize="9sp"
                         android:fontFamily="serif"
                         android:letterSpacing="0.15"
                         android:layout_gravity="center_vertical"
-                        android:paddingRight="6dp"/>
+                        android:paddingRight="6dp"
+                        tools:ignore="RtlHardcoded,RtlSymmetry,SmallSp" />
                     <LinearLayout
                         android:layout_width="44dp"
                         android:layout_height="36dp"
                         android:background="@drawable/seat_booked_bg"
                         android:gravity="center">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="&#128663;"
-                            android:textSize="16sp"/>
+                            android:text="@string/_128663"
+                            android:textSize="16sp"
+                            tools:ignore="TextContrastCheck,TextContrastCheck" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -207,22 +219,27 @@
                     <View android:layout_width="24dp" android:layout_height="1dp"/>
                     <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
-                        android:text="1" android:gravity="center"
+                        android:text="@string/_1" android:gravity="center"
                         android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
                     <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
-                        android:text="2" android:gravity="center"
+                        android:text="@string/_2" android:gravity="center"
                         android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
-                    <TextView android:layout_width="24dp" android:layout_height="wrap_content"
-                        android:text="&#xB7;" android:gravity="center"
-                        android:textColor="@color/gray_light" android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/xb7"
+                        android:textColor="#8D6E63"
+                        android:textSize="16sp" />
                     <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
-                        android:text="3" android:gravity="center"
+                        android:text="@string/_3" android:gravity="center"
                         android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
                     <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
-                        android:text="4" android:gravity="center"
+                        android:text="@string/_4" android:gravity="center"
                         android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
                 </LinearLayout>
 
@@ -250,19 +267,19 @@
                     <View android:layout_width="18dp" android:layout_height="18dp"
                         android:background="@drawable/seat_selector"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text=" Available"
+                        android:text="@string/available"
                         android:textSize="11sp" android:textColor="@color/vintage_brown_light"
                         android:fontFamily="serif" android:layout_marginRight="14dp"/>
                     <LinearLayout android:layout_width="18dp" android:layout_height="18dp"
                         android:background="@drawable/seat_selector"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text=" Selected"
+                        android:text="@string/selected"
                         android:textSize="11sp" android:textColor="@color/vintage_brown_light"
                         android:fontFamily="serif" android:layout_marginRight="14dp"/>
                     <View android:layout_width="18dp" android:layout_height="18dp"
                         android:background="@drawable/seat_booked_bg"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text=" Booked"
+                        android:text="@string/booked"
                         android:textSize="11sp" android:textColor="@color/vintage_brown_light"
                         android:fontFamily="serif"/>
                 </LinearLayout>
@@ -281,14 +298,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Express Coach  ·  Transnasional"
+                    android:text="@string/express_coach_transnasional"
                     android:textColor="@color/vintage_brown_light"
                     android:textSize="12sp"
                     android:fontFamily="serif"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="RM 35.00 / seat"
+                    android:text="@string/rm_35_00_seat"
                     android:textColor="@color/vintage_brown"
                     android:textSize="13sp"
                     android:fontFamily="serif"
@@ -301,6 +318,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="vertical"
         android:background="@drawable/bottom_bar_bg"
         android:elevation="8dp"
@@ -310,7 +328,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            tools:ignore="DisableBaselineAlignment">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -320,13 +339,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SELECTED SEATS"
+                    android:text="@string/selected_seats"
                     style="@style/VintageLabel"/>
                 <TextView
                     android:id="@+id/tvSelectedSeats"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="None"
+                    android:text="@string/none"
                     style="@style/VintageValue"
                     android:textSize="13sp"/>
             </LinearLayout>
@@ -341,13 +360,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PAX"
+                    android:text="@string/pax"
                     style="@style/VintageLabel"/>
                 <TextView
                     android:id="@+id/tvSeatCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="@string/_0"
                     style="@style/VintageValue"/>
             </LinearLayout>
 
@@ -359,13 +378,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TOTAL"
+                    android:text="@string/total"
                     style="@style/VintageLabel"/>
                 <TextView
                     android:id="@+id/tvTotalPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="RM 0.00"
+                    android:text="@string/rm_0_00"
                     android:textColor="@color/vintage_brown"
                     android:textSize="20sp"
                     android:fontFamily="serif"
@@ -377,14 +396,15 @@
             android:id="@+id/btnProceed"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:text="PROCEED TO BOOKING SUMMARY"
+            android:text="@string/proceed_to_booking_summary"
             android:background="@drawable/btn_primary"
             android:textColor="@color/vintage_cream"
             android:textSize="13sp"
             android:letterSpacing="0.08"
             android:fontFamily="serif"
             android:textStyle="bold"
-            android:stateListAnimator="@null"/>
+            android:stateListAnimator="@null"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
 </LinearLayout>
