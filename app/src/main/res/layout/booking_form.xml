@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFDF7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/appTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LarkinSENTRAL"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#E53935"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Origin -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FROM:"
+            android:textStyle="bold"
+            android:textColor="#333333"/>
+
+        <EditText
+            android:id="@+id/originInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Select Origin"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:textSize="16sp" />
+
+        <!-- Destination -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TO:"
+            android:textStyle="bold"
+            android:textColor="#333333"/>
+
+        <EditText
+            android:id="@+id/destinationInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Select Destination"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:textSize="16sp" />
+
+        <!-- Date -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATE:"
+            android:textStyle="bold"
+            android:textColor="#333333"/>
+        <Button
+            android:id="@+id/dateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Departing: 17/3/2026"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#E53935"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Trip Type -->
+        <RadioGroup
+            android:id="@+id/tripTypeGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/oneWay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ONE WAY TRIP"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/returnTrip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RETURNING TRIP"/>
+        </RadioGroup>
+
+        <!-- Search Button -->
+        <Button
+            android:id="@+id/searchTripButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SEARCH TRIP"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#E53935"/>
+    </LinearLayout>
+</ScrollView>
