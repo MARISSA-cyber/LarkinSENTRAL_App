@@ -1,14 +1,11 @@
 package com.example.larkinsentralapp;
 
 public class TransactionModel {
-    private String route;
-    private String date;
-    private String seat;
-    private String price;
 
-    public TransactionModel() {
-        // Required for Firebase
-    }
+    private final String route;
+    private final String date;
+    private final String seat;
+    private final String price;
 
     public TransactionModel(String route, String date, String seat, String price) {
         this.route = route;
@@ -33,19 +30,4 @@ public class TransactionModel {
         return price;
     }
 
-    public void setRoute(String route) {
-        this.route = route;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public void setSeat(String seat) {
-        this.seat = seat;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
 }

@@ -1,5 +1,6 @@
 package com.example.larkinsentralapp;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder> {
 
-    private List<TransactionModel> transactionList;
+    private final List<TransactionModel> transactionList;
 
     public TransactionAdapter(List<TransactionModel> transactionList) {
         this.transactionList = transactionList;
@@ -26,6 +27,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         return new TransactionViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull TransactionViewHolder holder, int position) {
         TransactionModel transaction = transactionList.get(position);
