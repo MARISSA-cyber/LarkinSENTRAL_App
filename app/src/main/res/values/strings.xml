@@ -22,4 +22,23 @@
     <string name="reset_password">Reset Password</string>
     <string name="back_to_login"><u>Back to Login</u></string>
     <string name="forgot_password1">Forgot Password</string>
+    <string name="back">Back</string>
+    <string name="payment_page">Payment Page</string>
+    <string name="terminal_larkin_sentral">(Terminal Larkin Sentral)</string>
+    <string name="fpx">FPX</string>
+    <string name="duitnow">DuitNow</string>
+    <string name="kiple">Kiple</string>
+    <string name="tng">TNG</string>
+    <string name="card">Card</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="retail_banking_b2c">Retail Banking (B2C)</string>
+    <string name="corporate_banking_b2b">Corporate Banking (B2B)</string>
+    <string name="by_clicking_on_the_quot_proceed_quot_button_you_agree_to_fpx_s_terms_amp_conditions"><![CDATA[By clicking on the \"Proceed\" button, you agree to FPX\'s Terms & Conditions]]></string>
+    <string name="i_hereby_confirm_that_i_have_reviewed_and_adhered_to_the_following_conditions">I hereby confirm that I have reviewed and adhered to the following conditions</string>
+    <string name="this_page_will_expire_in_02m_52s">This page will expire in 02m 52s</string>
+    <string name="cancel_this_transaction">Cancel this transaction</string>
+    <string name="powered_by_kiple">Powered by kiple</string>
+    <string name="pci_dss">PCI DSS</string>
+    <string name="merchant_name_energetic_point_sdn_bhd">Merchant Name: Energetic Point Sdn Bhd</string>
+    <string name="order_date_march_17_2026_1_10_pm">Order Date: March 17, 2026, 1:10 pm</string>
 </resources>

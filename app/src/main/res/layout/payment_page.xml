@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -17,16 +19,17 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/back"
-            android:tint="#FFFFFF"
+            android:contentDescription="@string/back"
             android:scaleType="fitCenter"
-            android:contentDescription="Back"/>
+            android:src="@drawable/back"
+            app:tint="#FFFFFF"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Payment Page"
+            android:text="@string/payment_page"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -62,13 +65,14 @@
                         android:layout_height="wrap_content"
                         android:text="Order Number: TLSTR2603-10778"
                         android:textColor="#555555"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        tools:ignore="HardcodedText" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Merchant Name: Energetic Point Sdn Bhd"
+                        android:text="@string/merchant_name_energetic_point_sdn_bhd"
                         android:textColor="#555555"
                         android:textSize="14sp" />
 
@@ -76,7 +80,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="(Terminal Larkin Sentral)"
+                        android:text="@string/terminal_larkin_sentral"
                         android:textColor="#555555"
                         android:textSize="14sp" />
 
@@ -84,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Order Date: March 17, 2026, 1:10 pm"
+                        android:text="@string/order_date_march_17_2026_1_10_pm"
                         android:textColor="#555555"
                         android:textSize="14sp" />
 
@@ -94,7 +98,8 @@
                         android:layout_marginTop="6dp"
                         android:text="Order Amount: RM 18.70"
                         android:textColor="#555555"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        tools:ignore="HardcodedText" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -108,7 +113,7 @@
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/fpx"
-                android:contentDescription="FPX"/>
+                android:contentDescription="@string/fpx"/>
 
             <!-- DuitNow -->
             <ImageButton
@@ -120,7 +125,7 @@
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/duitnow"
-                android:contentDescription="DuitNow"/>
+                android:contentDescription="@string/duitnow"/>
 
             <!-- Kiple -->
             <ImageButton
@@ -129,10 +134,11 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/card_outline"
+                android:contentDescription="@string/kiple"
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/kiple"
-                android:contentDescription="Kiple"/>
+                tools:ignore="ImageContrastCheck" />
 
             <!-- TNG -->
             <ImageButton
@@ -144,7 +150,7 @@
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/tng"
-                android:contentDescription="TNG"/>
+                android:contentDescription="@string/tng"/>
 
             <!-- Visa / Mastercard -->
             <ImageButton
@@ -153,10 +159,11 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/card_outline"
+                android:contentDescription="@string/card"
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/visa_mastercard"
-                android:contentDescription="Card"/>
+                tools:ignore="ImageContrastCheck" />
 
             <!-- Google Pay -->
             <ImageButton
@@ -168,7 +175,7 @@
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/gpay"
-                android:contentDescription="Google Pay"/>
+                android:contentDescription="@string/google_pay"/>
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -180,13 +187,13 @@
                     android:id="@+id/radioRetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Retail Banking (B2C)" />
+                    android:text="@string/retail_banking_b2c" />
 
                 <RadioButton
                     android:id="@+id/radioCorporate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Corporate Banking (B2B)" />
+                    android:text="@string/corporate_banking_b2b" />
             </RadioGroup>
 
             <Spinner
@@ -199,7 +206,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="By clicking on the &quot;Proceed&quot; button, you agree to FPX's Terms &amp; Conditions"
+                android:text="@string/by_clicking_on_the_quot_proceed_quot_button_you_agree_to_fpx_s_terms_amp_conditions"
                 android:textColor="#888888"
                 android:textSize="12sp" />
 
@@ -208,9 +215,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:text="I hereby confirm that I have reviewed and adhered to the following conditions"
+                android:text="@string/i_hereby_confirm_that_i_have_reviewed_and_adhered_to_the_following_conditions"
                 android:textColor="#555555"
-                android:textSize="13sp" />
+                android:textSize="13sp"
+                tools:ignore="VisualLintButtonSize" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -219,7 +227,7 @@
                 android:background="#CDC7BE"
                 android:gravity="center"
                 android:padding="12dp"
-                android:text="This page will expire in 02m 52s"
+                android:text="@string/this_page_will_expire_in_02m_52s"
                 android:textColor="#87A7B3"
                 android:textStyle="bold" />
 
@@ -229,14 +237,15 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="#766161"
-                android:text="Cancel this transaction" />
+                android:text="@string/cancel_this_transaction"
+                tools:ignore="VisualLintButtonSize" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:gravity="center"
-                android:text="Powered by kiple"
+                android:text="@string/powered_by_kiple"
                 android:textColor="#2E77D0"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -248,7 +257,7 @@
                 android:layout_marginTop="1dp"
                 android:src="@drawable/pci_dss"
                 android:scaleType="fitCenter"
-                android:contentDescription="PCI DSS" />
+                android:contentDescription="@string/pci_dss" />
 
         </LinearLayout>
     </ScrollView>
