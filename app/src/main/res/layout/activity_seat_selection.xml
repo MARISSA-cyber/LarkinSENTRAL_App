@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/vintage_cream">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/vintage_brown"
+        android:paddingTop="40dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:letterSpacing="0.25"
+            android:text="@string/larkin_sentral_bus_terminal"
+            android:textColor="#F9A825"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_your_seat"
+            android:textColor="@color/vintage_cream"
+            android:textSize="22sp"
+            android:fontFamily="serif"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp"/>
+
+        <!-- Trip banner -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/vintage_brown_dark"
+            android:padding="10dp"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/from"
+                    android:textColor="@color/vintage_gold"
+                    android:textSize="9sp"
+                    android:letterSpacing="0.2"
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/johor_bahru"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:fontFamily="serif"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/larkin_sentral"
+                    android:textColor="@color/vintage_cream_dark"
+                    android:textSize="10sp"
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_8594"
+                android:textColor="@color/vintage_gold"
+                android:textSize="20sp"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to"
+                    android:textColor="@color/vintage_gold"
+                    android:textSize="9sp"
+                    android:letterSpacing="0.2"
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kuala_lumpur"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:fontFamily="serif"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tbs_terminal"
+                    android:textColor="@color/vintage_cream_dark"
+                    android:textSize="10sp"
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="end">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/departs"
+                    android:textColor="@color/vintage_gold"
+                    android:textSize="9sp"
+                    android:letterSpacing="0.2"
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_08_30_am"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:fontFamily="serif"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_17_mar_2026"
+                    android:textColor="@color/vintage_cream_dark"
+                    android:textSize="10sp"
+                    android:fontFamily="serif"
+                    tools:ignore="SmallSp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- SCROLL AREA -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- BUS SEAT MAP CARD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="16dp">
+
+                <!-- Driver row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:layout_marginBottom="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/driver"
+                        android:textColor="@color/vintage_brown_light"
+                        android:textSize="9sp"
+                        android:fontFamily="serif"
+                        android:letterSpacing="0.15"
+                        android:layout_gravity="center_vertical"
+                        android:paddingRight="6dp"
+                        tools:ignore="RtlHardcoded,RtlSymmetry,SmallSp" />
+                    <LinearLayout
+                        android:layout_width="44dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/seat_booked_bg"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_128663"
+                            android:textSize="16sp"
+                            tools:ignore="TextContrastCheck,TextContrastCheck" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Column headers: [space] 1  2  [aisle]  3  4 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="6dp">
+                    <View android:layout_width="24dp" android:layout_height="1dp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
+                        android:text="@string/_1" android:gravity="center"
+                        android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
+                        android:text="@string/_2" android:gravity="center"
+                        android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/xb7"
+                        android:textColor="#8D6E63"
+                        android:textSize="16sp" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
+                        android:text="@string/_3" android:gravity="center"
+                        android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
+                        android:text="@string/_4" android:gravity="center"
+                        android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
+                </LinearLayout>
+
+                <!-- Thin rule -->
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="@color/gray_light" android:layout_marginBottom="10dp"/>
+
+                <!-- Seat rows A-E -->
+                <include layout="@layout/seat_row" android:id="@+id/rowA"/>
+                <include layout="@layout/seat_row" android:id="@+id/rowB"/>
+                <include layout="@layout/seat_row" android:id="@+id/rowC"/>
+                <include layout="@layout/seat_row" android:id="@+id/rowD"/>
+                <include layout="@layout/seat_row" android:id="@+id/rowE"/>
+
+                <!-- Thin rule -->
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="@color/gray_light" android:layout_marginTop="8dp" android:layout_marginBottom="14dp"/>
+
+                <!-- Legend -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <View android:layout_width="18dp" android:layout_height="18dp"
+                        android:background="@drawable/seat_selector"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/available"
+                        android:textSize="11sp" android:textColor="@color/vintage_brown_light"
+                        android:fontFamily="serif" android:layout_marginRight="14dp"/>
+                    <LinearLayout android:layout_width="18dp" android:layout_height="18dp"
+                        android:background="@drawable/seat_selector"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/selected"
+                        android:textSize="11sp" android:textColor="@color/vintage_brown_light"
+                        android:fontFamily="serif" android:layout_marginRight="14dp"/>
+                    <View android:layout_width="18dp" android:layout_height="18dp"
+                        android:background="@drawable/seat_booked_bg"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/booked"
+                        android:textSize="11sp" android:textColor="@color/vintage_brown_light"
+                        android:fontFamily="serif"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Price info chip -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/card_bg"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/express_coach_transnasional"
+                    android:textColor="@color/vintage_brown_light"
+                    android:textSize="12sp"
+                    android:fontFamily="serif"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rm_35_00_seat"
+                    android:textColor="@color/vintage_brown"
+                    android:textSize="13sp"
+                    android:fontFamily="serif"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- BOTTOM BAR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="vertical"
+        android:background="@drawable/bottom_bar_bg"
+        android:elevation="8dp"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp"
+            tools:ignore="DisableBaselineAlignment">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/selected_seats"
+                    style="@style/VintageLabel"/>
+                <TextView
+                    android:id="@+id/tvSelectedSeats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/none"
+                    style="@style/VintageValue"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pax"
+                    style="@style/VintageLabel"/>
+                <TextView
+                    android:id="@+id/tvSeatCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0"
+                    style="@style/VintageValue"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total"
+                    style="@style/VintageLabel"/>
+                <TextView
+                    android:id="@+id/tvTotalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rm_0_00"
+                    android:textColor="@color/vintage_brown"
+                    android:textSize="20sp"
+                    android:fontFamily="serif"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnProceed"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="@string/proceed_to_booking_summary"
+            android:background="@drawable/btn_primary"
+            android:textColor="@color/vintage_cream"
+            android:textSize="13sp"
+            android:letterSpacing="0.08"
+            android:fontFamily="serif"
+            android:textStyle="bold"
+            android:stateListAnimator="@null"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "216616229363",
-    "project_id": "larkinsentral-app-349be",
-    "storage_bucket": "larkinsentral-app-349be.firebasestorage.app"
+    "project_number": "799262232213",
+    "project_id": "larkinsentral-app",
+    "storage_bucket": "larkinsentral-app.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:216616229363:android:f67fc5514b0a2f14a55a86",
+        "mobilesdk_app_id": "1:799262232213:android:49a1e4dcc204a43377559c",
         "android_client_info": {
           "package_name": "com.example.larkinsentralapp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC3icmGzN8LeNx_G2SNjYVJ1yV5nw586XY"
+          "current_key": "AIzaSyATKn6MXhesJQhWdwO7X_KLDSWUM87IzME"
         }
       ],
       "services": {
