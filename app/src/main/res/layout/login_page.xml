@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CAE4DB">
+    android:background="#FFFDF7">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,19 +29,18 @@
             android:text="@string/welcome"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="#766161"
+            android:textColor="#C62828"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginBottom="30dp"
             android:text="@string/glad_to_see_you_again_please_login_to_continue"
-            android:textColor="#766161"
-            android:textSize="12sp" />
+            android:textSize="15sp"
+            android:textColor="#444444"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"/>
 
 
         <!-- Email Field -->
@@ -49,41 +48,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email_address"
-            app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#0D47A1"
-            app:hintTextColor="#0D47A1"
-            android:textColorHint="#CDC7BE">
+            app:boxBackgroundMode="outline">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:textColor="#0D47A1"
-            android:textColorHint="#0D47A1"
-            android:backgroundTint="#0D47A1" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#757575" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <!-- Password -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:hint="@string/password"
             app:endIconMode="password_toggle"
-            app:endIconTint="#0D47A1"
-            app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#0D47A1"
-            app:hintTextColor="#0D47A1"
-            android:textColorHint="#CDC7BE">
+            app:boxBackgroundMode="outline">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:textColor="#1565C0"
-            android:textColorHint="#1565C0"
-            android:backgroundTint="#1565C0" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                tools:ignore="TextContrastCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <LinearLayout
@@ -97,24 +89,17 @@
                 android:id="@+id/checkRemember"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/remember_me"
-                android:textColor="#3F51B5"
-                android:textStyle ="bold"
-                android:buttonTint="#3F51B5"/>
+                android:text="@string/remember_me"/>
 
             <TextView
                 android:id="@+id/txtForgotPassword"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="end|center_vertical"
+                android:gravity="end"
                 android:text="@string/forgot_password"
-                android:textColor="#766161"
-                android:textStyle="bold"
-                android:clickable="true"
-                android:focusable="true"
-                android:paddingEnd="8dp"
-                tools:ignore="RtlSymmetry" />
+                android:textColor="#EF6C00"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -124,12 +109,11 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#87A7B3"
             android:text="@string/login"
-            android:textColor="@color/white"
             android:textStyle="bold"
-            tools:ignore="VisualLintButtonSize" />
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#D84343"/>
 
 
         <!-- Signup -->
@@ -144,21 +128,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/new_here"
-                android:textColor="@color/black"/>
+                android:textColor="#444444"/>
 
             <TextView
                 android:id="@+id/txtSignup"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:text="@string/create_account"
-                android:textColor="#766161"
+                android:textColor="#EF6C00"
                 android:textStyle="bold"
-                android:layout_marginStart="8dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center_vertical"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"/>
+                android:layout_marginStart="8dp"/>
 
         </LinearLayout>
 

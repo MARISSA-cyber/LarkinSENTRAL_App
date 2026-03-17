@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#EFEFEF">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#766161">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/back"
+            android:tint="#FFFFFF"
+            android:scaleType="fitCenter"
+            android:contentDescription="Back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Payment Page"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#F8F8F8"
+                android:padding="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#F1F1F5"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Order Number: TLSTR2603-10778"
+                        android:textColor="#555555"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Merchant Name: Energetic Point Sdn Bhd"
+                        android:textColor="#555555"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="(Terminal Larkin Sentral)"
+                        android:textColor="#555555"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Order Date: March 17, 2026, 1:10 pm"
+                        android:textColor="#555555"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Order Amount: RM 18.70"
+                        android:textColor="#555555"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- FPX -->
+            <ImageButton
+                android:id="@+id/btnFPX"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/card_outline"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fpx"
+                android:contentDescription="FPX"/>
+
+            <!-- DuitNow -->
+            <ImageButton
+                android:id="@+id/btnDuit"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/card_outline"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/duitnow"
+                android:contentDescription="DuitNow"/>
+
+            <!-- Kiple -->
+            <ImageButton
+                android:id="@+id/btnKiple"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/card_outline"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/kiple"
+                android:contentDescription="Kiple"/>
+
+            <!-- TNG -->
+            <ImageButton
+                android:id="@+id/btnTng"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/card_outline"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tng"
+                android:contentDescription="TNG"/>
+
+            <!-- Visa / Mastercard -->
+            <ImageButton
+                android:id="@+id/btnCard"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/card_outline"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/visa_mastercard"
+                android:contentDescription="Card"/>
+
+            <!-- Google Pay -->
+            <ImageButton
+                android:id="@+id/btnGpay"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/card_outline"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/gpay"
+                android:contentDescription="Google Pay"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioRetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Retail Banking (B2C)" />
+
+                <RadioButton
+                    android:id="@+id/radioCorporate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Corporate Banking (B2B)" />
+            </RadioGroup>
+
+            <Spinner
+                android:id="@+id/spinnerBank"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="By clicking on the &quot;Proceed&quot; button, you agree to FPX's Terms &amp; Conditions"
+                android:textColor="#888888"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/checkAgree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="I hereby confirm that I have reviewed and adhered to the following conditions"
+                android:textColor="#555555"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="#CDC7BE"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="This page will expire in 02m 52s"
+                android:textColor="#87A7B3"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#766161"
+                android:text="Cancel this transaction" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:gravity="center"
+                android:text="Powered by kiple"
+                android:textColor="#2E77D0"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="220dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="1dp"
+                android:src="@drawable/pci_dss"
+                android:scaleType="fitCenter"
+                android:contentDescription="PCI DSS" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
