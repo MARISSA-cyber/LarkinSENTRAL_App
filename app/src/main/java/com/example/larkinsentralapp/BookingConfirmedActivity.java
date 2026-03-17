@@ -35,7 +35,7 @@ public class BookingConfirmedActivity extends AppCompatActivity {
         // Populate
         tvRef.setText(refCode);
         tvName.setText(name != null ? name.toUpperCase() : "—");
-        tvSeats.setText(selectedSeats != null ? join(selectedSeats, "  ·  ") : "—");
+        tvSeats.setText(selectedSeats != null ? join(selectedSeats, "  ,  ") : "");
         tvTotal.setText(String.format("RM %.2f", totalPrice));
 
         // Back to home: clear the entire back stack and restart seat selection

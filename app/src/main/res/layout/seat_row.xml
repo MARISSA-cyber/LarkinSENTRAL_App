@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- seat_row.xml — one row of 4 seats (2 left | aisle | 2 right) -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -12,39 +13,42 @@
         android:id="@+id/tvRowLabel"
         android:layout_width="24dp"
         android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:gravity="center"
         android:text="A"
         android:textColor="@color/vintage_brown_light"
         android:textSize="12sp"
-        android:fontFamily="serif"
         android:textStyle="bold"
-        android:gravity="center"/>
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <!-- Left 2 seats -->
     <Button
         android:id="@+id/seat1"
         android:layout_width="0dp"
         android:layout_height="44dp"
-        android:layout_weight="1"
         android:layout_marginHorizontal="3dp"
+        android:layout_weight="1"
         android:background="@drawable/seat_selector"
-        android:textColor="@color/vintage_brown"
-        android:textSize="11sp"
         android:fontFamily="serif"
         android:stateListAnimator="@null"
-        android:text="1A"/>
+        android:text="@string/_1a"
+        android:textColor="@color/vintage_brown"
+        android:textSize="11sp"
+        tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 
     <Button
         android:id="@+id/seat2"
         android:layout_width="0dp"
         android:layout_height="44dp"
-        android:layout_weight="1"
         android:layout_marginHorizontal="3dp"
+        android:layout_weight="1"
         android:background="@drawable/seat_selector"
-        android:textColor="@color/vintage_brown"
-        android:textSize="11sp"
         android:fontFamily="serif"
         android:stateListAnimator="@null"
-        android:text="2A"/>
+        android:text="@string/_2a"
+        android:textColor="#FFCDD2"
+        android:textSize="11sp"
+        tools:ignore="VisualLintButtonSize" />
 
     <!-- Aisle gap -->
     <View
@@ -56,25 +60,27 @@
         android:id="@+id/seat3"
         android:layout_width="0dp"
         android:layout_height="44dp"
-        android:layout_weight="1"
         android:layout_marginHorizontal="3dp"
+        android:layout_weight="1"
         android:background="@drawable/seat_selector"
-        android:textColor="@color/vintage_brown"
-        android:textSize="11sp"
         android:fontFamily="serif"
         android:stateListAnimator="@null"
-        android:text="3A"/>
+        android:text="3A"
+        android:textColor="#FFCDD2"
+        android:textSize="11sp"
+        tools:ignore="HardcodedText,VisualLintButtonSize" />
 
     <Button
         android:id="@+id/seat4"
         android:layout_width="0dp"
         android:layout_height="44dp"
-        android:layout_weight="1"
         android:layout_marginHorizontal="3dp"
+        android:layout_weight="1"
         android:background="@drawable/seat_selector"
-        android:textColor="@color/vintage_brown"
-        android:textSize="11sp"
         android:fontFamily="serif"
         android:stateListAnimator="@null"
-        android:text="4A"/>
+        android:text="@string/_4a"
+        android:textColor="@color/vintage_brown"
+        android:textSize="11sp"
+        tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 </LinearLayout>

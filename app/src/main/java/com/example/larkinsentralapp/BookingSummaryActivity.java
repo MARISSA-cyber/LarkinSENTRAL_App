@@ -19,6 +19,7 @@ public class BookingSummaryActivity extends AppCompatActivity {
     private EditText etName;
     private EditText etIc;
     private EditText etPhone;
+    
     private Button   btnConfirm;
     private TextView btnBack;
 
@@ -89,25 +90,23 @@ public class BookingSummaryActivity extends AppCompatActivity {
         }
         if (phone.isEmpty()) {
             etPhone.setError("Please enter your phone number");
-            etPhone.requestFocus();
             return;
         }
 
-        // All good → go to confirmation screen
-        Intent intent = new Intent(this, BookingConfirmedActivity.class);
-        intent.putExtra("passengerName",   name);
-        intent.putExtra("totalPrice",      totalPrice);
+        // PASS DATA
+        Intent intent = new Intent(this, PaymentActivity.class);
+        intent.putExtra("totalPrice", totalPrice);
         intent.putStringArrayListExtra("selectedSeats", selectedSeats);
+
         startActivity(intent);
-        finish(); // remove summary from back stack
     }
 
     // ── Helper ────────────────────────────────────────────────────────────
-    private String join(ArrayList<String> items, String sep) {
+    private String join(ArrayList<String> items) {
         if (items == null || items.isEmpty()) return "—";
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < items.size(); i++) {
-            if (i > 0) sb.append(sep);
+            if (i > 0) sb.append("  ·  ");
             sb.append(items.get(i));
         }
         return sb.toString();

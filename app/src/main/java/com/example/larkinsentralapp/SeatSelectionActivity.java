@@ -34,7 +34,6 @@ public class SeatSelectionActivity extends AppCompatActivity {
     private TextView tvSelectedSeats;
     private TextView tvSeatCount;
     private TextView tvTotalPrice;
-    private Button   btnProceed;
 
     // Row container ids (matching the include ids in the layout)
     // We'll find them by their position in the parent, easier in code.

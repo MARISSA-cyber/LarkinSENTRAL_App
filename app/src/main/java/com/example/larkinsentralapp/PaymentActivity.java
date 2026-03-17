@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PaymentActivity extends AppCompatActivity {
@@ -29,6 +30,9 @@ public class PaymentActivity extends AppCompatActivity {
     ImageButton selectedButton = null;
     String selectedMethod = "";
 
+    ArrayList<String> seats;
+    double totalPrice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +40,10 @@ public class PaymentActivity extends AppCompatActivity {
 
         // Firebase
         database = FirebaseDatabase.getInstance().getReference("payments");
+
+        // GET DATA from BookingSummary
+        totalPrice = getIntent().getDoubleExtra("totalPrice", 0.0);
+        seats = getIntent().getStringArrayListExtra("selectedSeats");
 
         //find views
         btnFPX = findViewById(R.id.btnFPX);
@@ -48,6 +56,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         spinnerBank = findViewById(R.id.spinnerBank);
         checkAgree = findViewById(R.id.checkAgree);
+        btnProceed = findViewById(R.id.btnProceed);
         btnCancel = findViewById(R.id.btnCancel);
 
         // Spinner data
@@ -103,14 +112,14 @@ public class PaymentActivity extends AppCompatActivity {
         Toast.makeText(this, name + " selected", Toast.LENGTH_SHORT).show();
     }
 
-    // 🔥 SAVE + NAVIGATION (FIXED)
+    // SAVE + NAVIGATION (FIXED)
     private void savePayment() {
 
         String bank = spinnerBank.getSelectedItem().toString();
         String order = "TLSTR" + System.currentTimeMillis();
-        String amount = "RM 18.70";
+        String amount = "RM " + String.format("%.2f", totalPrice);
 
-        // 🔹 validation
+        // validation
         if (selectedMethod.isEmpty()) {
             Toast.makeText(this, "Select payment method", Toast.LENGTH_SHORT).show();
             return;
