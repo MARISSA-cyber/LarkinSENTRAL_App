@@ -102,7 +102,7 @@ public class DashboardActivity extends AppCompatActivity {
         });
 
         menuProfile.setOnClickListener(v -> openActivity(UserProfileActivity.class));
-        menuTicketHistory.setOnClickListener(v -> openActivity(UserProfileActivity.class));
+        menuTicketHistory.setOnClickListener(v -> openActivity(OrderHistoryActivity.class));
         menuFacilities.setOnClickListener(v -> openActivity(FacilitiesActivity.class));
         menuFAQ.setOnClickListener(v -> openActivity(FAQActivity.class));
         menuContactUs.setOnClickListener(v -> openActivity(ReachUsActivity.class));

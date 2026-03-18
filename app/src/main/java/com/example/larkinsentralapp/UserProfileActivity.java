@@ -3,56 +3,43 @@ package com.example.larkinsentralapp;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.text.InputType;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.text.InputType;
+import android.widget.EditText;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class UserProfileActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
-    private TextView tvUsername, tvEmail, tvUserId, tvHistorySubtitle;
-
-    private DatabaseReference transactionRef;
-    private ArrayList<TransactionModel> transactionList;
-    private TransactionAdapter transactionAdapter;
+    private TextView tvUsername, tvEmail, tvUserId;
+    private ImageView ivProfilePicture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_profile);
 
-        // Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
-        // Initialize views
-        findViewById(R.id.ivProfilePicture);
+        ivProfilePicture = findViewById(R.id.ivProfilePicture);
         tvUsername = findViewById(R.id.tvUsername);
         tvEmail = findViewById(R.id.tvEmail);
         tvUserId = findViewById(R.id.tvUserId);
-        tvHistorySubtitle = findViewById(R.id.tvHistorySubtitle);
-        RecyclerView rvTransactionHistory = findViewById(R.id.rvTransactionHistory);
 
         Button btnChangeAvatar = findViewById(R.id.btnChangeAvatar);
         Button btnEditProfile = findViewById(R.id.btnEditProfile);
@@ -60,7 +47,6 @@ public class UserProfileActivity extends AppCompatActivity {
         Button btnChangePassword = findViewById(R.id.btnChangePassword);
         Button btnLogout = findViewById(R.id.btnLogout);
 
-        // Check login
         if (currentUser == null) {
             Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(UserProfileActivity.this, LoginActivity.class));
@@ -68,43 +54,18 @@ public class UserProfileActivity extends AppCompatActivity {
             return;
         }
 
-        // Load profile info
         loadUserProfile();
+        loadAvatarFromDatabase();
 
-        // RecyclerView setup
-        transactionList = new ArrayList<>();
-        transactionAdapter = new TransactionAdapter(transactionList);
-        rvTransactionHistory.setLayoutManager(new LinearLayoutManager(this));
-        rvTransactionHistory.setAdapter(transactionAdapter);
-
-        // Firebase Realtime Database reference
-        transactionRef = FirebaseDatabase.getInstance()
-                .getReference("transactions")
-                .child(currentUser.getUid());
-
-        // Load transaction history
-        loadTransactionHistory();
-
-        // Change Avatar
-        btnChangeAvatar.setOnClickListener(v ->
-                Toast.makeText(UserProfileActivity.this,
-                        "Avatar upload function not connected yet",
-                        Toast.LENGTH_SHORT).show()
-        );
-
-        // Update Profile
+        btnChangeAvatar.setOnClickListener(v -> showAvatarSelectionDialog());
         btnEditProfile.setOnClickListener(v -> showUpdateProfileDialog());
-
-        // Change Username
         btnChangeUsername.setOnClickListener(v -> showChangeUsernameDialog());
 
-        // Change Password
         btnChangePassword.setOnClickListener(v -> {
             Intent intent = new Intent(UserProfileActivity.this, ForgotPasswordActivity.class);
             startActivity(intent);
         });
 
-        // Logout
         btnLogout.setOnClickListener(v -> {
             mAuth.signOut();
             Toast.makeText(UserProfileActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
@@ -130,6 +91,86 @@ public class UserProfileActivity extends AppCompatActivity {
         } else {
             tvUsername.setText("User");
         }
+    }
+
+    private void showAvatarSelectionDialog() {
+        String[] options = {"Avatar 1", "Avatar 2", "Avatar 3"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose Avatar");
+        builder.setItems(options, (dialog, which) -> {
+            if (which == 0) {
+                updateAvatar("avatar1");
+            } else if (which == 1) {
+                updateAvatar("avatar2");
+            } else if (which == 2) {
+                updateAvatar("avatar3");
+            }
+        });
+        builder.show();
+    }
+
+    private void updateAvatar(String avatarName) {
+        int avatarResId;
+
+        if ("avatar1".equals(avatarName)) {
+            avatarResId = R.drawable.avatar1;
+        } else if ("avatar2".equals(avatarName)) {
+            avatarResId = R.drawable.avatar2;
+        } else if ("avatar3".equals(avatarName)) {
+            avatarResId = R.drawable.avatar3;
+        } else {
+            avatarResId = R.drawable.avatar1; // default
+        }
+
+        // 显示头像
+        ivProfilePicture.setImageResource(avatarResId);
+
+        // 存进 database
+        DatabaseReference userRef = FirebaseDatabase.getInstance()
+                .getReference("users")
+                .child(currentUser.getUid());
+
+        userRef.child("avatar").setValue(avatarName)
+                .addOnSuccessListener(unused -> {
+                    Toast.makeText(this, "Avatar updated successfully", Toast.LENGTH_SHORT).show();
+
+                    // 更新 Firebase Auth（可选）
+                    UserProfileChangeRequest profileUpdates =
+                            new UserProfileChangeRequest.Builder()
+                                    .setPhotoUri(Uri.parse("android.resource://" + getPackageName() + "/drawable/" + avatarName))
+                                    .build();
+
+                    currentUser.updateProfile(profileUpdates);
+                })
+                .addOnFailureListener(e ->
+                        Toast.makeText(this, "Failed to update avatar", Toast.LENGTH_SHORT).show()
+                );
+    }
+    private void loadAvatarFromDatabase() {
+        DatabaseReference userRef = FirebaseDatabase.getInstance()
+                .getReference("users")
+                .child(currentUser.getUid());
+
+        userRef.child("avatar").get().addOnSuccessListener(snapshot -> {
+            if (snapshot.exists()) {
+                String avatarName = snapshot.getValue(String.class);
+
+                if ("avatar1".equals(avatarName)) {
+                    ivProfilePicture.setImageResource(R.drawable.avatar1);
+                } else if ("avatar2".equals(avatarName)) {
+                    ivProfilePicture.setImageResource(R.drawable.avatar2);
+                } else if ("avatar3".equals(avatarName)) {
+                    ivProfilePicture.setImageResource(R.drawable.avatar3);
+                } else {
+                    ivProfilePicture.setImageResource(R.drawable.avatar1);
+                }
+            } else {
+                ivProfilePicture.setImageResource(R.drawable.avatar1);
+            }
+        }).addOnFailureListener(e ->
+                ivProfilePicture.setImageResource(R.drawable.avatar1)
+        );
     }
 
     private void showChangeUsernameDialog() {
@@ -193,6 +234,12 @@ public class UserProfileActivity extends AppCompatActivity {
         currentUser.updateProfile(profileUpdates)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
+                        DatabaseReference userRef = FirebaseDatabase.getInstance()
+                                .getReference("users")
+                                .child(currentUser.getUid());
+
+                        userRef.child("username").setValue(newUsername);
+
                         tvUsername.setText(newUsername);
                         Toast.makeText(UserProfileActivity.this,
                                 "Username updated successfully",
@@ -203,37 +250,5 @@ public class UserProfileActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
-
-    private void loadTransactionHistory() {
-        transactionRef.addValueEventListener(new ValueEventListener() {
-            @SuppressLint({"SetTextI18n", "NotifyDataSetChanged"})
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                transactionList.clear();
-
-                if (snapshot.exists()) {
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        TransactionModel transaction = dataSnapshot.getValue(TransactionModel.class);
-                        if (transaction != null) {
-                            transactionList.add(transaction);
-                        }
-                    }
-
-                    tvHistorySubtitle.setText("Your transaction history");
-                } else {
-                    tvHistorySubtitle.setText("No transaction history available yet");
-                }
-
-                transactionAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(UserProfileActivity.this,
-                        "Failed to load transaction history",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }
