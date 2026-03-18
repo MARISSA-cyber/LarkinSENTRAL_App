@@ -1,17 +1,16 @@
 package com.example.larkinsentralapp;
 
 import android.annotation.SuppressLint;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
+
 
 public class PaymentConfirmationActivity extends AppCompatActivity {
 
@@ -61,9 +60,9 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
 
         //done button
         btnDone.setOnClickListener(v -> {
+
             Intent intent = new Intent(this, BookingConfirmedActivity.class);
 
-            // pass data
             intent.putExtra("passengerName", getIntent().getStringExtra("passengerName"));
             intent.putExtra("totalPrice", getIntent().getDoubleExtra("totalPrice", 0.0));
             intent.putStringArrayListExtra(
@@ -71,59 +70,40 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
                     getIntent().getStringArrayListExtra("selectedSeats")
             );
 
-            // optional
             intent.putExtra("order", txtOrder.getText().toString());
-            // pass data (optional but good)
-            intent.putExtra("order", txtOrder.getText().toString());
-            intent.putExtra("amount", txtAmount.getText().toString());
 
             startActivity(intent);
         });
 
-        //  Show notification
-        showNotification(order);
+        // notification
+        scheduleNotification(order != null ? order : "");
     }
 
+    // AlarmManager + BroadcastReceiver notification
+    private void scheduleNotification(String order) {
 
-    // function to show notification
-    private void showNotification(String order) {
-        String channelId = "payment_channel";
-        String channelName = "Payment Notification";
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        intent.putExtra("order", order);
 
-        NotificationManager manager =
-                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        PendingIntent pendingIntent =
+                PendingIntent.getBroadcast(
+                        this,
+                        0,
+                        intent,
+                        PendingIntent.FLAG_UPDATE_CURRENT |
+                                PendingIntent.FLAG_IMMUTABLE
+                );
 
-        // function to show notification
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(
-                    channelId,
-                    channelName,
-                    NotificationManager.IMPORTANCE_DEFAULT
+        AlarmManager alarmManager =
+                (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        // Trigger after 3 seconds
+        if (alarmManager != null) {
+            alarmManager.set(
+                    AlarmManager.RTC_WAKEUP,
+                    System.currentTimeMillis() + 3000,
+                    pendingIntent
             );
-            manager.createNotificationChannel(channel);
         }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
-                    != android.content.pm.PackageManager.PERMISSION_GRANTED) {
-                return;
-            }
-        }
-
-        // message text
-        String message = (order != null && !order.isEmpty())
-                ? "Your booking " + order + " is confirmed"
-                : "Your booking is confirmed";
-
-        // build notification
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this, channelId)
-                        .setSmallIcon(android.R.drawable.ic_dialog_info)
-                        .setContentTitle("Payment Successful")
-                        .setContentText(message)
-                        .setAutoCancel(true);
-
-        //Show notification
-        manager.notify(1, builder.build());
     }
 }

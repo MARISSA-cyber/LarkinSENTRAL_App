@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -69,16 +70,11 @@
             android:name=".UserProfileActivity"
             android:exported="false" />
 
-        <activity
-            android:name=".PaymentActivity"
+
+        <receiver
+            android:name=".AlarmReceiver"
             android:exported="false" />
 
-        <activity android:name=".PaymentConfirmationActivity"
-            android:exported="false"/>
-
-        <activity
-            android:name=".BookingConfirmedActivity"
-            android:exported="false" />
 
     </application>
 
