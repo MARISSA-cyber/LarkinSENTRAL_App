@@ -73,6 +73,9 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
 
             // optional
             intent.putExtra("order", txtOrder.getText().toString());
+            // pass data (optional but good)
+            intent.putExtra("order", txtOrder.getText().toString());
+            intent.putExtra("amount", txtAmount.getText().toString());
 
             startActivity(intent);
         });
@@ -122,6 +125,5 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
 
         //Show notification
         manager.notify(1, builder.build());
-        }
+    }
 }
-

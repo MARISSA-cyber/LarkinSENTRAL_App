@@ -120,7 +120,8 @@
             android:layout_height="wrap_content"
             android:text="SEARCH TRIP"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#E53935" />
+            android:backgroundTint="#E53935"
+            android:onClick="search"/>
 
     </LinearLayout>
 </ScrollView>

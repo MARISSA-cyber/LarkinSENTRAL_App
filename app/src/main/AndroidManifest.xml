@@ -35,11 +35,15 @@
             android:exported="false" />
 
         <activity
-            android:name=".SignUpActivity"
+            android:name=".SignupActivity"
             android:exported="false" />
 
         <activity
             android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SearchResultActivity"
             android:exported="false" />
 
         <activity
@@ -63,6 +67,17 @@
 
         <activity
             android:name=".UserProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="false" />
+
+        <activity android:name=".PaymentConfirmationActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".BookingConfirmedActivity"
             android:exported="false" />
 
     </application>
