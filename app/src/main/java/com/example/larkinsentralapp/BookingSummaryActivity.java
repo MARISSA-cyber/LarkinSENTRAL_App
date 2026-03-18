@@ -67,6 +67,7 @@ public class BookingSummaryActivity extends AppCompatActivity {
         tvSummaryTotal.setText(String.format("RM %.2f", totalPrice));
     }
 
+
     // ── Confirm button logic ───────────────────────────────────────────────
     private void confirmBooking() {
         String name  = etName.getText().toString().trim();
