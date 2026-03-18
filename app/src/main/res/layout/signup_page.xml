@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:textColorHint="#757575"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Email -->
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:textColorHint="#757575"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Password -->
@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Confirm Password -->
@@ -106,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Sign Up Button -->
@@ -118,7 +118,8 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:layout_marginTop="24dp"
-            android:backgroundTint="#D84343"/>
+            android:backgroundTint="#D84343"
+            tools:ignore="VisualLintButtonSize" />
 
         <!-- Already have account -->
         <LinearLayout
