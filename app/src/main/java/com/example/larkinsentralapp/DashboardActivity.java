@@ -26,7 +26,7 @@ public class DashboardActivity extends AppCompatActivity {
     private RadioGroup tripTypeGroup;
     private RadioButton oneWayTrip, returnTrip;
     private TextView departDateText, returnDateText;
-    private Button searchTripButton;
+    private Button searchTripButton, buttonLogOut;
 
     private TextView menuProfile, menuTicketHistory, menuFacilities, menuFAQ, menuContactUs,menuFeedback ,menuAbout;
 
@@ -40,6 +40,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         originInput = findViewById(R.id.originInput);
         destinationInput = findViewById(R.id.destinationInput);
+
 
         tripTypeGroup = findViewById(R.id.tripTypeGroup);
         oneWayTrip = findViewById(R.id.oneWayTrip);
@@ -57,6 +58,7 @@ public class DashboardActivity extends AppCompatActivity {
         menuContactUs = findViewById(R.id.menuContactUs);
         menuFeedback= findViewById(R.id.menuFeedback);
         menuAbout= findViewById(R.id.menuInformation);
+        buttonLogOut =findViewById(R.id.buttonLogout);
 
         menuButton.setOnClickListener(v -> {
             if (floatingMenu.getVisibility() == View.GONE) {
@@ -99,6 +101,7 @@ public class DashboardActivity extends AppCompatActivity {
         menuContactUs.setOnClickListener(v -> openActivity(ReachUsActivity.class));
         menuFeedback.setOnClickListener(v -> openActivity(FeedbackActivity.class));
         menuAbout.setOnClickListener(v -> openActivity(AboutActivity.class));
+        buttonLogOut.setOnClickListener(v -> openActivity(LoginActivity.class));
     }
 
     private void showDatePicker(final TextView target) {

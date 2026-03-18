@@ -256,10 +256,21 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="8dp"
-            android:layout_marginBottom="30dp">
+            android:layout_marginBottom="1dp">
             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ratings"/>
             <TextView android:id="@+id/menuFeedback" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Feedback &amp; Ratings" android:textSize="20sp" android:paddingStart="12dp"/>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:text="Logout"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/vintage_red"
+            android:layout_marginTop="30dp"
+            android:padding="12dp"/>
 
     </LinearLayout>
 
