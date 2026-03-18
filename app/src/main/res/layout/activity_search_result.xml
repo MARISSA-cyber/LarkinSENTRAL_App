@@ -1,407 +1,106 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:baselineAligned="false"
     android:orientation="vertical"
-    android:background="#F5F7FA"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFDF7">
 
+    <!-- Top Bar -->
     <RelativeLayout
-        android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#FFFFFF"
-        android:gravity="center_vertical"
+        android:background="#E53935"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:paddingEnd="16dp"
+        android:gravity="center_vertical">
 
-        <!-- BACK BUTTON -->
+        <!-- Back Button -->
         <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/back"
-            android:src="@android:drawable/ic_media_previous"
-            app:tint="#000000"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:contentDescription="Back"
+            android:src="@android:drawable/ic_menu_revert"
+            app:tint="#FFFFFF"/>
 
-        <!-- PAGE TITLE -->
+        <!-- Page Title -->
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Select your bus"
-            android:textColor="#000000"
+            android:text="Select Your Bus"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:ignore="RelativeOverlap" />
+            android:textColor="#FFFFFF"
+            android:layout_centerInParent="true"/>
 
-        <!-- SORT BUTTON + LABEL -->
         <LinearLayout
-            android:id="@+id/layoutSortBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="7dp"
-            android:gravity="center_vertical"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="4dp"
-            tools:ignore="RelativeOverlap">
-
-            <TextView
-                android:id="@+id/tvSortLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="4dp"
-                android:text="SORT BY"
-                android:textColor="#000000"
-                android:textSize="10sp"
-                tools:ignore="SmallSp" />
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical">
 
             <ImageButton
                 android:id="@+id/btnSort"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="SORT"
-                app:srcCompat="@drawable/sort_button"
-                app:tint="#000000"
-                tools:ignore="TouchTargetSizeCheck" />
-
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="Sort"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                app:tint="#FFFFFF" />
         </LinearLayout>
+
 
     </RelativeLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="@android:color/transparent"/>
-
-    <!-- ROUTE HEADER -->
+    <!-- Trip Summary -->
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="#D32F2F"
-        android:padding="20dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="FCD299"
+        android:padding="16dp">
 
         <TextView
-            android:text="Johor Bahru -> Kuala Lumpur"
-            android:textSize="22sp"
+            android:id="@+id/tvTripRoute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Johor Bahru → Kuala Lumpur"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textColor="#000000"/>
 
         <TextView
-            android:text="Date: 18 March 2026"
-            android:textColor="#E8EAF6"
-            android:textSize="15sp"
+            android:id="@+id/tvDepartDate"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Departure: 18/03/2026"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:textColor="#000000"/>
 
         <TextView
-            android:text="Passenger: 1 Adult"
-            android:textColor="#E8EAF6"
-            android:textSize="15sp"
+            android:id="@+id/tvReturnDate"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Return: 20/03/2026"
+            android:textSize="14sp"
+            android:layout_marginTop="2dp"
+            android:textColor="#000000"
+            android:visibility="gone"/>
     </LinearLayout>
 
-
-    <View
+    <!-- RecyclerView for buses -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewBuses"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="@android:color/transparent"/>
-
-    <!-- BUS LIST -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:baselineAligned="false">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:padding="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!-- BUS OPTION EXAMPLES -->
-            <!-- Bus 1 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:elevation="6dp"
-                android:padding="15dp"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:contentDescription="KKKL"
-                    android:src="@drawable/kkkl_logo"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="KKKL EXPRESS"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="Departure: 12.30 "
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="Duration: 4h 30m"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="RM 35"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#E53935"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <Button
-                        android:id="@+id/btnSelectBus1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="#3949AB"
-                        android:text="Select Bus"
-                        android:textColor="#FFFFFF"
-                        tools:ignore="DuplicateSpeakableTextCheck" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:elevation="6dp"
-                android:padding="15dp"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:contentDescription="KKKL"
-                    android:src="@drawable/kkkl_logo"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="KKKL EXPRESS"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="Departure 12.30 pm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="Duration 4h30m"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="RM 40"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#E53935"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <Button
-                        android:id="@+id/btnSelectBus2"
-                        android:text="Select bus"
-                        android:backgroundTint="#3949AB"
-                        android:textColor="#FFFFFF"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:contentDescription="logo2"
-                android:elevation="6dp"
-                android:importantForAccessibility="no"
-                android:padding="15dp"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/mayangsari_logo"
-                    tools:ignore="ContentDescription" />
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="MAYANG SARI EXPRESS"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="Departure 11.30am"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="Duration 4h30m"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="RM 32"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#E53935"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <Button
-                        android:id="@+id/btnSelectBus3"
-                        android:text="Select Bus"
-                        android:backgroundTint="#3949AB"
-                        android:textColor="#FFFFFF"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:baselineAligned="false"
-                android:contentDescription="logo1"
-                android:elevation="6dp"
-                android:importantForAccessibility="no"
-                android:padding="15dp"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/la_holiday_logo"
-                    tools:ignore="ContentDescription" />
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="LA Holidays"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="Departure"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Duration : 4h_30m"
-                        android:textColor="#757575" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:baselineAligned="false"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="RM38"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#E53935"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <Button
-                        android:id="@+id/btnSelectBus4"
-                        android:baselineAligned="false"
-                        android:text="Select Bus"
-                        android:backgroundTint="#3949AB"
-                        android:textColor="#FFFFFF"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"/>
 </LinearLayout>

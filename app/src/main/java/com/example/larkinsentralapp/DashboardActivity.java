@@ -82,16 +82,23 @@ public class DashboardActivity extends AppCompatActivity {
         searchTripButton.setOnClickListener(v -> {
             String origin = originInput.getText().toString().trim();
             String destination = destinationInput.getText().toString().trim();
+            String departDate = departDateText.getText().toString().trim();
+            String returnDate = returnDateText.getText().toString().trim();
 
-            if (origin.isEmpty() || destination.isEmpty()) {
-                Toast.makeText(DashboardActivity.this, "Please enter origin and destination", Toast.LENGTH_SHORT).show();
-            } else {
-                // Open search results
-                Intent intent = new Intent(DashboardActivity.this, SearchResultActivity.class);
-                intent.putExtra("origin", origin);
-                intent.putExtra("destination", destination);
-                startActivity(intent);
+            if (origin.isEmpty() || destination.isEmpty() || departDate.isEmpty()) {
+                Toast.makeText(DashboardActivity.this, "Please fill origin, destination, and departure date", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            boolean isTwoWay = returnTrip.isChecked() && !returnDate.isEmpty();
+
+            Intent intent = new Intent(DashboardActivity.this, SearchResultActivity.class);
+            intent.putExtra("origin", origin);
+            intent.putExtra("destination", destination);
+            intent.putExtra("departDate", departDate);
+            intent.putExtra("returnDate", isTwoWay ? returnDate : "");
+            intent.putExtra("isReturnTrip", isTwoWay);
+            startActivity(intent);
         });
 
         menuProfile.setOnClickListener(v -> openActivity(UserProfileActivity.class));
