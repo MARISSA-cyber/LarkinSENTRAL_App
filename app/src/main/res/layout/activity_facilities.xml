@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#D32F2F"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="goBack"
+                        android:src="@android:drawable/ic_menu_revert"
+                        app:tint="#FFFFFF" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="30dp"
+                        android:gravity="center"
+                        android:text="Facilities"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#1A237E"
+                    android:padding="10dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🚌 BUY TICKETS ONLINE – LARKINSENTRAL.MY"
+                        android:textColor="#FFEB3B"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center_vertical"
+                    android:padding="10dp">
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/larkin_logo"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_menu_sort_by_size"
+                        app:tint="#333333"
+                        android:padding="5dp"
+                        android:onClick="openDrawer"
+                        android:clickable="true"
+                        android:focusable="true"/>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="450dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_buses" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#80000000"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+                        android:padding="25dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buses &amp; Travel\nAgencies"
+                            android:textColor="#FFFFFF"
+                            android:textSize="40sp"
+                            android:textStyle="bold"/>
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="4dp"
+                            android:background="#3F51B5"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="25dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="60 Operators"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="8dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="A total of 56 operators offering services for express buses, stage buses, and domestic tour packages."
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:lineSpacingExtra="6dp"/>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="480dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_market" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#90000000"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+                        android:padding="25dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fresh Market"
+                            android:textColor="#FFFFFF"
+                            android:textSize="40sp"
+                            android:textStyle="bold"/>
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="4dp"
+                            android:background="#3F51B5"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="25dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="The fresh market is located on the ground floor and has 225 lots. Open from 3:00 am to 6:00 pm."
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:lineSpacingExtra="6dp"/>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="600dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_bazaar" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#85000000"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+                        android:padding="25dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bazaar"
+                            android:textColor="#FFFFFF"
+                            android:textSize="40sp"
+                            android:textStyle="bold"/>
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="4dp"
+                            android:background="#3F51B5"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="25dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="700 shops &amp; rental / leasing"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="8dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="394 bazaar stalls selling items ranging from clothing to wedding items."
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:lineSpacingExtra="6dp"/>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="520dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_dining" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#95000000"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+                        android:padding="25dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dining"
+                            android:textColor="#FFFFFF"
+                            android:textSize="40sp"
+                            android:textStyle="bold"/>
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="4dp"
+                            android:background="#3F51B5"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="25dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Food Court / Stall / Restaurant"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="8dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="A food court with 76 stalls located on the 2nd floor for breakfast, lunch, and dinner."
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:lineSpacingExtra="6dp"/>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_mosque" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Mosque"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#333333"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Spacious mosque located on the 3rd floor for commuters and visitors."
+                                    android:layout_marginTop="8dp"
+                                    android:textColor="#666666"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_bus_stand" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Bus Stand"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#333333"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Modern platforms with electronic displays for real-time bus schedules."
+                                    android:layout_marginTop="8dp"
+                                    android:textColor="#666666"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_police" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Police Post"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#333333"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="A police post is located inside the terminal to assist with public safety."
+                                    android:layout_marginTop="8dp"
+                                    android:textColor="#666666"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_atm" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ATM Services"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#333333"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Bank ATMs (Maybank, CIMB, Bank Islam) on ground and first floors."
+                                    android:layout_marginTop="8dp"
+                                    android:textColor="#666666"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_parking" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Parking"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#333333"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Ample parking for cars and motorcycles with 24-hour security."
+                                    android:layout_marginTop="8dp"
+                                    android:textColor="#666666"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Larkin Sentral Parking Rates"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="4dp"
+                        android:background="#3F51B5"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="3dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Car Terminal (443 bays)"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:textColor="#D32F2F"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="\nMon - Fri:\n• 1st 2 hours: RM1.50\n• Sub. hour: RM1.00\n\nSat-Sun, Public Holidays:\n• 1st 2 hours: RM2.50\n• Sub. hour: RM1.00"
+                                android:textColor="#555555"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="3dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Motorcycle Terminal (86 bays)"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:textColor="#D32F2F"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="\nDaily (Inc. Public Holidays):\n• 1st 2 hours: RM1.00\n• Sub. hour: RM0.50"
+                                android:textColor="#555555"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="3dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pasar Motorcycle (141 bays)"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:textColor="#D32F2F"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="\nDaily (Inc. Public Holidays):\n• 1st 2 hours: RM1.00\n• Maximum RM5.00 per day"
+                                android:textColor="#555555"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="40dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="3dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Loading Terminals"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:textColor="#D32F2F"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="\nTerminal &amp; Pasar Bays:\n• 1st 1 hour: RM3.00\n• Sub. hour: RM3.00"
+                                android:textColor="#555555"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="40dp"
+                    android:text="© 2019 - 2026 LARKIN SENTRAL PROPERTY BERHAD - All Rights Reserved"
+                    android:textColor="#999999"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="70dp"
+            android:src="@drawable/larkin_logo"
+            android:layout_marginBottom="30dp"
+            android:scaleType="fitCenter"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="HOME" android:padding="15dp" android:textStyle="bold" android:textColor="#000000" android:onClick="goToHome"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FACILITIES" android:padding="15dp" android:textStyle="bold" android:textColor="#000000" android:onClick="goToFacilities"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FAQs" android:padding="15dp" android:textStyle="bold" android:textColor="#000000" android:onClick="goToFaqs"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FEEDBACK &amp; RATING" android:padding="15dp" android:textStyle="bold" android:textColor="#000000" android:onClick="goToFeedback"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="REACH US" android:padding="15dp" android:textStyle="bold" android:textColor="#000000" android:onClick="goToReachUs"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ABOUT" android:padding="15dp" android:textStyle="bold" android:textColor="#000000" android:onClick="goToAbout"/>
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

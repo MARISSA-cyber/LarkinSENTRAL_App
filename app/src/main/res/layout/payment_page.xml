@@ -63,7 +63,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Order Number: TLSTR2603-10778"
+                        android:text=""
                         android:textColor="#555555"
                         android:textSize="14sp"
                         tools:ignore="HardcodedText" />
@@ -88,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="@string/order_date_march_17_2026_1_10_pm"
+                        android:text="@string/order_date_march_18_2026_1_10pm"
                         android:textColor="#555555"
                         android:textSize="14sp" />
 
@@ -96,7 +96,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Order Amount: RM 18.70"
+                        android:text="Order Amount: RM 35"
                         android:textColor="#555555"
                         android:textSize="14sp"
                         tools:ignore="HardcodedText" />
