@@ -1,127 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFDF7">
+    android:background="#FFFDF7"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="#FFFFFF"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp">
+
+                <ImageButton
+                    android:id="@+id/menuButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Menu"
+                    android:src="@android:drawable/ic_menu_sort_by_size"
+                    app:tint="#E91E63"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/larkin_logo"
+                    android:scaleType="centerInside"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_marginTop="30dp">
+
+                <!-- FROM -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FROM :"
+                    android:textColor="@color/vintage_red"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/originInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Origin"
+                    android:background="#F5F5F5"
+                    android:padding="14dp"
+                    android:layout_marginBottom="10dp" />
+
+                <!-- TO -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TO :"
+                    android:textColor="@color/vintage_red"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/destinationInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Destination"
+                    android:background="#F5F5F5"
+                    android:padding="14dp"
+                    android:layout_marginBottom="30dp" />
+
+                <!-- DATE -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DATE :"
+                    android:textColor="@color/vintage_red"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/departDateText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Departing: "
+                    android:background="#EEEEEE"
+                    android:padding="14dp"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:id="@+id/returnDateText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Returning: "
+                    android:background="#EEEEEE"
+                    android:padding="14dp"
+                    android:layout_marginBottom="20dp"
+                    android:visibility="gone" />
+
+                <!-- Trip type -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp">
+
+                    <RadioGroup
+                        android:id="@+id/tripTypeGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/oneWayTrip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:buttonTint="#FF9800"
+                            android:text="ONE WAY TRIP"
+                            android:textColor="#000"/>
+
+                        <RadioButton
+                            android:id="@+id/returnTrip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="RETURNING TRIP"
+                            android:textColor="#000" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <!-- Search Button -->
+                <Button
+                    android:id="@+id/searchTripButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SEARCH BUS"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:backgroundTint="#EB1D34"
+                    android:padding="14dp"
+                    android:drawableEnd="@android:drawable/ic_menu_search"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/floatingMenu"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:elevation="8dp"
+        android:padding="12dp"
+        android:visibility="gone"
+        android:layout_gravity="start"
+        android:layout_marginTop="80dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@color/seat_available">
 
-        <!-- Top Bar -->
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:src="@drawable/larkin_logo"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            android:layout_marginBottom="50dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="20dp">
-
-            <TextView
-                android:id="@+id/titleText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="LarkinSENTRAL"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="#E53935"
-                android:gravity="center" />
-
-            <Button
-                android:id="@+id/profileButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Profile"
-                android:textColor="#FFFFFF"
-                android:backgroundTint="#E53935" />
+            android:padding="8dp"
+            android:layout_marginBottom="30dp">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/profile"/>
+            <TextView android:id="@+id/menuProfile" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="My Profile" android:textSize="20sp" android:paddingStart="12dp"/>
         </LinearLayout>
 
-        <!-- Origin -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FROM:"
-            android:textStyle="bold"
-            android:textColor="#333333" />
-
-        <EditText
-            android:id="@+id/originInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Select Origin"
-            android:minHeight="48dp"
-            android:padding="12dp"
-            android:textSize="16sp" />
-
-        <!-- Destination -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TO:"
-            android:textStyle="bold"
-            android:textColor="#333333" />
-
-        <EditText
-            android:id="@+id/destinationInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Select Destination"
-            android:minHeight="48dp"
-            android:padding="12dp"
-            android:textSize="16sp" />
-
-        <!-- Date -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DATE:"
-            android:textStyle="bold"
-            android:textColor="#333333" />
-
-        <Button
-            android:id="@+id/dateButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Departing: 17/3/2026"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#E53935"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Trip Type -->
-        <RadioGroup
-            android:id="@+id/tripTypeGroup"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:padding="8dp"
+            android:layout_marginBottom="30dp">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ticket"/>
+            <TextView android:id="@+id/menuTicketHistory" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ticket History" android:textSize="20sp" android:paddingStart="12dp"/>
+        </LinearLayout>
 
-            <RadioButton
-                android:id="@+id/oneWayTrip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ONE WAY TRIP"
-                android:checked="true" />
-
-            <RadioButton
-                android:id="@+id/returnTrip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RETURNING TRIP" />
-        </RadioGroup>
-
-        <!-- Search Button -->
-        <Button
-            android:id="@+id/searchTripButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SEARCH TRIP"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#E53935"
-            android:onClick="search"/>
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginBottom="30dp">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/facilities"/>
+            <TextView android:id="@+id/menuFacilities" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Facilities" android:textSize="20sp" android:paddingStart="12dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginBottom="30dp">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/info"/>
+            <TextView android:id="@+id/menuInformation" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="About" android:textSize="20sp" android:paddingStart="12dp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginBottom="30dp">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/faq"/>
+            <TextView android:id="@+id/menuFAQ" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FAQs" android:textSize="20sp" android:paddingStart="12dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginBottom="30dp">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/contact"/>
+            <TextView android:id="@+id/menuContactUs" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Contact us" android:textSize="20sp" android:paddingStart="12dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginBottom="1dp">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ratings"/>
+            <TextView android:id="@+id/menuFeedback" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Feedback &amp; Ratings" android:textSize="20sp" android:paddingStart="12dp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:text="Logout"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/vintage_red"
+            android:layout_marginTop="30dp"
+            android:padding="12dp"/>
 
     </LinearLayout>
-</ScrollView>
+
+</FrameLayout>

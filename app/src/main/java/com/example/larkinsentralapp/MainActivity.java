@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
 
                             // Go to HomeActivity
-                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                            Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
                             startActivity(intent);
                             finish(); // Prevent back to login
                         } else {
