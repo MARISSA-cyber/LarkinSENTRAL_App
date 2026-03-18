@@ -12,70 +12,59 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LarkinSENTRALApp">
-
+        <activity
+            android:name=".BusSelection"
+            android:exported="false" />
         <!-- Launcher Activity -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
-
         <activity
             android:name=".NoTripsActivity"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
         <activity
             android:name=".SignupActivity"
             android:exported="false" />
-
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
-
         <activity
             android:name=".SearchResultActivity"
             android:exported="false" />
-
         <activity
             android:name=".SeatSelectionActivity"
             android:exported="false" />
-
         <activity
             android:name=".BookingSummaryActivity"
             android:exported="false" />
-
         <activity
             android:name=".PaymentActivity"
             android:exported="false" />
-
-        <activity android:name=".PaymentConfirmationActivity"
-            android:exported="false"/>
-
+        <activity
+            android:name=".PaymentConfirmationActivity"
+            android:exported="false" />
         <activity
             android:name=".BookingConfirmedActivity"
             android:exported="false" />
-
         <activity
             android:name=".UserProfileActivity"
             android:exported="false" />
 
-
         <receiver
             android:name=".AlarmReceiver"
             android:exported="false" />
-
-
     </application>
 
 </manifest>
