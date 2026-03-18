@@ -67,9 +67,6 @@ public class BookingSummaryActivity extends AppCompatActivity {
         tvSummaryTotal.setText(String.format("RM %.2f", totalPrice));
     }
 
-    private int join(ArrayList<String> selectedSeats) {
-        return 0;
-    }
 
     // ── Confirm button logic ───────────────────────────────────────────────
     private void confirmBooking() {
