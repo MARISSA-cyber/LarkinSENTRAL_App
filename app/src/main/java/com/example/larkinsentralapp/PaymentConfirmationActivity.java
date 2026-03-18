@@ -110,6 +110,8 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
 
         //Show notification
         manager.notify(1, builder.build());
+
+
         }
 }
 
