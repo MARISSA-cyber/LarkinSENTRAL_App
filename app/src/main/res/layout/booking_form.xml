@@ -248,7 +248,7 @@
             android:padding="8dp"
             android:layout_marginBottom="30dp">
             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/contact"/>
-            <TextView android:id="@+id/menuContactUs" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Contact us" android:textSize="20sp" android:paddingStart="12dp"/>
+            <TextView android:id="@+id/menuContactUs" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Reach Us" android:textSize="20sp" android:paddingStart="12dp"/>
         </LinearLayout>
 
         <LinearLayout
