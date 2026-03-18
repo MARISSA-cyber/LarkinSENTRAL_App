@@ -63,9 +63,16 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
         btnDone.setOnClickListener(v -> {
             Intent intent = new Intent(this, BookingConfirmedActivity.class);
 
-            // pass data (optional but good)
+            // pass data
+            intent.putExtra("passengerName", getIntent().getStringExtra("passengerName"));
+            intent.putExtra("totalPrice", getIntent().getDoubleExtra("totalPrice", 0.0));
+            intent.putStringArrayListExtra(
+                    "selectedSeats",
+                    getIntent().getStringArrayListExtra("selectedSeats")
+            );
+
+            // optional
             intent.putExtra("order", txtOrder.getText().toString());
-            intent.putExtra("amount", txtAmount.getText().toString());
 
             startActivity(intent);
         });

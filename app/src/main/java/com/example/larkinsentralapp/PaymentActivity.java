@@ -149,10 +149,15 @@ public class PaymentActivity extends AppCompatActivity {
 
         // Go to confirmation page
         Intent intent = new Intent(this, PaymentConfirmationActivity.class);
+
+        //PASS DATA FORWARD
+        intent.putExtra("passengerName", getIntent().getStringExtra("passengerName"));
+        intent.putExtra("totalPrice", totalPrice);
+        intent.putStringArrayListExtra("selectedSeats", seats);
+
         intent.putExtra("order", order);
         intent.putExtra("method", selectedMethod);
         intent.putExtra("bank", bank);
-        intent.putExtra("amount", amount);
         startActivity(intent);
     }
 }
