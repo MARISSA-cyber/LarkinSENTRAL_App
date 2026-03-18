@@ -43,6 +43,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".SearchResultActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".SeatSelectionActivity"
             android:exported="false" />
 

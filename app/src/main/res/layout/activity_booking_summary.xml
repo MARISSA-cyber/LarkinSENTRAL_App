@@ -542,7 +542,6 @@
             android:background="@drawable/btn_primary"
             android:fontFamily="serif"
             android:letterSpacing="0.1"
-            android:onClick="payment"
             android:stateListAnimator="@null"
             android:text="@string/confirm_booking1"
             android:textColor="@color/vintage_gold"
@@ -550,5 +549,4 @@
             android:textStyle="bold"
             tools:ignore="TextContrastCheck,VisualLintButtonSize" />
     </LinearLayout>
-
 </LinearLayout>

@@ -39,6 +39,13 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button btnSearch = findViewById(R.id.searchTripButton);
+
+        btnSearch.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, SearchResultActivity.class);
+            startActivity(intent);
+        });
+
         
     }
 }
