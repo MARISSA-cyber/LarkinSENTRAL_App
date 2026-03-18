@@ -35,11 +35,15 @@
             android:exported="false" />
 
         <activity
-            android:name=".SignUpActivity"
+            android:name=".SignupActivity"
             android:exported="false" />
 
         <activity
             android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SearchResultActivity"
             android:exported="false" />
 
         <activity
