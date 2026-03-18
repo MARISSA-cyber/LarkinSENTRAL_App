@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:gravity="center"
+            android:padding="30dp"
+            android:background="@color/page_color">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/larkin_logo" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DCDCE1"/>
+
+        <LinearLayout
+            android:onClick="openFacilities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏢" android:textSize="20sp" android:layout_marginEnd="16dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Facilities" android:textSize="18sp" android:textColor="#333333"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:onClick="openFAQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="❓" android:textSize="20sp" android:layout_marginEnd="16dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FAQs" android:textSize="18sp" android:textColor="#333333"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:onClick="openContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📞" android:textSize="20sp" android:layout_marginEnd="16dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Reach Us" android:textSize="18sp" android:textColor="#333333"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:onClick="openAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ℹ️" android:textSize="20sp" android:layout_marginEnd="16dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="About" android:textSize="18sp" android:textColor="#333333"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:onClick="openFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐" android:textSize="20sp" android:layout_marginEnd="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Feedback &amp; Rating"
+                android:textSize="18sp"
+                android:textColor="#333333" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
