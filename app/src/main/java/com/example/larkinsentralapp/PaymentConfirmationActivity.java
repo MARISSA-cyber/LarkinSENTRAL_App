@@ -3,12 +3,12 @@ package com.example.larkinsentralapp;
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
@@ -61,11 +61,16 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
 
         //done button
         btnDone.setOnClickListener(v -> {
-            Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
-            finish();
+            Intent intent = new Intent(this, BookingConfirmedActivity.class);
+
+            // pass data (optional but good)
+            intent.putExtra("order", txtOrder.getText().toString());
+            intent.putExtra("amount", txtAmount.getText().toString());
+
+            startActivity(intent);
         });
 
-        // 🔹 Show notification
+        //  Show notification
         showNotification(order);
     }
 
