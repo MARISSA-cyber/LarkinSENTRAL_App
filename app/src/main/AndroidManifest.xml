@@ -51,6 +51,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".PaymentActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".BookingConfirmedActivity"
             android:exported="false" />
 

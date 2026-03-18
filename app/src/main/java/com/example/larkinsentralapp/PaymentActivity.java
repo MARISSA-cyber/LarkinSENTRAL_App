@@ -136,7 +136,7 @@ public class PaymentActivity extends AppCompatActivity {
             return;
         }
 
-        // 🔹 Save to Firebase (clean structure)
+        // Save to Firebase (clean structure)
         HashMap<String, String> map = new HashMap<>();
         map.put("order", order);
         map.put("method", selectedMethod);
@@ -147,7 +147,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Payment Successful", Toast.LENGTH_SHORT).show();
 
-        // 🔹 Go to confirmation page
+        // Go to confirmation page
         Intent intent = new Intent(this, PaymentConfirmationActivity.class);
         intent.putExtra("order", order);
         intent.putExtra("method", selectedMethod);
