@@ -36,6 +36,10 @@ public class FAQActivity extends AppCompatActivity {
 
     // Fungsi Button Back (Ikon Revert di Header Merah)
     public void goBack(View view) {
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
+
+        // Optional: finish current activity so it is removed from the back stack
         finish();
     }
 

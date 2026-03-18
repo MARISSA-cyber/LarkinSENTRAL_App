@@ -39,10 +39,6 @@
             android:exported="false" />
 
         <activity
-            android:name=".InfoActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".FacilitiesActivity"
             android:exported="false" />
 

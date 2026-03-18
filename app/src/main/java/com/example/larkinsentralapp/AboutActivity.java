@@ -36,13 +36,17 @@ public class AboutActivity extends AppCompatActivity {
 
     // Fungsi Button Back (Ikon Revert)
     public void goBack(View view) {
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
+
+        // Optional: finish current activity so it is removed from the back stack
         finish();
     }
 
     // --- FUNGSI NAVIGATION DRAWER (Klik Menu Pindah Page) ---
 
     public void goToHome(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, DashboardActivity.class);
         startActivity(intent);
     }
 

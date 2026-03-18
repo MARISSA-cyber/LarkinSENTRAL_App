@@ -36,6 +36,10 @@ public class FacilitiesActivity extends AppCompatActivity {
 
     // Fungsi Button Back (Header Merah)
     public void goBack(View view) {
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
+
+        // Optional: finish current activity so it is removed from the back stack
         finish();
     }
 
