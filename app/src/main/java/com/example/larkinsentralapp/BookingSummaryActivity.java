@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -66,11 +67,8 @@ public class BookingSummaryActivity extends AppCompatActivity {
         tvSummaryTotal.setText(String.format("RM %.2f", totalPrice));
     }
 
+
     // ── Confirm button logic ───────────────────────────────────────────────
-    public void payment(View v) {
-        Intent intent = new Intent(this,PaymentActivity.class);
-        startActivity(intent);
-    }
     private void confirmBooking() {
         String name  = etName.getText().toString().trim();
         String ic    = etIc.getText().toString().trim();
@@ -94,10 +92,11 @@ public class BookingSummaryActivity extends AppCompatActivity {
 
         // PASS DATA
         Intent intent = new Intent(this, PaymentActivity.class);
-        intent.putExtra("totalPrice", totalPrice);
-        intent.putStringArrayListExtra("selectedSeats", selectedSeats);
-
+        intent.putExtra("totalPrice", totalPrice); // must not be 0
+        intent.putStringArrayListExtra("selectedSeats", selectedSeats); // must not be null
         startActivity(intent);
+
+        Toast.makeText(this, "ConfirmBooking clicked!", Toast.LENGTH_SHORT).show();
     }
 
     // ── Helper ────────────────────────────────────────────────────────────
