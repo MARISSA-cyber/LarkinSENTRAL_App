@@ -172,14 +172,14 @@
         android:layout_width="280dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#FFFFFF"
         android:elevation="8dp"
         android:padding="12dp"
         android:visibility="gone"
         android:layout_gravity="start"
         android:layout_marginTop="80dp"
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        android:background="@color/seat_available">
 
         <!-- Logo -->
         <ImageView
@@ -188,18 +188,16 @@
             android:src="@drawable/larkin_logo"
             android:layout_gravity="center"
             android:scaleType="centerInside"
-            android:layout_marginBottom="50dp"
-            android:background="@color/vintage_gold"/>
+            android:layout_marginBottom="50dp" />
 
-        <!-- Menu items with icons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="8dp"
-            android:layout_marginBottom="60dp">
+            android:layout_marginBottom="30dp">
             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/profile"/>
-            <TextView android:id="@+id/menuProfile" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="My Profile" android:textSize="16sp" android:paddingStart="12dp"/>
+            <TextView android:id="@+id/menuProfile" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="My Profile" android:textSize="20sp" android:paddingStart="12dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -207,9 +205,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="8dp"
-            android:layout_marginBottom="60dp">
+            android:layout_marginBottom="30dp">
             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ticket"/>
-            <TextView android:id="@+id/menuTicketHistory" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ticket History" android:textSize="16sp" android:paddingStart="12dp"/>
+            <TextView android:id="@+id/menuTicketHistory" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ticket History" android:textSize="20sp" android:paddingStart="12dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -217,19 +215,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="8dp"
-            android:layout_marginBottom="60dp">
-            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/info"/>
-            <TextView android:id="@+id/menuInformation" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Information" android:textSize="16sp" android:paddingStart="12dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:layout_marginBottom="60dp">
+            android:layout_marginBottom="30dp">
             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/facilities"/>
-            <TextView android:id="@+id/menuFacilities" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Facilities" android:textSize="16sp" android:paddingStart="12dp"/>
+            <TextView android:id="@+id/menuFacilities" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Facilities" android:textSize="20sp" android:paddingStart="12dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -237,19 +225,20 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="8dp"
-            android:layout_marginBottom="60dp">
-            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/bus"/>
-            <TextView android:id="@+id/menuBusOperator" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bus Operator" android:textSize="16sp" android:paddingStart="12dp"/>
+            android:layout_marginBottom="30dp">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/info"/>
+            <TextView android:id="@+id/menuInformation" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="About" android:textSize="20sp" android:paddingStart="12dp"/>
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="8dp"
-            android:layout_marginBottom="60dp">
+            android:layout_marginBottom="30dp">
             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/faq"/>
-            <TextView android:id="@+id/menuFAQ" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FAQ" android:textSize="16sp" android:paddingStart="12dp"/>
+            <TextView android:id="@+id/menuFAQ" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FAQs" android:textSize="20sp" android:paddingStart="12dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -257,9 +246,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="8dp"
-            android:layout_marginBottom="60dp">
+            android:layout_marginBottom="30dp">
             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/contact"/>
-            <TextView android:id="@+id/menuContactUs" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Contact us" android:textSize="16sp" android:paddingStart="12dp"/>
+            <TextView android:id="@+id/menuContactUs" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Contact us" android:textSize="20sp" android:paddingStart="12dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginBottom="30dp">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ratings"/>
+            <TextView android:id="@+id/menuFeedback" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Feedback &amp; Ratings" android:textSize="20sp" android:paddingStart="12dp"/>
         </LinearLayout>
 
     </LinearLayout>

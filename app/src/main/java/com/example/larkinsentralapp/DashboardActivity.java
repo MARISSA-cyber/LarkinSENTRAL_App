@@ -28,8 +28,7 @@ public class DashboardActivity extends AppCompatActivity {
     private TextView departDateText, returnDateText;
     private Button searchTripButton;
 
-    // Floating menu items
-    private TextView menuProfile, menuTicketHistory, menuInformation, menuFacilities, menuBusOperator, menuFAQ, menuContactUs;
+    private TextView menuProfile, menuTicketHistory, menuFacilities, menuFAQ, menuContactUs,menuFeedback ,menuAbout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +52,11 @@ public class DashboardActivity extends AppCompatActivity {
 
         menuProfile = findViewById(R.id.menuProfile);
         menuTicketHistory = findViewById(R.id.menuTicketHistory);
-        menuInformation = findViewById(R.id.menuInformation);
         menuFacilities = findViewById(R.id.menuFacilities);
-        menuBusOperator = findViewById(R.id.menuBusOperator);
         menuFAQ = findViewById(R.id.menuFAQ);
         menuContactUs = findViewById(R.id.menuContactUs);
+        menuFeedback= findViewById(R.id.menuFeedback);
+        menuAbout= findViewById(R.id.menuInformation);
 
         menuButton.setOnClickListener(v -> {
             if (floatingMenu.getVisibility() == View.GONE) {
@@ -94,8 +93,12 @@ public class DashboardActivity extends AppCompatActivity {
         });
 
         menuProfile.setOnClickListener(v -> openActivity(UserProfileActivity.class));
-
-
+        menuTicketHistory.setOnClickListener(v -> openActivity(UserProfileActivity.class));
+        menuFacilities.setOnClickListener(v -> openActivity(FacilitiesActivity.class));
+        menuFAQ.setOnClickListener(v -> openActivity(FAQActivity.class));
+        menuContactUs.setOnClickListener(v -> openActivity(ReachUsActivity.class));
+        menuFeedback.setOnClickListener(v -> openActivity(FeedbackActivity.class));
+        menuAbout.setOnClickListener(v -> openActivity(AboutActivity.class));
     }
 
     private void showDatePicker(final TextView target) {
