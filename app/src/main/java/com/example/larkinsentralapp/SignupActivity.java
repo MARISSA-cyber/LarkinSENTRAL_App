@@ -8,6 +8,8 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SignupActivity extends AppCompatActivity {
@@ -20,12 +22,10 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signup_page); // link to your XML file
+        setContentView(R.layout.signup_page);
 
-        // Firebase instance
         mAuth = FirebaseAuth.getInstance();
 
-        // Find views
         etFullName = findViewById(R.id.etFullName);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
@@ -33,7 +33,6 @@ public class SignupActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.btnSignUp);
         txtLoginHere = findViewById(R.id.txtLoginHere);
 
-        // Sign Up button
         btnSignUp.setOnClickListener(v -> {
             String fullName = etFullName.getText().toString().trim();
             String email = etEmail.getText().toString().trim();
@@ -60,24 +59,29 @@ public class SignupActivity extends AppCompatActivity {
                                 user.sendEmailVerification()
                                         .addOnCompleteListener(verifyTask -> {
                                             if (verifyTask.isSuccessful()) {
-                                                Toast.makeText(SignupActivity.this, "Account created! Please verify your email.", Toast.LENGTH_LONG).show();
+                                                new AlertDialog.Builder(SignupActivity.this)
+                                                        .setTitle("Email Verification")
+                                                        .setMessage("Account created! Please check your email to verify your account.")
+                                                        .setPositiveButton("OK", (dialog, which) -> {
+                                                            dialog.dismiss();
 
-                                                // Go to Login screen
-                                                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-                                                startActivity(intent);
-                                                finish();
+                                                            Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                                                            startActivity(intent);
+                                                            finish();
+                                                        })
+                                                        .setCancelable(false) // user must tap OK
+                                                        .show();
                                             } else {
                                                 Toast.makeText(SignupActivity.this, "Failed to send verification email.", Toast.LENGTH_SHORT).show();
                                             }
                                         });
                             }
                         } else {
-                            Toast.makeText(SignupActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignupActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         });
 
-        // Already have account → Go to Login
         txtLoginHere.setOnClickListener(v -> {
             Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
             startActivity(intent);
