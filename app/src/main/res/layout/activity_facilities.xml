@@ -23,19 +23,19 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:background="#D32F2F"
                     android:gravity="center_vertical"
                     android:padding="16dp">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:clickable="true"
-                        android:focusable="true"
+                    <ImageButton
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="back"
                         android:onClick="goBack"
                         android:src="@android:drawable/ic_menu_revert"
-                        app:tint="#FFFFFF" />
+                        app:tint="#FFFFFF"
+                        android:background="@null" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -48,20 +48,6 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#1A237E"
-                    android:padding="10dp"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🚌 BUY TICKETS ONLINE – LARKINSENTRAL.MY"
-                        android:textColor="#FFEB3B"
-                        android:textSize="13sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -75,16 +61,6 @@
                         android:layout_weight="1"
                         android:src="@drawable/larkin_logo"
                         android:scaleType="fitCenter"/>
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@android:drawable/ic_menu_sort_by_size"
-                        app:tint="#333333"
-                        android:padding="5dp"
-                        android:onClick="openDrawer"
-                        android:clickable="true"
-                        android:focusable="true"/>
                 </LinearLayout>
 
                 <FrameLayout
