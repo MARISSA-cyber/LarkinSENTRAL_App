@@ -49,7 +49,7 @@
                             android:contentDescription="profile_picture"
                             android:padding="10dp"
                             android:scaleType="centerCrop"
-                            android:src="@android:drawable/ic_menu_myplaces"
+                            android:src="@drawable/avatar1"
                             tools:ignore="ImageContrastCheck" />
 
                         <LinearLayout
