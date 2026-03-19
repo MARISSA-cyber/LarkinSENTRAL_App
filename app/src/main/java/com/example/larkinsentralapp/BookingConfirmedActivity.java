@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.view.View;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -59,5 +61,10 @@ public class BookingConfirmedActivity extends AppCompatActivity {
             sb.append(items.get(i));
         }
         return sb.toString();
+    }
+
+    public void backhome(View v) {
+        Intent intent = new Intent(this,DashboardActivity.class);
+        startActivity(intent);
     }
 }

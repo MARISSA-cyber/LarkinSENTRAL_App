@@ -274,7 +274,8 @@
             android:letterSpacing="0.1"
             android:fontFamily="serif"
             android:textStyle="bold"
-            android:stateListAnimator="@null"/>
+            android:stateListAnimator="@null"
+            android:onClick="backhome"/>
     </LinearLayout>
 
 </LinearLayout>
