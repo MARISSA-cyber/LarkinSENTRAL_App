@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Title -->
+    <TextView
+        android:text="Select Location"
+        android:textSize="20sp"
+        android:textColor="#E53935"
+        android:layout_marginBottom="12dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
+    <!-- Search bar -->
+    <EditText
+        android:id="@+id/searchOrigin"
+        android:hint="Search Location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/edit_text"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- List of origins -->
+    <ListView
+        android:id="@+id/originList"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

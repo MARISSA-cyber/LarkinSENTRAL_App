@@ -4,140 +4,167 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CFE1D8"
+    android:background="#FFFDF7"
     android:fillViewport="true">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="match_parent">
 
-        <!-- Profile Top Card -->
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="#C8CDC6"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <LinearLayout
+            <!-- Profile Top Card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#C8CDC6"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
-                    style="?android:attr/buttonBarStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/ivProfilePicture"
-                        android:layout_width="88dp"
-                        android:layout_height="88dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="#BEB9AD"
-                        android:contentDescription="profile_picture"
-                        android:padding="10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@android:drawable/ic_menu_myplaces"
-                        tools:ignore="ImageContrastCheck" />
+                    android:background="#EFEEE5"
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        style="?android:attr/buttonBarStyle"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/tvUsername"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="username"
-                            android:textColor="#6E5C5B"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
+                        <ImageView
+                            android:id="@+id/ivProfilePicture"
+                            android:layout_width="88dp"
+                            android:layout_height="88dp"
+                            android:layout_marginEnd="16dp"
+                            android:background="#BEB9AD"
+                            android:contentDescription="profile_picture"
+                            android:padding="10dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/avatar1"
+                            tools:ignore="ImageContrastCheck" />
 
-                        <TextView
-                            android:id="@+id/tvEmail"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="6dp"
-                            android:text="user_email_com"
-                            android:textColor="#006064"
-                            android:textSize="14sp" />
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/tvUserId"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/tvUsername"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="username"
+                                android:textColor="#6E5C5B"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvEmail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="Email"
+                                android:textColor="#006064"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tvUserId"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="User ID"
+                                android:textColor="#006064"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnChangeAvatar"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="user_id"
-                            android:textColor="#006064"
-                            android:textSize="13sp" />
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#A5A9A9"
+                            android:text="Change Avatar"
+                            android:textAllCaps="false"
+                            android:textColor="#3E2723"
+                            tools:ignore="VisualLintButtonSize" />
+
+                        <Button
+                            android:id="@+id/btnEditProfile"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#EB1D34"
+                            android:text="Update Profile"
+                            android:textAllCaps="false"
+                            android:textColor="#FFFFFF"
+                            tools:ignore="VisualLintButtonSize" />
                     </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+            </androidx.cardview.widget.CardView>
 
-                    <Button
-                        android:id="@+id/btnChangeAvatar"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#8C9597"
-                        android:text="change_avatar"
-                        android:textAllCaps="false"
-                        android:textColor="#3E2723"
-                        tools:ignore="VisualLintButtonSize" />
+            <!-- Account Settings -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#C8CDC6"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
 
-                    <Button
-                        android:id="@+id/btnEditProfile"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#6E5C5B"
-                        android:text="update_profile"
-                        android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
-                        tools:ignore="VisualLintButtonSize" />
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-        <!-- Account Settings -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="#C8CDC6"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp">
+            <!-- Transaction History -->
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="166dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/banner_profile" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#C8CDC6"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#EFEEE5"
                 android:orientation="vertical"
                 android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="account_settings"
+                    android:text="Account Settings"
                     android:textColor="#6E5C5B"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -147,8 +174,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
-                    android:backgroundTint="#BEB9AD"
-                    android:text="change_username"
+                    android:backgroundTint="#E7BFC3"
+                    android:text="Change Username"
                     android:textAllCaps="false"
                     android:textColor="#5D4037"
                     tools:ignore="VisualLintButtonSize" />
@@ -158,8 +185,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:backgroundTint="#BEB9AD"
-                    android:text="change_password"
+                    android:backgroundTint="#E7BFC3"
+                    android:text="Change Password"
                     android:textAllCaps="false"
                     android:textColor="#5D4037"
                     tools:ignore="VisualLintButtonSize" />
@@ -169,55 +196,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:backgroundTint="#6E5C5B"
+                    android:backgroundTint="#EB1D34"
                     android:text="logout"
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
                     tools:ignore="VisualLintButtonSize" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-        <!-- Transaction History -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="#C8CDC6"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ticket_transaction_history"
-                    android:textColor="#6E5C5B"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvHistorySubtitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="Your bookings and payments will appear here"
-                    android:textColor="#006064"
-                    android:textSize="13sp"
-                    tools:ignore="HardcodedText" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvTransactionHistory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:nestedScrollingEnabled="false" />
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.core.widget.NestedScrollView>

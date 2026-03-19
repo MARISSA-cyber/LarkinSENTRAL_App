@@ -77,6 +77,10 @@ public class FeedbackActivity extends AppCompatActivity {
 
     // Fungsi Button Back di Header
     public void goBack(View view) {
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
+
+        // Optional: finish current activity so it is removed from the back stack
         finish();
     }
 

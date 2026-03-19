@@ -82,25 +82,27 @@ public class DashboardActivity extends AppCompatActivity {
         searchTripButton.setOnClickListener(v -> {
             String origin = originInput.getText().toString().trim();
             String destination = destinationInput.getText().toString().trim();
+            String departDate = departDateText.getText().toString().trim();
+            String returnDate = returnDateText.getText().toString().trim();
 
-            if (origin.isEmpty() || destination.isEmpty()) {
-                Toast.makeText(DashboardActivity.this, "Please enter origin and destination", Toast.LENGTH_SHORT).show();
-            } else {
-                // Open search results
-                Intent intent = new Intent(DashboardActivity.this, SearchResultActivity.class);
-                intent.putExtra("origin", origin);
-                intent.putExtra("destination", destination);
-                Intent intent2 = new Intent(DashboardActivity.this, SeatSelectionActivity.class);
-                TextView t1 = (TextView) findViewById(R.id.originInput);
-                TextView t2 = (TextView) findViewById(R.id.destinationInput);
-                intent2.putExtra("from", t1.getText().toString());
-                intent2.putExtra("to", t2.getText().toString());
-                startActivity(intent);
+            if (origin.isEmpty() || destination.isEmpty() || departDate.isEmpty()) {
+                Toast.makeText(DashboardActivity.this, "Please fill origin, destination, and departure date", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            boolean isTwoWay = returnTrip.isChecked() && !returnDate.isEmpty();
+
+            Intent intent = new Intent(DashboardActivity.this, SearchResultActivity.class);
+            intent.putExtra("origin", origin);
+            intent.putExtra("destination", destination);
+            intent.putExtra("departDate", departDate);
+            intent.putExtra("returnDate", isTwoWay ? returnDate : "");
+            intent.putExtra("isReturnTrip", isTwoWay);
+            startActivity(intent);
         });
 
         menuProfile.setOnClickListener(v -> openActivity(UserProfileActivity.class));
-        menuTicketHistory.setOnClickListener(v -> openActivity(UserProfileActivity.class));
+        menuTicketHistory.setOnClickListener(v -> openActivity(OrderHistoryActivity.class));
         menuFacilities.setOnClickListener(v -> openActivity(FacilitiesActivity.class));
         menuFAQ.setOnClickListener(v -> openActivity(FAQActivity.class));
         menuContactUs.setOnClickListener(v -> openActivity(ReachUsActivity.class));
@@ -125,5 +127,4 @@ public class DashboardActivity extends AppCompatActivity {
         Intent intent = new Intent(DashboardActivity.this, activityClass);
         startActivity(intent);
     }
-
 }

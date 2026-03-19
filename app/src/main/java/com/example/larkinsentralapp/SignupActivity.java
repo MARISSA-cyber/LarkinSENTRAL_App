@@ -8,6 +8,8 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,10 +57,13 @@ public class SignupActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
 
                             if (user != null) {
-                                // Send email verification
                                 user.sendEmailVerification()
                                         .addOnCompleteListener(verifyTask -> {
                                             if (verifyTask.isSuccessful()) {
+                                                String userId = user.getUid();
+                                                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
+                                                User newUser = new User(fullName, email);
+                                                ref.child(userId).setValue(newUser);
                                                 new AlertDialog.Builder(SignupActivity.this)
                                                         .setTitle("Email Verification")
                                                         .setMessage("Account created! Please check your email to verify your account.")
