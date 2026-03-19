@@ -184,6 +184,7 @@ public class PaymentActivity extends AppCompatActivity {
         intent.putExtra("order", order);
         intent.putExtra("method", selectedMethod);
         intent.putExtra("bank", bank);
+        intent.putExtra("amount", amount);
         startActivity(intent);
     }
 }

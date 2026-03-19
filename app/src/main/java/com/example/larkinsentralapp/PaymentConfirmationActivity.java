@@ -18,7 +18,7 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
     Button btnDone;
     TextView txtOrder, txtMethod, txtBank, txtAmount;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +44,11 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
         }
 
         if (method != null) {
-            txtMethod.setText(method);
+            txtMethod.setText("Method: " + method);
         }
 
         if (bank != null) {
-            txtBank.setText(bank);
+            txtBank.setText("Bank: " + bank);
         }
 
         if (amount != null) {
