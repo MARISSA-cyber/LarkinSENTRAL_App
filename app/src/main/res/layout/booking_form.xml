@@ -162,7 +162,7 @@
                     android:backgroundTint="#EB1D34"
                     android:padding="14dp"
                     android:drawableEnd="@android:drawable/ic_menu_search"
-                    android:gravity="center"/>
+                    android:gravity="center" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

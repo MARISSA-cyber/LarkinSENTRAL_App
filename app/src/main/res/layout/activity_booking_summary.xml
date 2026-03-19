@@ -137,7 +137,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/johor_bahru1"
+                                android:text="-"
+                                android:id="@+id/origin"
                                 android:textColor="@color/vintage_brown_dark"
                                 android:textSize="18sp"
                                 android:fontFamily="serif"
@@ -186,7 +187,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/kuala_lumpur1"
+                                android:id="@+id/destination"
+                                android:text="-"
                                 android:textColor="@color/vintage_brown_dark"
                                 android:textSize="18sp"
                                 android:fontFamily="serif"

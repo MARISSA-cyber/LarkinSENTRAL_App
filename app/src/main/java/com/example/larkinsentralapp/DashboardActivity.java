@@ -90,6 +90,11 @@ public class DashboardActivity extends AppCompatActivity {
                 Intent intent = new Intent(DashboardActivity.this, SearchResultActivity.class);
                 intent.putExtra("origin", origin);
                 intent.putExtra("destination", destination);
+                Intent intent2 = new Intent(DashboardActivity.this, SeatSelectionActivity.class);
+                TextView t1 = (TextView) findViewById(R.id.originInput);
+                TextView t2 = (TextView) findViewById(R.id.destinationInput);
+                intent2.putExtra("from", t1.getText().toString());
+                intent2.putExtra("to", t2.getText().toString());
                 startActivity(intent);
             }
         });
@@ -120,4 +125,5 @@ public class DashboardActivity extends AppCompatActivity {
         Intent intent = new Intent(DashboardActivity.this, activityClass);
         startActivity(intent);
     }
+
 }

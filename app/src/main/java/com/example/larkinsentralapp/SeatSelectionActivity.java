@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,6 +56,13 @@ public class SeatSelectionActivity extends AppCompatActivity {
         updateBottomBar();
 
         btnProceed.setOnClickListener(v -> proceedToSummary());
+        Intent i = getIntent();
+        String fromStr = i.getStringExtra("from");
+        String toStr = i.getStringExtra("to");
+        EditText et1 = (EditText) findViewById(R.id.origin);
+        EditText et2 = (EditText) findViewById(R.id.destination);
+        et1.setText(fromStr);
+        et2.setText(toStr);
     }
 
     // ── Build data model ──────────────────────────────────────────────────

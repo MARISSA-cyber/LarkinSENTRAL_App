@@ -217,14 +217,29 @@
                     android:orientation="horizontal"
                     android:layout_marginBottom="6dp">
                     <View android:layout_width="24dp" android:layout_height="1dp"/>
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                        android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
-                        android:text="@string/_1" android:gravity="center"
-                        android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                        android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
-                        android:text="@string/_2" android:gravity="center"
-                        android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
+                    <TextView android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:text="@string/_1"
+                        android:gravity="center"
+                        android:textColor="@color/vintage_brown_light"
+                        android:textSize="11sp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:text="@string/_2"
+                        android:gravity="center"
+                        android:textColor="@color/vintage_brown_light"
+                        android:textSize="11sp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:layout_width="24dp"
@@ -233,19 +248,40 @@
                         android:text="@string/xb7"
                         android:textColor="#8D6E63"
                         android:textSize="16sp" />
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                        android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
-                        android:text="@string/_3" android:gravity="center"
-                        android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                        android:layout_weight="1" android:layout_marginLeft="3dp" android:layout_marginRight="3dp"
-                        android:text="@string/_4" android:gravity="center"
-                        android:textColor="@color/vintage_brown_light" android:textSize="11sp" android:fontFamily="serif" android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:text="@string/_3"
+                        android:gravity="center"
+                        android:textColor="@color/vintage_brown_light"
+                        android:textSize="11sp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:text="@string/_4"
+                        android:gravity="center"
+                        android:textColor="@color/vintage_brown_light"
+                        android:textSize="11sp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <!-- Thin rule -->
-                <View android:layout_width="match_parent" android:layout_height="1dp"
-                    android:background="@color/gray_light" android:layout_marginBottom="10dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_light"
+                    android:layout_marginBottom="10dp"/>
 
                 <!-- Seat rows A-E -->
                 <include layout="@layout/seat_row" android:id="@+id/rowA"/>
@@ -255,8 +291,12 @@
                 <include layout="@layout/seat_row" android:id="@+id/rowE"/>
 
                 <!-- Thin rule -->
-                <View android:layout_width="match_parent" android:layout_height="1dp"
-                    android:background="@color/gray_light" android:layout_marginTop="8dp" android:layout_marginBottom="14dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_light"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="14dp"/>
 
                 <!-- Legend -->
                 <LinearLayout
@@ -264,24 +304,47 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center">
-                    <View android:layout_width="18dp" android:layout_height="18dp"
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
                         android:background="@drawable/seat_selector"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/available"
-                        android:textSize="11sp" android:textColor="@color/vintage_brown_light"
-                        android:fontFamily="serif" android:layout_marginEnd="14dp"/>
-                    <LinearLayout android:layout_width="18dp" android:layout_height="18dp"
+                        android:textSize="11sp"
+                        android:textColor="@color/vintage_brown_light"
+                        android:fontFamily="serif"
+                        android:layout_marginEnd="14dp"/>
+
+                    <LinearLayout
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
                         android:background="@drawable/seat_selector"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/selected"
-                        android:textSize="11sp" android:textColor="@color/vintage_brown_light"
-                        android:fontFamily="serif" android:layout_marginRight="14dp"
+                        android:textSize="11sp"
+                        android:textColor="@color/vintage_brown_light"
+                        android:fontFamily="serif"
+                        android:layout_marginRight="14dp"
                         tools:ignore="RtlHardcoded" />
-                    <View android:layout_width="18dp" android:layout_height="18dp"
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
                         android:background="@drawable/seat_booked_bg"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/booked"
-                        android:textSize="11sp" android:textColor="@color/vintage_brown_light"
+                        android:textSize="11sp"
+                        android:textColor="@color/vintage_brown_light"
                         android:fontFamily="serif"/>
                 </LinearLayout>
             </LinearLayout>
