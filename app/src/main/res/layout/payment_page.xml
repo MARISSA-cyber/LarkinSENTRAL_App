@@ -84,22 +84,34 @@
                         android:textColor="#555555"
                         android:textSize="14sp" />
 
+                    <!-- Route -->
                     <TextView
+                        android:id="@+id/txtRoute"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#555555"
+                        android:textSize="14sp"/>
+
+                    <!-- Date -->
+                    <TextView
+                        android:id="@+id/txtDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="@string/_17_mar_2026"
+                        android:text=""
                         android:textColor="#555555"
                         android:textSize="14sp" />
 
+                    <!-- Amount -->
                     <TextView
+                        android:id="@+id/txtAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Order Amount: RM 35"
+                        android:text=""
                         android:textColor="#555555"
-                        android:textSize="14sp"
-                        tools:ignore="HardcodedText" />
+                        android:textSize="14sp"/>
                 </LinearLayout>
             </LinearLayout>
 

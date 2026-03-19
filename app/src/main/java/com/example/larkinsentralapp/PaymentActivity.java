@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,6 +27,8 @@ public class PaymentActivity extends AppCompatActivity {
     Button btnProceed;
     Button btnCancel;
 
+    TextView txtRoute, txtDate, txtAmount;
+
     DatabaseReference database;
 
     ImageButton selectedButton = null;
@@ -34,6 +37,7 @@ public class PaymentActivity extends AppCompatActivity {
     ArrayList<String> seats;
     double totalPrice;
 
+    @SuppressLint({"MissingInflatedId", "SetTextI18n", "DefaultLocale"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,28 @@ public class PaymentActivity extends AppCompatActivity {
         // GET DATA from BookingSummary
         totalPrice = getIntent().getDoubleExtra("totalPrice", 0.0);
         seats = getIntent().getStringArrayListExtra("selectedSeats");
+
+        // get route + date
+        txtRoute = findViewById(R.id.txtRoute);
+        txtDate = findViewById(R.id.txtDate);
+        txtAmount = findViewById(R.id.txtAmount);
+
+        // get data
+        String origin = getIntent().getStringExtra("origin");
+        String destination = getIntent().getStringExtra("destination");
+        String date = getIntent().getStringExtra("departDate");
+
+        // set text
+        if (origin != null && destination != null) {
+            txtRoute.setText(origin + " → " + destination);
+        }
+
+        if (date != null) {
+            txtDate.setText("Date: " + date);
+        }
+
+        txtAmount.setText("Amount: RM " + String.format("%.2f", totalPrice));
+
 
         //find views
         btnFPX = findViewById(R.id.btnFPX);
