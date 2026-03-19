@@ -66,8 +66,30 @@ public class BookingSummaryActivity extends AppCompatActivity {
         }
         return sb.toString();
     }
-    public void payment (View v) {
-        Intent intent = new Intent(BookingSummaryActivity.this,PaymentActivity.class);
+    public void payment(View v) {
+
+        Intent intent = new Intent(BookingSummaryActivity.this, BookingConfirmedActivity.class);
+
+        intent.putExtra("origin", getIntent().getStringExtra("origin"));
+        intent.putExtra("destination", getIntent().getStringExtra("destination"));
+        intent.putExtra("departDate", getIntent().getStringExtra("departDate"));
+        intent.putExtra("time", getIntent().getStringExtra("time"));
+
+        intent.putExtra("pricePerSeat", getIntent().getDoubleExtra("pricePerSeat", 0.0));
+
+        intent.putStringArrayListExtra(
+                "selectedSeats",
+                getIntent().getStringArrayListExtra("selectedSeats")
+        );
+
+        // TOTAL PRICE (RECALCULATE)
+        ArrayList<String> seats = getIntent().getStringArrayListExtra("selectedSeats");
+        double price = getIntent().getDoubleExtra("pricePerSeat", 0.0);
+        double total = (seats != null ? seats.size() : 0) * price;
+
+        intent.putExtra("totalPrice", total);
+
         startActivity(intent);
     }
+
 }
