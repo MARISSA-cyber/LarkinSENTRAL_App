@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/vintage_brown"
+        android:background="@color/vintage_red"
         android:paddingTop="40dp"
         android:paddingBottom="16dp"
         android:paddingHorizontal="16dp"
@@ -135,18 +135,14 @@
                                 android:text="@string/from1"
                                 style="@style/VintageLabel"/>
                             <TextView
-                                android:id="@+id/tvFrom"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-<<<<<<< Updated upstream
-                                android:text="-"
+                                android:text="Johor Bahru"
                                 android:id="@+id/origin"
-=======
-                                android:text="—"
->>>>>>> Stashed changes
                                 android:textColor="@color/vintage_brown_dark"
                                 android:textSize="18sp"
                                 android:textStyle="bold"/>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -189,18 +185,14 @@
                                 android:text="@string/to1"
                                 style="@style/VintageLabel"/>
                             <TextView
-                                android:id="@+id/tvTo"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-<<<<<<< Updated upstream
                                 android:id="@+id/destination"
-                                android:text="-"
-=======
-                                android:text="—"
->>>>>>> Stashed changes
+                                android:text="Kuala Lumpur"
                                 android:textColor="@color/vintage_brown_dark"
                                 android:textSize="18sp"
                                 android:textStyle="bold"/>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -240,7 +232,7 @@
                                 android:id="@+id/tvDate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="—"
+                                android:text="21 March 2026"
                                 style="@style/VintageValue"/>
                         </LinearLayout>
 
@@ -257,7 +249,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="08:30 AM"
+                                android:text="08:00 AM"
                                 style="@style/VintageValue"/>
                         </LinearLayout>
 
@@ -275,7 +267,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="~11:30 AM"
+                                android:text="~12:30 AM"
                                 style="@style/VintageValue"/>
                         </LinearLayout>
                     </LinearLayout>
@@ -550,7 +542,7 @@
             android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:background="@drawable/btn_primary"
+            android:backgroundTint="@color/vintage_red"
             android:fontFamily="serif"
             android:letterSpacing="0.1"
             android:stateListAnimator="@null"
@@ -558,6 +550,7 @@
             android:textColor="@color/vintage_gold"
             android:textSize="14sp"
             android:textStyle="bold"
-            tools:ignore="TextContrastCheck,VisualLintButtonSize" />
+            tools:ignore="TextContrastCheck,VisualLintButtonSize"
+            android:onClick="payment"/>
     </LinearLayout>
 </LinearLayout>

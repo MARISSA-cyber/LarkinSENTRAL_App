@@ -29,8 +29,8 @@ public class BookingSummaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_summary);
-        tvFrom = findViewById(R.id.tvFrom);
-        tvTo = findViewById(R.id.tvTo);
+        tvFrom = findViewById(R.id.origin);
+        tvTo = findViewById(R.id.destination);
         tvDate = findViewById(R.id.tvDate);
 
         // Get data passed from SeatSelectionActivity
@@ -112,6 +112,7 @@ public class BookingSummaryActivity extends AppCompatActivity {
             return;
         }
 
+
         // PASS DATA
         Intent intent = new Intent(this, PaymentActivity.class);
         intent.putExtra("totalPrice", totalPrice);
@@ -130,4 +131,5 @@ public class BookingSummaryActivity extends AppCompatActivity {
         }
         return sb.toString();
     }
+
 }
