@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,11 +23,15 @@ public class BookingSummaryActivity extends AppCompatActivity {
 
     private ArrayList<String> selectedSeats;
     private double totalPrice;
+    private TextView tvFrom, tvTo, tvDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_summary);
+        tvFrom = findViewById(R.id.tvFrom);
+        tvTo = findViewById(R.id.tvTo);
+        tvDate = findViewById(R.id.tvDate);
 
         // Get data passed from SeatSelectionActivity
         selectedSeats = getIntent().getStringArrayListExtra("selectedSeats");
@@ -43,14 +46,12 @@ public class BookingSummaryActivity extends AppCompatActivity {
         etPhone           = findViewById(R.id.etPhone);
         Button btnConfirm = findViewById(R.id.btnConfirm);
         TextView btnBack = findViewById(R.id.btnBack);
-
-        // Populate summary
-        populateSummary();
-
-        // Listeners
         btnBack.setOnClickListener(v -> finish());
 
         btnConfirm.setOnClickListener(v -> confirmBooking());
+        // Populate summary
+        populateSummary();
+
     }
 
     // ── Fill in ticket details ─────────────────────────────────────────────
@@ -67,12 +68,33 @@ public class BookingSummaryActivity extends AppCompatActivity {
         tvSummaryTotal.setText(String.format("RM %.2f", totalPrice));
     }
 
-
     // ── Confirm button logic ───────────────────────────────────────────────
+    public void payment(View v) {
+        Intent intent = new Intent(this,PaymentActivity.class);
+        startActivity(intent);
+    }
     private void confirmBooking() {
         String name  = etName.getText().toString().trim();
         String ic    = etIc.getText().toString().trim();
         String phone = etPhone.getText().toString().trim();
+
+
+        String from = getIntent().getStringExtra("FROM");
+        String to = getIntent().getStringExtra("TO");
+        String date = getIntent().getStringExtra("DATE");
+
+        tvFrom.setText(from);
+        tvTo.setText(to);
+        tvDate.setText(date);
+
+        String route = from + " → " + to;
+
+        TransactionModel transaction = new TransactionModel(
+                route,
+                date,
+                join(selectedSeats),   // REAL seats
+                String.format("RM %.2f", totalPrice) // REAL price
+        );
 
         // Simple validation
         if (name.isEmpty()) {
@@ -92,11 +114,10 @@ public class BookingSummaryActivity extends AppCompatActivity {
 
         // PASS DATA
         Intent intent = new Intent(this, PaymentActivity.class);
-        intent.putExtra("totalPrice", totalPrice); // must not be 0
-        intent.putStringArrayListExtra("selectedSeats", selectedSeats); // must not be null
-        startActivity(intent);
+        intent.putExtra("totalPrice", totalPrice);
+        intent.putStringArrayListExtra("selectedSeats", selectedSeats);
 
-        Toast.makeText(this, "ConfirmBooking clicked!", Toast.LENGTH_SHORT).show();
+        startActivity(intent);
     }
 
     // ── Helper ────────────────────────────────────────────────────────────

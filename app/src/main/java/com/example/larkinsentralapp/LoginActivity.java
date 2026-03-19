@@ -3,21 +3,20 @@ package com.example.larkinsentralapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private TextInputEditText etEmail, etPassword;
-    private Button btnLogin;
-    private CheckBox checkRemember;
-    private TextView txtForgotPassword, txtSignup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +29,15 @@ public class LoginActivity extends AppCompatActivity {
         // Find views
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        checkRemember = findViewById(R.id.checkRemember);
-        txtForgotPassword = findViewById(R.id.txtForgotPassword);
-        txtSignup = findViewById(R.id.txtSignup);
+        Button btnLogin = findViewById(R.id.btnLogin);
+        findViewById(R.id.checkRemember);
+        TextView txtForgotPassword = findViewById(R.id.txtForgotPassword);
+        TextView txtSignup = findViewById(R.id.txtSignup);
 
         // Login button
         btnLogin.setOnClickListener(v -> {
-            String email = etEmail.getText().toString().trim();
-            String password = etPassword.getText().toString().trim();
+            String email = Objects.requireNonNull(etEmail.getText()).toString().trim();
+            String password = Objects.requireNonNull(etPassword.getText()).toString().trim();
 
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(LoginActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
@@ -48,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
 
                             // Go to Dashboard
@@ -56,14 +54,14 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         } else {
-                            Toast.makeText(LoginActivity.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Login failed: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         });
 
         // Forgot password
         txtForgotPassword.setOnClickListener(v -> {
-            String email = etEmail.getText().toString().trim();
+            String email = Objects.requireNonNull(etEmail.getText()).toString().trim();
             if (email.isEmpty()) {
                 Toast.makeText(LoginActivity.this, "Enter your email first", Toast.LENGTH_SHORT).show();
             } else {
@@ -72,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Toast.makeText(LoginActivity.this, "Password reset email sent", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(LoginActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Error: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
             }

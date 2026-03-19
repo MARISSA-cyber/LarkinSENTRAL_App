@@ -40,7 +40,7 @@
     <string name="powered_by_kiple">Powered by kiple</string>
     <string name="pci_dss">PCI DSS</string>
     <string name="merchant_name_energetic_point_sdn_bhd">Merchant Name: Energetic Point Sdn Bhd</string>
-    <string name="order_date_march_17_2026_1_10_pm">Order Date: March 17, 2026, 1:10 pm</string>
+    <string name="order_date_march_19_2026_1_10_pm">Order Date: March 19, 2026, 1:10 pm</string>
     <string name="select_seat">Select Seat</string>
     <string name="booking_summary">Booking Summary</string>
     <string name="confirm_booking">Confirm Booking</string>
@@ -67,7 +67,7 @@
     <string name="kuala_lumpur">Kuala Lumpur</string>
     <string name="tbs_terminal">TBS Terminal</string>
     <string name="departs">DEPARTS</string>
-    <string name="_08_30_am">08:30 AM</string>
+    <string name="_08_00_am">08:00 AM</string>
     <string name="driver">DRIVER</string>
     <string name="_17_mar_2026">17 Mar 2026</string>
     <string name="_128663">🚗</string>
@@ -126,5 +126,5 @@
     <string name="e_g_ahmad_bin_abdullah">e.g. Ahmad bin Abdullah</string>
     <string name="ash">—</string>
     <string name="rm_0_001">RM 0.00</string>
-    <string name="order_date_march_18_2026_1_10pm">Order Date: March 18/2026, 1.10pm</string>
+    <string name="home_screen">Home Screen</string>
 </resources>

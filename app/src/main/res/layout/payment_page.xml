@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#EFEFEF">
+    android:background="#FFFDF7">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="@string/order_date_march_18_2026_1_10pm"
+                        android:text="@string/_17_mar_2026"
                         android:textColor="#555555"
                         android:textSize="14sp" />
 
@@ -238,7 +238,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:text="@string/proceed_payment"
-                android:backgroundTint="#766161"
+                android:backgroundTint="#EB1D34"
                 android:textColor="#FFFFFF"
                 android:layout_marginTop="20dp"
                 tools:ignore="VisualLintButtonSize" />
