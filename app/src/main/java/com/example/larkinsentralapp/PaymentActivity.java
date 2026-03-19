@@ -23,13 +23,12 @@ public class PaymentActivity extends AppCompatActivity {
     ImageButton btnFPX, btnDuit, btnKiple, btnTng, btnCard, btnGpay, btnBack;
     Spinner spinnerBank;
     CheckBox checkAgree;
-    Button btnProceed;
-    Button btnCancel;
+    Button btnProceed, btnCancel;
 
     DatabaseReference database;
 
     ImageButton selectedButton = null;
-    String selectedMethod = "";
+    String selectedMethod = null; // ✅ FIXED
 
     ArrayList<String> seats;
     double totalPrice;
@@ -42,11 +41,11 @@ public class PaymentActivity extends AppCompatActivity {
         // Firebase
         database = FirebaseDatabase.getInstance().getReference("payments");
 
-        // GET DATA from BookingSummary
+        // GET DATA
         totalPrice = getIntent().getDoubleExtra("totalPrice", 0.0);
         seats = getIntent().getStringArrayListExtra("selectedSeats");
 
-        //find views
+        // Find views
         btnFPX = findViewById(R.id.btnFPX);
         btnDuit = findViewById(R.id.btnDuit);
         btnKiple = findViewById(R.id.btnKiple);
@@ -75,10 +74,9 @@ public class PaymentActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item,
                 banks
         );
-
         spinnerBank.setAdapter(adapter);
 
-        // Click payment methods
+        // Payment clicks
         btnFPX.setOnClickListener(v -> selectPayment(btnFPX, "FPX"));
         btnDuit.setOnClickListener(v -> selectPayment(btnDuit, "DuitNow"));
         btnKiple.setOnClickListener(v -> selectPayment(btnKiple, "Kiple"));
@@ -86,21 +84,20 @@ public class PaymentActivity extends AppCompatActivity {
         btnCard.setOnClickListener(v -> selectPayment(btnCard, "Card"));
         btnGpay.setOnClickListener(v -> selectPayment(btnGpay, "Google Pay"));
 
-        // Back button
+        // Back
         btnBack.setOnClickListener(v -> finish());
 
-        // Proceed button
+        // Proceed
         btnProceed.setOnClickListener(v -> savePayment());
 
-        // Cancel button
+        // Cancel
         btnCancel.setOnClickListener(v ->
                 Toast.makeText(this, "Transaction Cancelled", Toast.LENGTH_SHORT).show());
     }
 
-    // Select payment
+    // ✅ SELECT PAYMENT (FIXED)
     private void selectPayment(ImageButton button, String name) {
 
-        // validation
         if (selectedButton != null) {
             selectedButton.setBackgroundResource(R.drawable.card_outline);
         }
@@ -110,33 +107,37 @@ public class PaymentActivity extends AppCompatActivity {
 
         selectedMethod = name;
 
-        Toast.makeText(this, name + " selected", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Selected: " + selectedMethod, Toast.LENGTH_SHORT).show();
     }
 
-    // SAVE + NAVIGATION (FIXED)
+    // ✅ SAVE PAYMENT (FIXED)
     private void savePayment() {
 
-        String bank = spinnerBank.getSelectedItem().toString();
         String order = "TLSTR" + System.currentTimeMillis();
-        @SuppressLint("DefaultLocale") String amount = "RM " + String.format("%.2f", totalPrice);
+        @SuppressLint("DefaultLocale")
+        String amount = "RM " + String.format("%.2f", totalPrice);
 
-        // validation
-        if (selectedMethod.isEmpty()) {
+        // ❗ CHECK PAYMENT METHOD
+        if (selectedMethod == null) {
             Toast.makeText(this, "Select payment method", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if (spinnerBank.getSelectedItemPosition() == 0) {
+        // ❗ ONLY FPX NEED BANK
+        if (selectedMethod.equals("FPX") && spinnerBank.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "Select bank", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        // ❗ TERMS CHECK
         if (!checkAgree.isChecked()) {
             Toast.makeText(this, "Please agree to terms", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Save to Firebase (clean structure)
+        String bank = spinnerBank.getSelectedItem().toString();
+
+        // Save to Firebase
         HashMap<String, String> map = new HashMap<>();
         map.put("order", order);
         map.put("method", selectedMethod);
@@ -147,18 +148,15 @@ public class PaymentActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Payment Successful", Toast.LENGTH_SHORT).show();
 
-        // Go to confirmation page
+        // Go next
         Intent intent = new Intent(this, PaymentConfirmationActivity.class);
 
-        //PASS DATA FORWARD
-        intent.putExtra("passengerName", getIntent().getStringExtra("passengerName"));
         intent.putExtra("totalPrice", totalPrice);
         intent.putStringArrayListExtra("selectedSeats", seats);
-
         intent.putExtra("order", order);
         intent.putExtra("method", selectedMethod);
         intent.putExtra("bank", bank);
+
         startActivity(intent);
     }
 }
-

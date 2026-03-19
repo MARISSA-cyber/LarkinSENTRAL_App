@@ -42,7 +42,7 @@ public class BookingConfirmedActivity extends AppCompatActivity {
 
         // Back to home: clear the entire back stack and restart seat selection
         btnDone.setOnClickListener(v -> {
-            Intent intent = new Intent(this, SeatSelectionActivity.class);
+            Intent intent = new Intent(this, DashboardActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();

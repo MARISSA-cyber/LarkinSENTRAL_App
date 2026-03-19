@@ -88,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="@string/_17_mar_2026"
+                        android:text="19 March 2026"
                         android:textColor="#555555"
                         android:textSize="14sp" />
 
@@ -113,7 +113,9 @@
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/fpx"
-                android:contentDescription="@string/fpx"/>
+                android:contentDescription="@string/fpx"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <!-- DuitNow -->
             <ImageButton
@@ -125,7 +127,9 @@
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/duitnow"
-                android:contentDescription="@string/duitnow"/>
+                android:contentDescription="@string/duitnow"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <!-- Kiple -->
             <ImageButton
@@ -138,7 +142,9 @@
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/kiple"
-                tools:ignore="ImageContrastCheck" />
+                tools:ignore="ImageContrastCheck"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <!-- TNG -->
             <ImageButton
@@ -150,7 +156,9 @@
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/tng"
-                android:contentDescription="@string/tng"/>
+                android:contentDescription="@string/tng"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <!-- Visa / Mastercard -->
             <ImageButton
@@ -163,7 +171,9 @@
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/visa_mastercard"
-                tools:ignore="ImageContrastCheck" />
+                tools:ignore="ImageContrastCheck"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <!-- Google Pay -->
             <ImageButton
@@ -175,7 +185,9 @@
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/gpay"
-                android:contentDescription="@string/google_pay"/>
+                android:contentDescription="@string/google_pay"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <RadioGroup
                 android:layout_width="match_parent"

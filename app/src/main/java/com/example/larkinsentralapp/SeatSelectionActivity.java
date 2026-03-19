@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,9 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SeatSelectionActivity extends AppCompatActivity {
-
-    // Price per seat in RM
-    private static final double PRICE_PER_SEAT = 35.0;
 
     // Row labels
     private static final String[] ROW_LABELS = {"A", "B", "C", "D", "E"};
@@ -38,50 +34,54 @@ public class SeatSelectionActivity extends AppCompatActivity {
     private TextView tvSeatCount;
     private TextView tvTotalPrice;
 
-    // Row container ids (matching the include ids in the layout)
-    // We'll find them by their position in the parent, easier in code.
+    // Price per seat
+    private double PRICE_PER_SEAT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_selection);
 
-        tvSelectedSeats = findViewById(R.id.tvSelectedSeats);
-        tvSeatCount     = findViewById(R.id.tvSeatCount);
-        tvTotalPrice    = findViewById(R.id.tvTotalPrice);
-        View btnProceed = findViewById(R.id.btnProceed);
+        // Get intent data
+        Intent intent = getIntent();
+        String busName = intent.getStringExtra("busName");
+        double price = intent.getDoubleExtra("price", 0.0);
+        String origin = intent.getStringExtra("origin");
+        String destination = intent.getStringExtra("destination");
+        String departDate = intent.getStringExtra("departDate");
+        String time = intent.getStringExtra("time");
 
+        PRICE_PER_SEAT = price;
+
+        // Bottom bar views
+        tvSelectedSeats = findViewById(R.id.tvSelectedSeats);
+        tvSeatCount = findViewById(R.id.tvSeatCount);
+        tvTotalPrice = findViewById(R.id.tvTotalPrice);
+
+        // Bus info header
+        TextView tvBusName = findViewById(R.id.tvBusName);
+        TextView tvPrice = findViewById(R.id.tvPrice);
+        tvBusName.setText(busName);
+        tvPrice.setText(String.format("RM %.2f / seat", price));
+
+        // Trip info
+        TextView tvFrom = findViewById(R.id.tvFrom);
+        TextView tvTo = findViewById(R.id.tvTo);
+        TextView tvTime = findViewById(R.id.tvTime);
+        TextView tvDate = findViewById(R.id.tvDate);
+        tvFrom.setText(origin);
+        tvTo.setText(destination);
+        tvTime.setText(time);
+        tvDate.setText(departDate);
+
+        // Initialize seats
         initSeats();
         buildSeatGrid();
         updateBottomBar();
 
+        // Proceed button
+        View btnProceed = findViewById(R.id.btnProceed);
         btnProceed.setOnClickListener(v -> proceedToSummary());
-//        Intent i = getIntent();
-//        String fromStr = i.getStringExtra("from");
-//        String toStr = i.getStringExtra("to");
-//        EditText et1 = (EditText) findViewById(R.id.origin);
-//        EditText et2 = (EditText) findViewById(R.id.destination);
- //       et1.setText(fromStr);
- //       et2.setText(toStr);
-
-        // Listeners
-        Button seat1 = findViewById(R.id.seat1);
-
-// get colors from values/colors.xml
-        int defaultColor = getResources().getColor(R.color.vintage_red);
-        int clickedColor = getResources().getColor(R.color.vintage_brown);
-
-// track toggle state
-        final boolean[] isClicked = {false};
-
-        seat1.setOnClickListener(v -> {
-            if (!isClicked[0]) {
-                seat1.setBackgroundColor(clickedColor);  // change to clicked color
-            } else {
-                seat1.setBackgroundColor(defaultColor);  // change back to default
-            }
-            isClicked[0] = !isClicked[0];  // toggle state
-        });
     }
 
     // ── Build data model ──────────────────────────────────────────────────
@@ -89,15 +89,12 @@ public class SeatSelectionActivity extends AppCompatActivity {
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 4; col++) {
                 String seatId = getSeatId(row, col);
-                int state = isPreBooked(seatId)
-                        ? Seat.STATE_BOOKED
-                        : Seat.STATE_AVAILABLE;
+                int state = isPreBooked(seatId) ? Seat.STATE_BOOKED : Seat.STATE_AVAILABLE;
                 seats[row][col] = new Seat(seatId, state);
             }
         }
     }
 
-    // Returns "1A", "2A", "1B" … pattern: col+1 + rowLetter
     private String getSeatId(int row, int col) {
         return (col + 1) + ROW_LABELS[row];
     }
@@ -111,20 +108,16 @@ public class SeatSelectionActivity extends AppCompatActivity {
 
     // ── Build the UI seat grid ────────────────────────────────────────────
     private void buildSeatGrid() {
-        // The layout has 5 includes: rowA…rowE
-        // We find each include root by id.
         int[] rowIds = {R.id.rowA, R.id.rowB, R.id.rowC, R.id.rowD, R.id.rowE};
 
         for (int row = 0; row < 5; row++) {
             LinearLayout rowView = findViewById(rowIds[row]);
 
-            // Set row label text (the first child TextView)
+            // Set row label
             TextView tvLabel = rowView.findViewById(R.id.tvRowLabel);
             tvLabel.setText(ROW_LABELS[row]);
 
-            // Get the four seat buttons
             int[] seatBtnIds = {R.id.seat1, R.id.seat2, R.id.seat3, R.id.seat4};
-
             for (int col = 0; col < 4; col++) {
                 Button btn = rowView.findViewById(seatBtnIds[col]);
                 seatButtons[row][col] = btn;
@@ -145,13 +138,10 @@ public class SeatSelectionActivity extends AppCompatActivity {
     private void onSeatClicked(int row, int col) {
         Seat seat = seats[row][col];
 
-        if (seat.isBooked()) return; // should never happen, just safe
+        if (seat.isBooked()) return;
 
-        if (seat.isAvailable()) {
-            seat.setState(Seat.STATE_SELECTED);
-        } else if (seat.isSelected()) {
-            seat.setState(Seat.STATE_AVAILABLE);
-        }
+        if (seat.isAvailable()) seat.setState(Seat.STATE_SELECTED);
+        else if (seat.isSelected()) seat.setState(Seat.STATE_AVAILABLE);
 
         applySeatStyle(seatButtons[row][col], seat);
         updateBottomBar();
@@ -171,11 +161,10 @@ public class SeatSelectionActivity extends AppCompatActivity {
                 btn.setTextColor(ContextCompat.getColor(this, R.color.white));
                 btn.setEnabled(false);
                 break;
-            default: // AVAILABLE
+            default:
                 btn.setBackgroundResource(R.drawable.seat_selector);
                 btn.setSelected(false);
                 btn.setTextColor(ContextCompat.getColor(this, R.color.vintage_brown));
-                break;
         }
     }
 
@@ -185,12 +174,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
         List<String> selected = getSelectedSeatIds();
         double total = selected.size() * PRICE_PER_SEAT;
 
-        if (selected.isEmpty()) {
-            tvSelectedSeats.setText("None");
-        } else {
-            tvSelectedSeats.setText(join(selected));
-        }
-
+        tvSelectedSeats.setText(selected.isEmpty() ? "None" : join(selected));
         tvSeatCount.setText(String.valueOf(selected.size()));
         tvTotalPrice.setText(String.format("RM %.2f", total));
     }
@@ -204,9 +188,29 @@ public class SeatSelectionActivity extends AppCompatActivity {
             return;
         }
 
-        Intent intent = new Intent(this, BookingSummaryActivity.class);
+        Intent intent = new Intent(SeatSelectionActivity.this, BookingSummaryActivity.class);
+
+        // Pass selected seats
         intent.putStringArrayListExtra("selectedSeats", new ArrayList<>(selected));
-        intent.putExtra("totalPrice", selected.size() * PRICE_PER_SEAT);
+
+        // Pass total price
+        double totalPrice = selected.size() * PRICE_PER_SEAT;
+        intent.putExtra("totalPrice", totalPrice);
+
+        // Pass bus info
+        intent.putExtra("busName", getIntent().getStringExtra("busName"));
+        intent.putExtra("pricePerSeat", PRICE_PER_SEAT);
+        intent.putExtra("from", getIntent().getStringExtra("from"));
+        intent.putExtra("to", getIntent().getStringExtra("to"));
+        intent.putExtra("time", getIntent().getStringExtra("time"));
+
+        // Pass trip info
+        intent.putExtra("origin", getIntent().getStringExtra("origin"));
+        intent.putExtra("destination", getIntent().getStringExtra("destination"));
+        intent.putExtra("departDate", getIntent().getStringExtra("departDate"));
+        intent.putExtra("returnDate", getIntent().getStringExtra("returnDate"));
+        intent.putExtra("isReturnTrip", getIntent().getBooleanExtra("isReturnTrip", false));
+
         startActivity(intent);
     }
 
@@ -215,9 +219,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
         List<String> list = new ArrayList<>();
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 4; col++) {
-                if (seats[row][col].isSelected()) {
-                    list.add(seats[row][col].getSeatId());
-                }
+                if (seats[row][col].isSelected()) list.add(seats[row][col].getSeatId());
             }
         }
         return list;
@@ -231,10 +233,4 @@ public class SeatSelectionActivity extends AppCompatActivity {
         }
         return sb.toString();
     }
-<<<<<<< Updated upstream
-
-
 }
-=======
-}
->>>>>>> Stashed changes

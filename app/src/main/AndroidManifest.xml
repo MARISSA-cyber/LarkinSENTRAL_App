@@ -58,9 +58,11 @@
         <activity
             android:name=".NoTripsActivity"
             android:exported="false" />
+
         <activity
             android:name=".SeatSelectionActivity"
             android:exported="false" />
+
         <activity
             android:name=".BookingSummaryActivity"
             android:exported="false" />
@@ -72,6 +74,9 @@
             android:exported="false" />
         <activity
             android:name=".PaymentConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentActivity"
             android:exported="false" />
     </application>
 

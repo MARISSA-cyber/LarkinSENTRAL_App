@@ -78,6 +78,7 @@ public class SearchResultActivity extends AppCompatActivity {
             intent.putExtra("price", bus.getPrice());
             intent.putExtra("from", bus.getFrom());
             intent.putExtra("to", bus.getTo());
+            intent.putExtra("time", bus.getTime());
 
             // Pass trip info also (IMPORTANT)
             intent.putExtra("origin", origin);
@@ -85,6 +86,7 @@ public class SearchResultActivity extends AppCompatActivity {
             intent.putExtra("departDate", departDate);
             intent.putExtra("returnDate", returnDate);
             intent.putExtra("isReturnTrip", isReturnTrip);
+            intent.putExtra("price", (double) bus.getPrice());
 
             startActivity(intent);
         });
