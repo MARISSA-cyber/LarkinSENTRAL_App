@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,11 +29,12 @@ public class PaymentActivity extends AppCompatActivity {
     DatabaseReference database;
 
     ImageButton selectedButton = null;
-    String selectedMethod = null; // ✅ FIXED
+    String selectedMethod = null;
 
     ArrayList<String> seats;
     double totalPrice;
 
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,9 @@ public class PaymentActivity extends AppCompatActivity {
         checkAgree = findViewById(R.id.checkAgree);
         btnProceed = findViewById(R.id.btnProceed);
         btnCancel = findViewById(R.id.btnCancel);
+
+        TextView tvAmount = findViewById(R.id.tvAmount);
+        tvAmount.setText("Order Amount: RM " + String.format("%.2f", totalPrice));
 
         // Spinner data
         String[] banks = {
@@ -95,7 +100,7 @@ public class PaymentActivity extends AppCompatActivity {
                 Toast.makeText(this, "Transaction Cancelled", Toast.LENGTH_SHORT).show());
     }
 
-    // ✅ SELECT PAYMENT (FIXED)
+    // SELECT PAYMENT (FIXED)
     private void selectPayment(ImageButton button, String name) {
 
         if (selectedButton != null) {
@@ -110,26 +115,26 @@ public class PaymentActivity extends AppCompatActivity {
         Toast.makeText(this, "Selected: " + selectedMethod, Toast.LENGTH_SHORT).show();
     }
 
-    // ✅ SAVE PAYMENT (FIXED)
+    // SAVE PAYMENT (FIXED)
     private void savePayment() {
 
         String order = "TLSTR" + System.currentTimeMillis();
         @SuppressLint("DefaultLocale")
         String amount = "RM " + String.format("%.2f", totalPrice);
 
-        // ❗ CHECK PAYMENT METHOD
+        // CHECK PAYMENT METHOD
         if (selectedMethod == null) {
             Toast.makeText(this, "Select payment method", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // ❗ ONLY FPX NEED BANK
+        // ONLY FPX NEED BANK
         if (selectedMethod.equals("FPX") && spinnerBank.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "Select bank", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // ❗ TERMS CHECK
+        // TERMS CHECK
         if (!checkAgree.isChecked()) {
             Toast.makeText(this, "Please agree to terms", Toast.LENGTH_SHORT).show();
             return;
@@ -146,7 +151,10 @@ public class PaymentActivity extends AppCompatActivity {
 
         database.push().setValue(map);
 
-        Toast.makeText(this, "Payment Successful", Toast.LENGTH_SHORT).show();
+        btnCancel.setOnClickListener(v -> {
+            Toast.makeText(this, "Transaction Cancelled", Toast.LENGTH_SHORT).show();
+            finish();
+        });
 
         // Go next
         Intent intent = new Intent(this, PaymentConfirmationActivity.class);
@@ -156,6 +164,7 @@ public class PaymentActivity extends AppCompatActivity {
         intent.putExtra("order", order);
         intent.putExtra("method", selectedMethod);
         intent.putExtra("bank", bank);
+        intent.putExtra("amount", amount);
 
         startActivity(intent);
     }

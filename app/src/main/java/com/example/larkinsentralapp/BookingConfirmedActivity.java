@@ -32,7 +32,7 @@ public class BookingConfirmedActivity extends AppCompatActivity {
         TextView tvRef   = findViewById(R.id.tvConfirmRef);
         TextView tvName  = findViewById(R.id.tvUsername);
         TextView tvSeats = findViewById(R.id.tvConfirmSeats);
-        TextView tvTotal = findViewById(R.id.tvSummaryTotal);
+        TextView tvTotal = findViewById(R.id.tvConfirmTotal);
         Button   btnDone = findViewById(R.id.btnDone);
 
         // Populate

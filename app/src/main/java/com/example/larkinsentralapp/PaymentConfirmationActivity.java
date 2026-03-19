@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -47,8 +48,14 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
             txtMethod.setText("Method: " + method);
         }
 
-        if (bank != null) {
+        if (bank != null && !bank.equals("Select Bank")) {
             txtBank.setText("Bank: " + bank);
+        } else {
+            txtBank.setVisibility(View.GONE); // hide if not needed
+        }
+
+        if (bank != null) {
+            txtBank.setText(bank);
         }
 
         if (amount != null) {
@@ -71,6 +78,9 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
             );
 
             intent.putExtra("order", txtOrder.getText().toString());
+
+            intent.putExtra("passengerName",
+                    getIntent().getStringExtra("passengerName"));
 
             startActivity(intent);
         });

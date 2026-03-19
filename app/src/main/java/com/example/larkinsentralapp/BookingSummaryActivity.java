@@ -12,6 +12,9 @@ import java.util.ArrayList;
 
 public class BookingSummaryActivity extends AppCompatActivity {
 
+    ArrayList<String> seats;
+    double totalPrice;
+
     @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +27,13 @@ public class BookingSummaryActivity extends AppCompatActivity {
         String date = getIntent().getStringExtra("departDate");
         String departureTime = getIntent().getStringExtra("time");
 
-        ArrayList<String> seats = getIntent().getStringArrayListExtra("selectedSeats");
+        seats = getIntent().getStringArrayListExtra("selectedSeats");
 
         double pricePerSeat = getIntent().getDoubleExtra("pricePerSeat", 0.0);
 
         // ── CALCULATION ──
         int passengerCount = (seats != null) ? seats.size() : 0;
-        double totalPrice = pricePerSeat * passengerCount;
+        totalPrice = pricePerSeat * passengerCount;
 
         getIntent().getDoubleExtra("pricePerSeat", 0.0);
         // ── BIND VIEWS ──
@@ -66,8 +69,13 @@ public class BookingSummaryActivity extends AppCompatActivity {
         }
         return sb.toString();
     }
-    public void payment (View v) {
-        Intent intent = new Intent(BookingSummaryActivity.this,PaymentActivity.class);
+    public void payment(View v) {
+
+        Intent intent = new Intent(BookingSummaryActivity.this, PaymentActivity.class);
+
+        intent.putExtra("totalPrice", totalPrice);
+        intent.putStringArrayListExtra("selectedSeats", seats);
+
         startActivity(intent);
     }
 }
