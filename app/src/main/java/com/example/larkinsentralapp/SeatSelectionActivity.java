@@ -231,10 +231,7 @@ public class SeatSelectionActivity extends AppCompatActivity {
         }
         return sb.toString();
     }
-<<<<<<< Updated upstream
-
 
 }
-=======
-}
->>>>>>> Stashed changes
+
+

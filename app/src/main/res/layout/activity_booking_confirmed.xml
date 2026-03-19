@@ -206,7 +206,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="17 Mar 2026  ·  08:30 AM"
+                            android:text="21 Mar 2026  ·  08:00 AM"
                             style="@style/VintageValue"/>
                     </LinearLayout>
 
