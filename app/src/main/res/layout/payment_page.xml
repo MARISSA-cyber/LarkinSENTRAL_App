@@ -88,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="@string/order_date_march_18_2026_1_10pm"
+                        android:text="@string/_17_mar_2026"
                         android:textColor="#555555"
                         android:textSize="14sp" />
 

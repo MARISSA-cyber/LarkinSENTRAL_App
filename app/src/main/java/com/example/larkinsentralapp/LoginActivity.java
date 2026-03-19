@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // Go to Sign Up
         txtSignup.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+            Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
             startActivity(intent);
         });
     }

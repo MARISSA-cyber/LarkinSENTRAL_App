@@ -42,31 +42,12 @@ public class BookingSummaryActivity extends AppCompatActivity {
         etPhone           = findViewById(R.id.etPhone);
         Button btnConfirm = findViewById(R.id.btnConfirm);
         TextView btnBack = findViewById(R.id.btnBack);
-
-        // Populate summary
-        populateSummary();
-
-        // Listeners
         btnBack.setOnClickListener(v -> finish());
 
         btnConfirm.setOnClickListener(v -> confirmBooking());
-        Button seat1 = findViewById(R.id.seat1);
+        // Populate summary
+        populateSummary();
 
-// get colors from values/colors.xml
-        int defaultColor = getResources().getColor(R.color.vintage_red);
-        int clickedColor = getResources().getColor(R.color.vintage_brown);
-
-// track toggle state
-        final boolean[] isClicked = {false};
-
-        seat1.setOnClickListener(v -> {
-            if (!isClicked[0]) {
-                seat1.setBackgroundColor(clickedColor);  // change to clicked color
-            } else {
-                seat1.setBackgroundColor(defaultColor);  // change back to default
-            }
-            isClicked[0] = !isClicked[0];  // toggle state
-        });
     }
 
     // ── Fill in ticket details ─────────────────────────────────────────────

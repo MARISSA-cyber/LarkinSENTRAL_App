@@ -56,13 +56,32 @@ public class SeatSelectionActivity extends AppCompatActivity {
         updateBottomBar();
 
         btnProceed.setOnClickListener(v -> proceedToSummary());
-        Intent i = getIntent();
-        String fromStr = i.getStringExtra("from");
-        String toStr = i.getStringExtra("to");
-        EditText et1 = (EditText) findViewById(R.id.origin);
-        EditText et2 = (EditText) findViewById(R.id.destination);
-        et1.setText(fromStr);
-        et2.setText(toStr);
+//        Intent i = getIntent();
+//        String fromStr = i.getStringExtra("from");
+//        String toStr = i.getStringExtra("to");
+//        EditText et1 = (EditText) findViewById(R.id.origin);
+//        EditText et2 = (EditText) findViewById(R.id.destination);
+ //       et1.setText(fromStr);
+ //       et2.setText(toStr);
+
+        // Listeners
+        Button seat1 = findViewById(R.id.seat1);
+
+// get colors from values/colors.xml
+        int defaultColor = getResources().getColor(R.color.vintage_red);
+        int clickedColor = getResources().getColor(R.color.vintage_brown);
+
+// track toggle state
+        final boolean[] isClicked = {false};
+
+        seat1.setOnClickListener(v -> {
+            if (!isClicked[0]) {
+                seat1.setBackgroundColor(clickedColor);  // change to clicked color
+            } else {
+                seat1.setBackgroundColor(defaultColor);  // change back to default
+            }
+            isClicked[0] = !isClicked[0];  // toggle state
+        });
     }
 
     // ── Build data model ──────────────────────────────────────────────────
@@ -212,4 +231,6 @@ public class SeatSelectionActivity extends AppCompatActivity {
         }
         return sb.toString();
     }
+
+
 }
