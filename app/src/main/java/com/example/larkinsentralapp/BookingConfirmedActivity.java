@@ -23,15 +23,16 @@ public class BookingConfirmedActivity extends AppCompatActivity {
         ArrayList<String>   selectedSeats = getIntent().getStringArrayListExtra("selectedSeats");
         double              totalPrice    = getIntent().getDoubleExtra("totalPrice", 0.0);
 
+
         // Generate a random 5-digit booking reference
         int    refNumber = (int)(Math.random() * 90000 + 10000);
         String refCode   = "LRK-20260317-" + refNumber;
 
         // Bind views
         TextView tvRef   = findViewById(R.id.tvConfirmRef);
-        TextView tvName  = findViewById(R.id.tvConfirmName);
+        TextView tvName  = findViewById(R.id.tvUsername);
         TextView tvSeats = findViewById(R.id.tvConfirmSeats);
-        TextView tvTotal = findViewById(R.id.tvConfirmTotal);
+        TextView tvTotal = findViewById(R.id.tvSummaryTotal);
         Button   btnDone = findViewById(R.id.btnDone);
 
         // Populate

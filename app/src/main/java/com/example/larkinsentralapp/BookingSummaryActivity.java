@@ -3,10 +3,8 @@ package com.example.larkinsentralapp;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,120 +12,62 @@ import java.util.ArrayList;
 
 public class BookingSummaryActivity extends AppCompatActivity {
 
-    private TextView tvSummarySeats;
-    private TextView tvPassengerCount;
-    private TextView tvSummaryTotal;
-    private EditText etName;
-    private EditText etIc;
-    private EditText etPhone;
-
-    private ArrayList<String> selectedSeats;
-    private double totalPrice;
-    private TextView tvFrom, tvTo, tvDate;
-
+    @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_summary);
-        tvFrom = findViewById(R.id.tvFrom);
-        tvTo = findViewById(R.id.tvTo);
-        tvDate = findViewById(R.id.tvDate);
 
-        // Get data passed from SeatSelectionActivity
-        selectedSeats = getIntent().getStringArrayListExtra("selectedSeats");
-        totalPrice    = getIntent().getDoubleExtra("totalPrice", 0.0);
+        // ── GET DATA FROM PREVIOUS PAGE ──
+        String origin = getIntent().getStringExtra("origin");
+        String destination = getIntent().getStringExtra("destination");
+        String date = getIntent().getStringExtra("departDate");
+        String departureTime = getIntent().getStringExtra("time");
 
-        // Bind views
-        tvSummarySeats    = findViewById(R.id.tvSummarySeats);
-        tvPassengerCount  = findViewById(R.id.tvPassengerCount);
-        tvSummaryTotal    = findViewById(R.id.tvSummaryTotal);
-        etName            = findViewById(R.id.etName);
-        etIc              = findViewById(R.id.etIc);
-        etPhone           = findViewById(R.id.etPhone);
-        Button btnConfirm = findViewById(R.id.btnConfirm);
-        TextView btnBack = findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(v -> finish());
+        ArrayList<String> seats = getIntent().getStringArrayListExtra("selectedSeats");
 
-        btnConfirm.setOnClickListener(v -> confirmBooking());
-        // Populate summary
-        populateSummary();
+        double pricePerSeat = getIntent().getDoubleExtra("pricePerSeat", 0.0);
 
+        // ── CALCULATION ──
+        int passengerCount = (seats != null) ? seats.size() : 0;
+        double totalPrice = pricePerSeat * passengerCount;
+
+        getIntent().getDoubleExtra("pricePerSeat", 0.0);
+        // ── BIND VIEWS ──
+        TextView tvFrom = findViewById(R.id.originInput);
+        TextView tvTo = findViewById(R.id.destinationInput);
+        TextView tvDate = findViewById(R.id.departDateText);
+        TextView tvSeats = findViewById(R.id.tvSummarySeats);
+        TextView tvPassenger = findViewById(R.id.tvPassengerCount);
+        TextView tvPrice = findViewById(R.id.busPrice);
+        TextView tvTotal = findViewById(R.id.tvSummaryTotal);
+        TextView tvDeparture = findViewById(R.id.busDeparture);
+
+        // ── SET DATA ──
+        tvFrom.setText(origin != null ? origin : "—");
+        tvTo.setText(destination != null ? destination : "—");
+        tvDate.setText(date != null ? date : "—");
+        tvDeparture.setText(departureTime != null ? departureTime : "—");
+
+        tvSeats.setText(seats != null ? join(seats) : "—");
+        tvPassenger.setText(String.valueOf(passengerCount));
+
+        tvPrice.setText(String.format("RM %.2f", pricePerSeat));
+        tvTotal.setText(String.format("RM %.2f", totalPrice));
     }
 
-    // ── Fill in ticket details ─────────────────────────────────────────────
-    @SuppressLint({"SetTextI18n", "DefaultLocale"})
-    private void populateSummary() {
-        // Seat list e.g. "1A, 2B, 3C"
-        tvSummarySeats.setText(join(selectedSeats));
-
-        // Passenger count
-        int count = selectedSeats != null ? selectedSeats.size() : 0;
-        tvPassengerCount.setText(count + " pax");
-
-        // Total
-        tvSummaryTotal.setText(String.format("RM %.2f", totalPrice));
-    }
-
-    // ── Confirm button logic ───────────────────────────────────────────────
-    public void payment(View v) {
-        Intent intent = new Intent(this,PaymentActivity.class);
-        startActivity(intent);
-    }
-    private void confirmBooking() {
-        String name  = etName.getText().toString().trim();
-        String ic    = etIc.getText().toString().trim();
-        String phone = etPhone.getText().toString().trim();
-
-
-        String from = getIntent().getStringExtra("FROM");
-        String to = getIntent().getStringExtra("TO");
-        String date = getIntent().getStringExtra("DATE");
-
-        tvFrom.setText(from);
-        tvTo.setText(to);
-        tvDate.setText(date);
-
-        String route = from + " → " + to;
-
-        TransactionModel transaction = new TransactionModel(
-                route,
-                date,
-                join(selectedSeats),   // REAL seats
-                String.format("RM %.2f", totalPrice) // REAL price
-        );
-
-        // Simple validation
-        if (name.isEmpty()) {
-            etName.setError("Please enter your full name");
-            etName.requestFocus();
-            return;
-        }
-        if (ic.isEmpty()) {
-            etIc.setError("Please enter IC / Passport number");
-            etIc.requestFocus();
-            return;
-        }
-        if (phone.isEmpty()) {
-            etPhone.setError("Please enter your phone number");
-            return;
-        }
-
-        // PASS DATA
-        Intent intent = new Intent(this, PaymentActivity.class);
-        intent.putExtra("totalPrice", totalPrice);
-        intent.putStringArrayListExtra("selectedSeats", selectedSeats);
-
-        startActivity(intent);
-    }
-
-    // ── Helper ────────────────────────────────────────────────────────────
+    // ── HELPER (same style as your confirm page) ──
     private String join(ArrayList<String> items) {
         if (items == null || items.isEmpty()) return "—";
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < items.size(); i++) {
-            if (i > 0) sb.append("  ·  ");
+            if (i > 0) sb.append(", ");
             sb.append(items.get(i));
         }
         return sb.toString();
+    }
+    public void payment (View v) {
+        Intent intent = new Intent(BookingSummaryActivity.this,PaymentActivity.class);
+        startActivity(intent);
     }
 }

@@ -142,7 +142,7 @@
                             android:text="PASSENGER"
                             style="@style/VintageLabel"/>
                         <TextView
-                            android:id="@+id/tvConfirmName"
+                            android:id="@+id/tvUsername"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="—"

@@ -31,4 +31,5 @@ public class Bus {
     public String getDepartureTime() { return departureTime; }
     public String getDuration() { return duration; }
     public int getPrice() { return price; }
+
 }
