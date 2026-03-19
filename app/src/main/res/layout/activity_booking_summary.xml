@@ -128,7 +128,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            tools:ignore="ExtraText">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -138,12 +139,7 @@
                                 android:id="@+id/tvFrom"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-<<<<<<< Updated upstream
                                 android:text="-"
-                                android:id="@+id/origin"
-=======
-                                android:text="—"
->>>>>>> Stashed changes
                                 android:textColor="@color/vintage_brown_dark"
                                 android:textSize="18sp"
                                 android:textStyle="bold"/>
@@ -192,12 +188,7 @@
                                 android:id="@+id/tvTo"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-<<<<<<< Updated upstream
-                                android:id="@+id/destination"
                                 android:text="-"
-=======
-                                android:text="—"
->>>>>>> Stashed changes
                                 android:textColor="@color/vintage_brown_dark"
                                 android:textSize="18sp"
                                 android:textStyle="bold"/>
