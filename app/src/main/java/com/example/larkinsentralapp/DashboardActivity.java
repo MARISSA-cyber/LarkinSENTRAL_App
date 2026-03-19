@@ -16,6 +16,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -34,6 +36,9 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.booking_form);
+        EditText originInput = findViewById(R.id.originInput);
+        EditText destinationInput = findViewById(R.id.destinationInput);
+        Button searchBtn = findViewById(R.id.searchTripButton);
 
         menuButton = findViewById(R.id.menuButton);
         floatingMenu = findViewById(R.id.floatingMenu);
@@ -100,7 +105,9 @@ public class DashboardActivity extends AppCompatActivity {
             intent.putExtra("isReturnTrip", isTwoWay);
             startActivity(intent);
         });
+        searchBtn.setOnClickListener(v -> {
 
+<<<<<<< Updated upstream
         menuProfile.setOnClickListener(v -> openActivity(UserProfileActivity.class));
         menuTicketHistory.setOnClickListener(v -> openActivity(OrderHistoryActivity.class));
         menuFacilities.setOnClickListener(v -> openActivity(FacilitiesActivity.class));
@@ -110,6 +117,25 @@ public class DashboardActivity extends AppCompatActivity {
         menuAbout.setOnClickListener(v -> openActivity(AboutActivity.class));
         buttonLogOut.setOnClickListener(v -> openActivity(LoginActivity.class));
     }
+=======
+            String from = originInput.getText().toString().trim();
+            String to = destinationInput.getText().toString().trim();
+            String date = dateButton.getText().toString();
+
+            if (from.isEmpty() || to.isEmpty()) {
+                Toast.makeText(this, "Please enter origin and destination", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            Intent intent = new Intent(DashboardActivity.this, BookingSummaryActivity.class);
+
+            intent.putExtra("FROM", from);
+            intent.putExtra("TO", to);
+            intent.putExtra("DATE", date);
+
+            startActivity(intent);
+        });
+>>>>>>> Stashed changes
 
     private void showDatePicker(final TextView target) {
         Calendar calendar = Calendar.getInstance();

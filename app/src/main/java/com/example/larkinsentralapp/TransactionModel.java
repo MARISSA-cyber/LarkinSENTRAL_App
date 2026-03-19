@@ -6,7 +6,6 @@ public class TransactionModel {
     private final String date;
     private final String seat;
     private final String price;
-
     public TransactionModel(String route, String date, String seat, String price) {
         this.route = route;
         this.date = date;

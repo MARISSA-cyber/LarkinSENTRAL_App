@@ -23,11 +23,15 @@ public class BookingSummaryActivity extends AppCompatActivity {
 
     private ArrayList<String> selectedSeats;
     private double totalPrice;
+    private TextView tvFrom, tvTo, tvDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_summary);
+        tvFrom = findViewById(R.id.tvFrom);
+        tvTo = findViewById(R.id.tvTo);
+        tvDate = findViewById(R.id.tvDate);
 
         // Get data passed from SeatSelectionActivity
         selectedSeats = getIntent().getStringArrayListExtra("selectedSeats");
@@ -73,6 +77,24 @@ public class BookingSummaryActivity extends AppCompatActivity {
         String name  = etName.getText().toString().trim();
         String ic    = etIc.getText().toString().trim();
         String phone = etPhone.getText().toString().trim();
+
+
+        String from = getIntent().getStringExtra("FROM");
+        String to = getIntent().getStringExtra("TO");
+        String date = getIntent().getStringExtra("DATE");
+
+        tvFrom.setText(from);
+        tvTo.setText(to);
+        tvDate.setText(date);
+
+        String route = from + " → " + to;
+
+        TransactionModel transaction = new TransactionModel(
+                route,
+                date,
+                join(selectedSeats),   // REAL seats
+                String.format("RM %.2f", totalPrice) // REAL price
+        );
 
         // Simple validation
         if (name.isEmpty()) {

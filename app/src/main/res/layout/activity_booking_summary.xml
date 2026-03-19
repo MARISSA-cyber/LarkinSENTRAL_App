@@ -135,13 +135,17 @@
                                 android:text="@string/from1"
                                 style="@style/VintageLabel"/>
                             <TextView
+                                android:id="@+id/tvFrom"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+<<<<<<< Updated upstream
                                 android:text="-"
                                 android:id="@+id/origin"
+=======
+                                android:text="—"
+>>>>>>> Stashed changes
                                 android:textColor="@color/vintage_brown_dark"
                                 android:textSize="18sp"
-                                android:fontFamily="serif"
                                 android:textStyle="bold"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -185,13 +189,17 @@
                                 android:text="@string/to1"
                                 style="@style/VintageLabel"/>
                             <TextView
+                                android:id="@+id/tvTo"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+<<<<<<< Updated upstream
                                 android:id="@+id/destination"
                                 android:text="-"
+=======
+                                android:text="—"
+>>>>>>> Stashed changes
                                 android:textColor="@color/vintage_brown_dark"
                                 android:textSize="18sp"
-                                android:fontFamily="serif"
                                 android:textStyle="bold"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -229,9 +237,10 @@
                                 android:text="@string/date"
                                 style="@style/VintageLabel"/>
                             <TextView
+                                android:id="@+id/tvDate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="17 Mar 2026"
+                                android:text="—"
                                 style="@style/VintageValue"/>
                         </LinearLayout>
 
