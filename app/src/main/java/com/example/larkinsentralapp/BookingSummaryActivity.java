@@ -6,86 +6,97 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
 public class BookingSummaryActivity extends AppCompatActivity {
 
-    private TextView tvFrom, tvTo, tvDate, tvSummarySeats, tvPassengerCount, tvPricePerSeat, tvSummaryTotal;
-    private EditText etName, etIc, etPhone;
-    private Button btnConfirm;
+    private TextView tvSummarySeats;
+    private TextView tvPassengerCount;
+    private TextView tvSummaryTotal;
+    private EditText etName;
+    private EditText etIc;
+    private EditText etPhone;
 
     private ArrayList<String> selectedSeats;
-    private double pricePerSeat;
     private double totalPrice;
-    private String origin, destination, departDate;
+    private TextView tvFrom, tvTo, tvDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_summary);
-
-        // Bind views
         tvFrom = findViewById(R.id.tvFrom);
         tvTo = findViewById(R.id.tvTo);
         tvDate = findViewById(R.id.tvDate);
-        tvSummarySeats = findViewById(R.id.tvSummarySeats);
-        tvPassengerCount = findViewById(R.id.tvPassengerCount);
-        tvPricePerSeat = findViewById(R.id.tvPricePerSeat);
-        tvSummaryTotal = findViewById(R.id.tvSummaryTotal);
 
-        etName = findViewById(R.id.etName);
-        etIc = findViewById(R.id.etIc);
-        etPhone = findViewById(R.id.etPhone);
-        btnConfirm = findViewById(R.id.btnConfirm);
+        // Get data passed from SeatSelectionActivity
+        selectedSeats = getIntent().getStringArrayListExtra("selectedSeats");
+        totalPrice    = getIntent().getDoubleExtra("totalPrice", 0.0);
 
-        // Back button
+        // Bind views
+        tvSummarySeats    = findViewById(R.id.tvSummarySeats);
+        tvPassengerCount  = findViewById(R.id.tvPassengerCount);
+        tvSummaryTotal    = findViewById(R.id.tvSummaryTotal);
+        etName            = findViewById(R.id.etName);
+        etIc              = findViewById(R.id.etIc);
+        etPhone           = findViewById(R.id.etPhone);
+        Button btnConfirm = findViewById(R.id.btnConfirm);
         TextView btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> finish());
 
-        // ── Get data from SeatSelectionActivity ──
-        selectedSeats = getIntent().getStringArrayListExtra("selectedSeats");
-        pricePerSeat = getIntent().getDoubleExtra("pricePerSeat", 0.0);
-        totalPrice = getIntent().getDoubleExtra("totalPrice", 0.0);
-        origin = getIntent().getStringExtra("origin");
-        destination = getIntent().getStringExtra("destination");
-        departDate = getIntent().getStringExtra("departDate");
-
-        // Populate ticket summary
+        btnConfirm.setOnClickListener(v -> confirmBooking());
+        // Populate summary
         populateSummary();
 
-        // Confirm booking click
-        btnConfirm.setOnClickListener(v -> confirmBooking());
     }
 
-    @SuppressLint("SetTextI18n")
+    // ── Fill in ticket details ─────────────────────────────────────────────
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     private void populateSummary() {
-        // Origin → Destination
-        tvFrom.setText(origin != null ? origin : "-");
-        tvTo.setText(destination != null ? destination : "-");
-        tvDate.setText(departDate != null ? departDate : "-");
-
-        // Selected seats
-        tvSummarySeats.setText(join(selectedSeats != null ? selectedSeats : new ArrayList<>()));
+        // Seat list e.g. "1A, 2B, 3C"
+        tvSummarySeats.setText(join(selectedSeats));
 
         // Passenger count
         int count = selectedSeats != null ? selectedSeats.size() : 0;
         tvPassengerCount.setText(count + " pax");
 
-        // Price per seat
-        tvPricePerSeat.setText(String.format("RM %.2f", pricePerSeat));
-
-        // Total price
+        // Total
         tvSummaryTotal.setText(String.format("RM %.2f", totalPrice));
     }
 
+    // ── Confirm button logic ───────────────────────────────────────────────
+    public void payment(View v) {
+        Intent intent = new Intent(this,PaymentActivity.class);
+        startActivity(intent);
+    }
     private void confirmBooking() {
-        String name = etName.getText().toString().trim();
-        String ic = etIc.getText().toString().trim();
+        String name  = etName.getText().toString().trim();
+        String ic    = etIc.getText().toString().trim();
         String phone = etPhone.getText().toString().trim();
 
-        // Validate passenger info
+
+        String from = getIntent().getStringExtra("FROM");
+        String to = getIntent().getStringExtra("TO");
+        String date = getIntent().getStringExtra("DATE");
+
+        tvFrom.setText(from);
+        tvTo.setText(to);
+        tvDate.setText(date);
+
+        String route = from + " → " + to;
+
+        TransactionModel transaction = new TransactionModel(
+                route,
+                date,
+                join(selectedSeats),   // REAL seats
+                String.format("RM %.2f", totalPrice) // REAL price
+        );
+
+        // Simple validation
         if (name.isEmpty()) {
             etName.setError("Please enter your full name");
             etName.requestFocus();
@@ -98,23 +109,18 @@ public class BookingSummaryActivity extends AppCompatActivity {
         }
         if (phone.isEmpty()) {
             etPhone.setError("Please enter your phone number");
-            etPhone.requestFocus();
             return;
         }
 
-        // Proceed to payment
+        // PASS DATA
         Intent intent = new Intent(this, PaymentActivity.class);
         intent.putExtra("totalPrice", totalPrice);
-        intent.putExtra("pricePerSeat", pricePerSeat);
         intent.putStringArrayListExtra("selectedSeats", selectedSeats);
-        intent.putExtra("origin", origin);
-        intent.putExtra("destination", destination);
-        intent.putExtra("departDate", departDate);
 
         startActivity(intent);
     }
 
-    // Helper to join seat list
+    // ── Helper ────────────────────────────────────────────────────────────
     private String join(ArrayList<String> items) {
         if (items == null || items.isEmpty()) return "—";
         StringBuilder sb = new StringBuilder();
