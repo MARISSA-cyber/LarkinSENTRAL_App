@@ -1,17 +1,18 @@
 package com.example.larkinsentralapp;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 
 public class PaymentConfirmationActivity extends AppCompatActivity {
 
@@ -39,7 +40,7 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
         String bank = getIntent().getStringExtra("bank");
         String amount = getIntent().getStringExtra("amount");
 
-        //set data to ui
+        // set data to ui
         if (order != null) {
             txtOrder.setText(order);
         }
@@ -51,7 +52,7 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
         if (bank != null && !bank.equals("Select Bank")) {
             txtBank.setText("Bank: " + bank);
         } else {
-            txtBank.setVisibility(View.GONE); // hide if not needed
+            txtBank.setVisibility(View.GONE);
         }
 
         if (amount != null) {
@@ -61,24 +62,38 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
         // back button
         btnBack.setOnClickListener(v -> finish());
 
-        //done button
+        // done button
         btnDone.setOnClickListener(v -> {
 
-            Intent intent = new Intent(this, BookingConfirmedActivity.class);
+            String orderId = txtOrder.getText().toString();
+            String origin = getIntent().getStringExtra("origin");
+            String destination = getIntent().getStringExtra("destination");
+            String departDate = getIntent().getStringExtra("departDate");
+            String time = getIntent().getStringExtra("time");
+            String passengerName = getIntent().getStringExtra("passengerName");
+            double totalPrice = getIntent().getDoubleExtra("totalPrice", 0.0);
+            ArrayList<String> selectedSeats = getIntent().getStringArrayListExtra("selectedSeats");
 
-            intent.putExtra("origin", getIntent().getStringExtra("origin"));
-            intent.putExtra("destination", getIntent().getStringExtra("destination"));
-            intent.putExtra("departDate", getIntent().getStringExtra("departDate"));
-            intent.putExtra("time", getIntent().getStringExtra("time"));
-
-            intent.putExtra("passengerName", getIntent().getStringExtra("passengerName"));
-            intent.putExtra("totalPrice", getIntent().getDoubleExtra("totalPrice", 0.0));
-            intent.putStringArrayListExtra(
-                    "selectedSeats",
-                    getIntent().getStringArrayListExtra("selectedSeats")
+            BookingHistoryModel booking = new BookingHistoryModel(
+                    orderId,
+                    origin,
+                    destination,
+                    departDate,
+                    totalPrice,
+                    selectedSeats
             );
 
-            intent.putExtra("order", txtOrder.getText().toString());
+            BookingHistoryManager.saveBooking(PaymentConfirmationActivity.this, booking);
+
+            Intent intent = new Intent(PaymentConfirmationActivity.this, BookingConfirmedActivity.class);
+            intent.putExtra("origin", origin);
+            intent.putExtra("destination", destination);
+            intent.putExtra("departDate", departDate);
+            intent.putExtra("time", time);
+            intent.putExtra("passengerName", passengerName);
+            intent.putExtra("totalPrice", totalPrice);
+            intent.putStringArrayListExtra("selectedSeats", selectedSeats);
+            intent.putExtra("order", orderId);
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -91,21 +106,17 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
 
     // AlarmManager + BroadcastReceiver notification
     private void scheduleNotification(String order) {
-
         Intent intent = new Intent(this, AlarmReceiver.class);
         intent.putExtra("order", order);
 
-        PendingIntent pendingIntent =
-                PendingIntent.getBroadcast(
-                        this,
-                        0,
-                        intent,
-                        PendingIntent.FLAG_UPDATE_CURRENT |
-                                PendingIntent.FLAG_IMMUTABLE
-                );
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                this,
+                0,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
 
-        AlarmManager alarmManager =
-                (AlarmManager) getSystemService(ALARM_SERVICE);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
         // Trigger after 3 seconds
         if (alarmManager != null) {

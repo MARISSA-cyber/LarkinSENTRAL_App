@@ -2,45 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
     android:orientation="vertical"
-    android:padding="14dp"
-    android:background="@android:color/white">
+    android:padding="12dp"
+    android:layout_margin="8dp"
+    android:background="@android:drawable/dialog_holo_light_frame">
 
     <TextView
         android:id="@+id/tvOrderId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Order #1001"
+        android:text="Order: "
         android:textStyle="bold"
-        android:textSize="16sp"
-        android:textColor="#C62828" />
+        android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/tvOrderDate"
+        android:id="@+id/tvRoute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="2026-03-19 10:30"
-        android:textSize="14sp"
-        android:textColor="#C62828" />
+        android:text="KL → Penang"
+        android:layout_marginTop="6dp" />
 
     <TextView
-        android:id="@+id/tvOrderTotal"
+        android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="RM 58.90"
+        android:text="Date: 2026-03-20"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/tvSeats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seats: [A1, A2]"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RM 45.00"
         android:textStyle="bold"
-        android:textSize="15sp"
-        android:textColor="#C62828" />
-
-    <TextView
-        android:id="@+id/tvOrderStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Completed"
-        android:textSize="14sp"
-        android:textColor="#C62828" />
+        android:layout_marginTop="6dp" />
 </LinearLayout>
