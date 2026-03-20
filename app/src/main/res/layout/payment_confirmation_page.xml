@@ -153,11 +153,11 @@
                 android:id="@+id/btnDone"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="@string/done"
+                android:text="VIEW BOOKING"
                 android:textColor="#FFFFFF"
                 android:backgroundTint="#766161"
                 android:layout_marginTop="25dp"
-                tools:ignore="VisualLintButtonSize" />
+                tools:ignore="HardcodedText,VisualLintButtonSize" />
 
             <!-- FOOTER -->
             <TextView
