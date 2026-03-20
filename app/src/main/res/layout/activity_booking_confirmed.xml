@@ -127,27 +127,7 @@
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
                         android:background="@drawable/divider_dashed" android:layout_marginBottom="12dp"/>
-
-                    <!-- Passenger name -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="10dp">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="PASSENGER"
-                            style="@style/VintageLabel"/>
-                        <TextView
-                            android:id="@+id/tvUsername"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="—"
-                            style="@style/VintageValue"/>
-                    </LinearLayout>
+                    
 
                     <!-- Route -->
                     <LinearLayout

@@ -31,7 +31,7 @@ public class BookingConfirmedActivity extends AppCompatActivity {
         String origin = intent.getStringExtra("origin");
         String destination = intent.getStringExtra("destination");
         String date = intent.getStringExtra("departDate");
-        String time = intent.getStringExtra("time");
+        intent.putExtra("departDate", date);
 
         // ── DEBUG (optional but useful) ──
         Toast.makeText(this,
@@ -44,7 +44,6 @@ public class BookingConfirmedActivity extends AppCompatActivity {
 
         // ── FIND VIEWS ──
         TextView tvRef = findViewById(R.id.tvConfirmRef);
-        TextView tvName = findViewById(R.id.tvUsername);
         TextView tvSeats = findViewById(R.id.tvSummarySeats);
         TextView tvRoute = findViewById(R.id.tvConfirmRoute);
         TextView tvDateTime = findViewById(R.id.departDateText);
@@ -55,11 +54,6 @@ public class BookingConfirmedActivity extends AppCompatActivity {
         // ── SET DATA SAFELY ──
         tvRef.setText(refCode);
 
-        tvName.setText(
-                (name != null && !name.isEmpty())
-                        ? name.toUpperCase()
-                        : "NO NAME"
-        );
 
         tvSeats.setText(
                 (selectedSeats != null && !selectedSeats.isEmpty())
@@ -74,9 +68,9 @@ public class BookingConfirmedActivity extends AppCompatActivity {
         );
 
         tvDateTime.setText(
-                (date != null && time != null)
-                        ? date + " · " + time
-                        : "NO DATE / TIME"
+                (date != null && !date.isEmpty())
+                        ? date
+                        : "NO DATE"
         );
 
         tvTotal.setText(String.format("RM %.2f", totalPrice));
@@ -105,4 +99,5 @@ public class BookingConfirmedActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
 }
