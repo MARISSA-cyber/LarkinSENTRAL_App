@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -71,10 +72,27 @@ public class BookingSummaryActivity extends AppCompatActivity {
     }
     public void payment(View v) {
 
+        // Get name from Edittext
+        EditText etName = findViewById(R.id.etName);
+        String name = etName.getText().toString();
+
+        //Get data from previous page
+        String origin = getIntent().getStringExtra("origin");
+        String destination = getIntent().getStringExtra("destination");
+        String date = getIntent().getStringExtra("departDate");
+        String departureTime = getIntent().getStringExtra("time");
+
+
         Intent intent = new Intent(BookingSummaryActivity.this, PaymentActivity.class);
 
+        intent.putExtra("passengerName", name);
         intent.putExtra("totalPrice", totalPrice);
         intent.putStringArrayListExtra("selectedSeats", seats);
+
+        intent.putExtra("origin", origin);
+        intent.putExtra("destination", destination);
+        intent.putExtra("departDate", date);
+        intent.putExtra("time", departureTime);
 
         startActivity(intent);
     }

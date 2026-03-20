@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class PaymentActivity extends AppCompatActivity {
 
@@ -62,6 +63,12 @@ public class PaymentActivity extends AppCompatActivity {
         btnCancel = findViewById(R.id.btnCancel);
 
         TextView tvAmount = findViewById(R.id.tvAmount);
+        TextView tvDate = findViewById(R.id.tvDate);
+
+        String date = getIntent().getStringExtra("departDate");
+
+        tvDate.setText(Objects.requireNonNullElse(date, "—"));
+
         tvAmount.setText("Order Amount: RM " + String.format("%.2f", totalPrice));
 
         // Spinner data
@@ -96,8 +103,10 @@ public class PaymentActivity extends AppCompatActivity {
         btnProceed.setOnClickListener(v -> savePayment());
 
         // Cancel
-        btnCancel.setOnClickListener(v ->
-                Toast.makeText(this, "Transaction Cancelled", Toast.LENGTH_SHORT).show());
+        btnCancel.setOnClickListener(v -> {
+            Toast.makeText(this, "Transaction Cancelled", Toast.LENGTH_SHORT).show();
+            finish(); // go back
+        });
     }
 
     // SELECT PAYMENT (FIXED)
@@ -151,11 +160,6 @@ public class PaymentActivity extends AppCompatActivity {
 
         database.push().setValue(map);
 
-        btnCancel.setOnClickListener(v -> {
-            Toast.makeText(this, "Transaction Cancelled", Toast.LENGTH_SHORT).show();
-            finish();
-        });
-
         // Go next
         Intent intent = new Intent(this, PaymentConfirmationActivity.class);
 
@@ -165,6 +169,10 @@ public class PaymentActivity extends AppCompatActivity {
         intent.putExtra("method", selectedMethod);
         intent.putExtra("bank", bank);
         intent.putExtra("amount", amount);
+        intent.putExtra("origin", getIntent().getStringExtra("origin"));
+        intent.putExtra("destination", getIntent().getStringExtra("destination"));
+        intent.putExtra("departDate", getIntent().getStringExtra("departDate"));
+        intent.putExtra("time", getIntent().getStringExtra("time"));
 
         startActivity(intent);
     }

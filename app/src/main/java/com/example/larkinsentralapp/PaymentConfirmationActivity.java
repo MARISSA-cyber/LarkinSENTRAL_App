@@ -54,10 +54,6 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
             txtBank.setVisibility(View.GONE); // hide if not needed
         }
 
-        if (bank != null) {
-            txtBank.setText(bank);
-        }
-
         if (amount != null) {
             txtAmount.setText(amount);
         }
@@ -70,6 +66,11 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, BookingConfirmedActivity.class);
 
+            intent.putExtra("origin", getIntent().getStringExtra("origin"));
+            intent.putExtra("destination", getIntent().getStringExtra("destination"));
+            intent.putExtra("departDate", getIntent().getStringExtra("departDate"));
+            intent.putExtra("time", getIntent().getStringExtra("time"));
+
             intent.putExtra("passengerName", getIntent().getStringExtra("passengerName"));
             intent.putExtra("totalPrice", getIntent().getDoubleExtra("totalPrice", 0.0));
             intent.putStringArrayListExtra(
@@ -79,10 +80,9 @@ public class PaymentConfirmationActivity extends AppCompatActivity {
 
             intent.putExtra("order", txtOrder.getText().toString());
 
-            intent.putExtra("passengerName",
-                    getIntent().getStringExtra("passengerName"));
-
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+            finish();
         });
 
         // notification

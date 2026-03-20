@@ -48,7 +48,7 @@ public class BookingConfirmedActivity extends AppCompatActivity {
         TextView tvSeats = findViewById(R.id.tvSummarySeats);
         TextView tvRoute = findViewById(R.id.tvConfirmRoute);
         TextView tvDateTime = findViewById(R.id.departDateText);
-        TextView tvTotal = findViewById(R.id.tvSummaryTotal);
+        TextView tvTotal = findViewById(R.id.tvConfirmTotal);
 
         Button btnDone = findViewById(R.id.btnDone);
 
