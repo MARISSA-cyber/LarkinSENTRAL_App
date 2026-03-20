@@ -78,4 +78,5 @@ public class BookingSummaryActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
 }

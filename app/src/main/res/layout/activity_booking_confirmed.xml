@@ -163,9 +163,10 @@
                             android:text="ROUTE"
                             style="@style/VintageLabel"/>
                         <TextView
+                            android:id="@+id/tvConfirmRoute"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="JB Larkin  &#8594;  KL TBS"
+                            android:text="JB Larkin  →  KL TBS"
                             style="@style/VintageValue"/>
                     </LinearLayout>
 
@@ -183,7 +184,7 @@
                             android:text="SEAT(S)"
                             style="@style/VintageLabel"/>
                         <TextView
-                            android:id="@+id/tvConfirmSeats"
+                            android:id="@+id/tvSummarySeats"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="—"
@@ -201,12 +202,13 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="DATE / TIME"
+                            android:text="DATE "
                             style="@style/VintageLabel"/>
                         <TextView
+                            android:id="@+id/departDateText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="21 Mar 2026  ·  08:00 AM"
+                            android:text="—"
                             style="@style/VintageValue"/>
                     </LinearLayout>
 
