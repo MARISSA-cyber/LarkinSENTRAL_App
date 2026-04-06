@@ -1,5 +1,4 @@
 package com.example.larkinsentralapp;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,33 +12,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
-
 public class ForgotPasswordActivity extends AppCompatActivity {
-
     private EditText emailEditText;
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgotpassword_page);
 
-        // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        // Initialize views
         emailEditText = findViewById(R.id.etEmailForgot);
         Button resetButton = findViewById(R.id.btnResetPassword);
         TextView backToLoginText = findViewById(R.id.txtBackToLogin);
 
-        // Reset password button
         resetButton.setOnClickListener(view -> resetPassword());
-
-        // Back to Login button
         backToLoginText.setOnClickListener(v -> {
             Intent intent = new Intent(ForgotPasswordActivity.this, LoginActivity.class);
             startActivity(intent);
-            finish(); // Close Forgot Password activity
+            finish();
         });
     }
 

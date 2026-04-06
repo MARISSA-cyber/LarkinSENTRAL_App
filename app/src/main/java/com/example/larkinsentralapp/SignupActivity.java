@@ -1,5 +1,4 @@
 package com.example.larkinsentralapp;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -13,9 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 public class SignupActivity extends AppCompatActivity {
-
     private FirebaseAuth mAuth;
     private TextInputEditText etFullName, etEmail, etPassword, etConfirmPassword;
     private Button btnSignUp;
@@ -74,7 +71,7 @@ public class SignupActivity extends AppCompatActivity {
                                                             startActivity(intent);
                                                             finish();
                                                         })
-                                                        .setCancelable(false) // user must tap OK
+                                                        .setCancelable(false)
                                                         .show();
                                             } else {
                                                 Toast.makeText(SignupActivity.this, "Failed to send verification email.", Toast.LENGTH_SHORT).show();

@@ -1,5 +1,4 @@
 package com.example.larkinsentralapp;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -12,21 +11,15 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
-
 public class LoginActivity extends AppCompatActivity {
-
     private FirebaseAuth mAuth;
     private TextInputEditText etEmail, etPassword;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_page); // link to your XML file
-
-        // Firebase instance
+        setContentView(R.layout.login_page);
         mAuth = FirebaseAuth.getInstance();
 
-        // Find views
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         Button btnLogin = findViewById(R.id.btnLogin);
@@ -34,7 +27,6 @@ public class LoginActivity extends AppCompatActivity {
         TextView txtForgotPassword = findViewById(R.id.txtForgotPassword);
         TextView txtSignup = findViewById(R.id.txtSignup);
 
-        // Login button
         btnLogin.setOnClickListener(v -> {
             String email = Objects.requireNonNull(etEmail.getText()).toString().trim();
             String password = Objects.requireNonNull(etPassword.getText()).toString().trim();
@@ -43,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
@@ -58,8 +49,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
         });
-
-        // Forgot password
         txtForgotPassword.setOnClickListener(v -> {
             String email = Objects.requireNonNull(etEmail.getText()).toString().trim();
             if (email.isEmpty()) {
@@ -76,7 +65,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Go to Sign Up
         txtSignup.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
             startActivity(intent);
